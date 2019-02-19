@@ -23,7 +23,7 @@ You can use the {{site.data.keyword.registrylong}} CLI, which is provided in the
 
 **Prerequisites**
 
-* Install the [{{site.data.keyword.Bluemix_notm}} CLI ![External link icon](../icons/launch-glyph.svg "External link icon")](/docs/cli/index.html#overview). The prefix for running commands by using the {{site.data.keyword.Bluemix_notm}} CLI is `ibmcloud`.
+* Install the [{{site.data.keyword.Bluemix_notm}} CLI ![External link icon](../icons/launch-glyph.svg "External link icon")](/docs/cli?topic=cloud-cli-ibmcloud-cli#overview). The prefix for running commands by using the {{site.data.keyword.Bluemix_notm}} CLI is `ibmcloud`.
 
 * Before running the registry commands, log in to {{site.data.keyword.Bluemix_notm}} with the `ibmcloud login` command to generate an access token and authenticate your session.
 
@@ -31,9 +31,9 @@ In the command line, you are notified when updates to the `ibmcloud` CLI and `co
 
 If you want to view the current version of your `container-registry` CLI plug-in, run `ibmcloud plugin list`.
 
-To find out about how to use the {{site.data.keyword.registrylong_notm}} CLI, see [Getting started with {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/index.html#index).
+To find out about how to use the {{site.data.keyword.registrylong_notm}} CLI, see [Getting started with {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-index#index).
 
-For more information about the IAM platform and service access roles that are required for some commands, see [Managing user access with Identity and Access Management](/docs/services/Registry/iam.html#iam).
+For more information about the IAM platform and service access roles that are required for some commands, see [Managing user access with Identity and Access Management](/docs/services/Registry?topic=registry-iam#iam).
 
 Do not put personal information in your container images, namespace names, description fields (for example, in registry tokens), or in any image configuration data (for example, image names or image labels).
 {:tip}
@@ -64,7 +64,7 @@ ibmcloud cr build [--no-cache] [--pull] [--quiet | -q] [--build-arg KEY=VALUE ..
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_using).
+To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Command options**
 <dl>
@@ -105,7 +105,7 @@ ibmcloud cr exemption-add --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_configure).
+To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
 **Command options**
 <dl>
@@ -155,7 +155,7 @@ ibmcloud cr exemption-list [--scope SCOPE]
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_configure).
+To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
 **Command options**
 <dl>
@@ -185,7 +185,7 @@ ibmcloud cr exemption-rm --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE_
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_configure).
+To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
 **Command options**
 <dl>
@@ -235,12 +235,12 @@ ibmcloud cr exemption-types
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_configure).
+To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
 ## `ibmcloud cr iam-policies-enable`
 {: #bx_cr_iam_policies_enable}
 
-If you are using IAM authentication, this command enables fine-grained authorization. For more information, see [Managing user access with Identity and Access Management](/docs/services/Registry/iam.html#iam) and [Defining user access role policies](/docs/services/Registry/registry_users.html#user).
+If you are using IAM authentication, this command enables fine-grained authorization. For more information, see [Managing user access with Identity and Access Management](/docs/services/Registry?topic=registry-iam#iam) and [Defining user access role policies](/docs/services/Registry?topic=registry-user#user).
 
 ```
 ibmcloud cr iam-policies-enable
@@ -249,7 +249,7 @@ ibmcloud cr iam-policies-enable
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_configure).
+To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
 ## `ibmcloud cr image-inspect`
 {: #bx_cr_image_inspect}
@@ -263,14 +263,14 @@ ibmcloud cr image-inspect [--format FORMAT] IMAGE [IMAGE...]
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_using).
+To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Command options**
 <dl>
 <dt>`--format FORMAT`</dt>
 <dd>(Optional) Format the output elements by using a Go template.
 
-For more information, see [Formatting and filtering the CLI output for {{site.data.keyword.registrylong_notm}} commands](/docs/services/Registry/registry_cli_reference.html#registry_cli_listing).
+For more information, see [Formatting and filtering the CLI output for {{site.data.keyword.registrylong_notm}} commands](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing).
 
 </dd>
 <dt>`IMAGE`</dt>
@@ -305,7 +305,7 @@ ibmcloud cr image-list [--no-trunc] [--format FORMAT] [--quiet | -q ] [--restric
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_using).
+To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Command options**
 <dl>
@@ -314,7 +314,7 @@ To find out about the required permissions, see [Access roles for using {{site.d
 <dt>`--format FORMAT`</dt>
 <dd>(Optional) Format the output elements by using a Go template.
 
-For more information, see [Formatting and filtering the CLI output for {{site.data.keyword.registrylong_notm}} commands](/docs/services/Registry/registry_cli_reference.html#registry_cli_listing).
+For more information, see [Formatting and filtering the CLI output for {{site.data.keyword.registrylong_notm}} commands](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing).
 
 </dd>
 <dt>`--quiet`, `-q`</dt>
@@ -346,7 +346,7 @@ ibmcloud cr image-rm IMAGE [IMAGE...]
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_using).
+To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Command options**
 
@@ -382,7 +382,7 @@ ibmcloud cr image-tag [SOURCE_IMAGE] [TARGET_IMAGE]
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_using).
+To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Command options**
 <dl>
@@ -459,7 +459,7 @@ ibmcloud cr namespace-add NAMESPACE
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_using).
+To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Command options**
 <dl>
@@ -494,7 +494,7 @@ ibmcloud cr namespace-list
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_using).
+To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 ## `ibmcloud cr namespace-rm`
 {: #bx_cr_namespace_rm}
@@ -508,7 +508,7 @@ ibmcloud cr namespace-rm NAMESPACE  [--force | -f]
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_using).
+To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Command options**
 <dl>
@@ -539,14 +539,14 @@ ibmcloud cr plan
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_configure).
+To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
 ## `ibmcloud cr plan-upgrade`
 {: #bx_cr_plan_upgrade}
 
 Upgrades you to the standard plan.
 
-For information about plans, see [Registry plans](/docs/services/Registry/registry_overview.html#registry_plans).
+For information about plans, see [Registry plans](/docs/services/Registry?topic=registry-registry_overview#registry_plans).
 
 ```
 ibmcloud cr plan-upgrade [PLAN]
@@ -555,7 +555,7 @@ ibmcloud cr plan-upgrade [PLAN]
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_configure).
+To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
 **Command options**
 <dl>
@@ -586,7 +586,7 @@ ibmcloud cr ppa-archive-load --archive FILE --namespace NAMESPACE
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_using).
+To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Command options**
 <dl>
@@ -623,7 +623,7 @@ ibmcloud cr quota
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_configure).
+To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
 ## `ibmcloud cr quota-set`
 {: #bx_cr_quota_set}
@@ -637,7 +637,7 @@ ibmcloud cr quota-set [--traffic TRAFFIC] [--storage STORAGE]
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_configure).
+To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
 **Command options**
 <dl>
@@ -670,7 +670,7 @@ ibmcloud cr region
 
 None
 
-For more information, see [Regions](/docs/services/Registry/registry_overview.html#registry_regions).
+For more information, see [Regions](/docs/services/Registry?topic=registry-registry_overview#registry_regions).
 
 ## `ibmcloud cr region-set`
 {: #bx_cr_region_set}
@@ -691,7 +691,7 @@ None
 <dt>`REGION`</dt>
 <dd>(Optional) The name of your target region, for example, `us-south`.
 
-For more information, see [Regions](/docs/services/Registry/registry_overview.html#registry_regions).
+For more information, see [Regions](/docs/services/Registry?topic=registry-registry_overview#registry_regions).
 
 </dd>
 </dl>
@@ -717,7 +717,7 @@ ibmcloud cr token-add [--description DESCRIPTION] [--quiet | -q] [--non-expiring
 
 **Prerequisites**
 
-To find out about the required permissions, see [Platform management roles](/docs/services/Registry/iam.html#platform_management_roles).
+To find out about the required permissions, see [Platform management roles](/docs/services/Registry?topic=registry-iam#platform_management_roles).
 
 **Command options**
 <dl>
@@ -758,7 +758,7 @@ ibmcloud cr token-get TOKEN
 
 **Prerequisites**
 
-To find out about the required permissions, see [Platform management roles](/docs/services/Registry/iam.html#platform_management_roles).
+To find out about the required permissions, see [Platform management roles](/docs/services/Registry?topic=registry-iam#platform_management_roles).
 
 **Command options**
 <dl>
@@ -787,14 +787,14 @@ ibmcloud cr token-list [--format FORMAT]
 
 **Prerequisites**
 
-To find out about the required permissions, see [Platform management roles](/docs/services/Registry/iam.html#platform_management_roles).
+To find out about the required permissions, see [Platform management roles](/docs/services/Registry?topic=registry-iam#platform_management_roles).
 
 **Command options**
 <dl>
 <dt>`--format FORMAT`</dt>
 <dd>(Optional) Format the output elements by using a Go template.
 
-For more information, see [Formatting and filtering the CLI output for {{site.data.keyword.registrylong_notm}} commands](/docs/services/Registry/registry_cli_reference.html#registry_cli_listing).
+For more information, see [Formatting and filtering the CLI output for {{site.data.keyword.registrylong_notm}} commands](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing).
 
 </dd>
 </dl>
@@ -827,7 +827,7 @@ ibmcloud cr token-rm TOKEN [TOKEN...] [--force | -f]
 
 **Prerequisites**
 
-To find out about the required permissions, see [Platform management roles](/docs/services/Registry/iam.html#platform_management_roles).
+To find out about the required permissions, see [Platform management roles](/docs/services/Registry?topic=registry-iam#platform_management_roles).
 
 **Command options**
 <dl>
@@ -858,7 +858,7 @@ ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] 
 
 **Prerequisites**
 
-To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry/iam.html#access_roles_using).
+To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Command options**
 <dl>
@@ -878,7 +878,7 @@ To find out about the required permissions, see [Access roles for using {{site.d
 </ul>
 </p>
 
-For more information, see [Managing image security with Vulnerability Advisor](/docs/services/va/va_index.html).
+For more information, see [Managing image security with Vulnerability Advisor](/docs/services/va?topic=va-va_index).
 
 </dd>
 <dt>`--extended`, `-e`</dt>
