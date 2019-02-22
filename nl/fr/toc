@@ -1,0 +1,7 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="container-registry-cli-plugin" audience="cli" href="/docs/container-registry-cli-plugin/container-registry-cli.html" path="container-registry-cli-plugin"}
+Informations de référence pour l'interface de ligne de commande IBM Cloud Container Registry
+
+    container-registry-cli.md
