@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-22"
+lastupdated: "2019-02-25"
 
-keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
+kkeywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
 subcollection: container-registry-cli-plugin
 
@@ -22,7 +22,7 @@ subcollection: container-registry-cli-plugin
 {:deprecated: .deprecated}
 {:download: .download}
 
-# {{site.data.keyword.registrylong_notm}} CLI 
+# {{site.data.keyword.registrylong_notm}} CLI
 {: #containerregcli}
 
 You can use the {{site.data.keyword.registrylong}} CLI, which is provided in the `container-registry` CLI plug-in, to manage your registry and its resources for your {{site.data.keyword.Bluemix_notm}} account.
@@ -93,10 +93,10 @@ To find out about the required permissions, see [Access roles for using {{site.d
 
 **Example**
 
-Build a Docker image that doesn’t use a build cache from previous builds, where the build output is suppressed, the tag is *`registry.ng.bluemix.net/birds/bluebird:1`*, and the directory is your working directory.
+Build a Docker image that doesn’t use a build cache from previous builds, where the build output is suppressed, the tag is *`us.icr.io/birds/bluebird:1`*, and the directory is your working directory.
 
 ```
-ibmcloud cr build --no-cache --quiet --tag registry.ng.bluemix.net/birds/bluebird:1 .
+ibmcloud cr build --no-cache --quiet --tag us.icr.io/birds/bluebird:1 .
 ```
 {: pre}
 
@@ -123,16 +123,16 @@ To find out about the required permissions, see [Access roles for configuring {{
 <dd>The type of security issue that you want to exempt. To find valid issue types, run `ibmcloud cr exemption-types`.
 </dd>
 <dt>`--issue-id ISSUE_ID`</dt>
-<dd>The ID of the security issue that you want to exempt. To find an issue ID, run `ibmcloud cr va <image>`, where *&lt;image&gt;* is the name of your image, and use the relevant value from either the **Vulnerability ID** or **Configuration Issue ID** column.
+<dd>The ID of the security issue that you want to exempt. To find an issue ID, run `ibmcloud cr va <image>`, where `<image>` is the name of your image, and use the relevant value from either the **Vulnerability ID** or **Configuration Issue ID** column.
 </dd>
 </dl>
 
 **Examples**
 
-Create a CVE exemption for CVE with ID `CVE-2018-17929` for all images in the `registry.ng.bluemix.net/birds/bluebird` repository.
+Create a CVE exemption for CVE with ID `CVE-2018-17929` for all images in the `us.icr.io/birds/bluebird` repository.
 
 ```
-ibmcloud cr exemption-add --scope registry.ng.bluemix.net/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
+ibmcloud cr exemption-add --scope us.icr.io/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
@@ -143,10 +143,10 @@ ibmcloud cr exemption-add --scope "*" --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-Create a configuration issue exemption for issue `application_configuration:nginx.ssl_protocols` for a single image with the tag `registry.ng.bluemix.net/birds/bluebird:1`.
+Create a configuration issue exemption for issue `application_configuration:nginx.ssl_protocols` for a single image with the tag `us.icr.io/birds/bluebird:1`.
 
 ```
-ibmcloud cr exemption-add --scope registry.ng.bluemix.net/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
+ibmcloud cr exemption-add --scope us.icr.io/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
 ```
 {: pre}
 
@@ -209,10 +209,10 @@ To find out about the required permissions, see [Access roles for configuring {{
 
 **Examples**
 
-Delete a CVE exemption for CVE with ID `CVE-2018-17929` for all images in the `registry.ng.bluemix.net/birds/bluebird` repository.
+Delete a CVE exemption for CVE with ID `CVE-2018-17929` for all images in the `us.icr.io/birds/bluebird` repository.
 
 ```
-ibmcloud cr exemption-rm --scope registry.ng.bluemix.net/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
+ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
@@ -223,10 +223,10 @@ ibmcloud cr exemption-rm --scope "*" --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-Delete a configuration issue exemption for issue `application_configuration:nginx.ssl_protocols` for a single image with the tag `registry.ng.bluemix.net/birds/bluebird:1`.
+Delete a configuration issue exemption for issue `application_configuration:nginx.ssl_protocols` for a single image with the tag `us.icr.io/birds/bluebird:1`.
 
 ```
-ibmcloud cr exemption-rm --scope registry.ng.bluemix.net/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
+ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
 ```
 {: pre}
 
@@ -290,10 +290,10 @@ For more information, see [Formatting and filtering the CLI output for {{site.da
 
 **Example**
 
-Display details about the exposed ports for the image *`registry.ng.bluemix.net/birds/bluebird:1`*, by using the formatting directive *`"{{ .Config.ExposedPorts }}"`*.
+Display details about the exposed ports for the image *`us.icr.io/birds/bluebird:1`*, by using the formatting directive *`"{{ .Config.ExposedPorts }}"`*.
 
 ```
-ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
@@ -359,7 +359,7 @@ To find out about the required permissions, see [Access roles for using {{site.d
 
 <dl>
 <dt>`IMAGE`</dt>
-<dd>The name of the image that you want to delete. You can delete multiple images at the same time by listing each image in the command with a space between each name. `IMAGE` must be in the format `repository:tag`, for example: `registry.ng.bluemix.net/namespace/image:latest`
+<dd>The name of the image that you want to delete. You can delete multiple images at the same time by listing each image in the command with a space between each name. `IMAGE` must be in the format `repository:tag`, for example: `us.icr.io/namespace/image:latest`
 
 <p>To find the names of your images, run `ibmcloud cr image-list`. Combine the content of the **Repository** and **Tag** columns to create the image name in the format `repository:tag`. If a tag is not specified in the image name, the image that is tagged `latest` is deleted by default.</p>
 
@@ -367,10 +367,10 @@ To find out about the required permissions, see [Access roles for using {{site.d
 </dl>
 
 **Example**
-Delete the image *`registry.ng.bluemix.net/birds/bluebird:1`*.
+Delete the image `us.icr.io/birds/bluebird:1`.
 
 ```
-ibmcloud cr image-rm registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr image-rm us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
@@ -394,35 +394,35 @@ To find out about the required permissions, see [Access roles for using {{site.d
 **Command options**
 <dl>
 <dt>`SOURCE_IMAGE`</dt>
-<dd>The name of the source image. `SOURCE_IMAGE` must be in the format `repository:tag`, for example: `registry.ng.bluemix.net/namespace/image:latest`
+<dd>The name of the source image. `SOURCE_IMAGE` must be in the format `repository:tag`, for example: `us.icr.io/namespace/image:latest`
 
 </dd>
 <dt>`TARGET_IMAGE`</dt>
-<dd>The name of the target image. `TARGET_IMAGE` must be in the format `repository:tag`, for example: `registry.ng.bluemix.net/namespace/image:latest`
+<dd>The name of the target image. `TARGET_IMAGE` must be in the format `repository:tag`, for example: `us.icr.io/namespace/image:latest`
 
 </dd>
 </dl>
 
 **Examples**
 
-Add another tag reference, `latest`, to the image *`registry.ng.bluemix.net/birds/bluebird:1`*.
+Add another tag reference, `latest`, to the image `us.icr.io/birds/bluebird:1`.
 
 ```
-ibmcloud cr image-tag  registry.ng.bluemix.net/birds/bluebird:1 registry.ng.bluemix.net/birds/bluebird:latest
-```
-{: pre}
-
-Copy the image `registry.ng.bluemix.net/birds/bluebird:peck` to another repository in the same namespace `birds/pigeon`.
-
-```
-ibmcloud cr image-tag registry.ng.bluemix.net/birds/bluebird:peck registry.ng.bluemix.net/birds/pigeon:peck
+ibmcloud cr image-tag  us.icr.io/birds/bluebird:1 us.icr.io/birds/bluebird:latest
 ```
 {: pre}
 
-Copy the image `registry.ng.bluemix.net/birds/bluebird:peck` to another namespace `animals` to which you have access.
+Copy the image `us.icr.io/birds/bluebird:peck` to another repository in the same namespace `birds/pigeon`.
 
 ```
-ibmcloud cr image-tag registry.ng.bluemix.net/birds/bluebird:peck registry.ng.bluemix.net/animals/dog:bark
+ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/birds/pigeon:peck
+```
+{: pre}
+
+Copy the image `us.icr.io/birds/bluebird:peck` to another namespace `animals` to which you have access.
+
+```
+ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/animals/dog:bark
 ```
 {: pre}
 
@@ -910,13 +910,14 @@ For more information, see [Managing image security with Vulnerability Advisor](/
 View a standard vulnerability assessment report for your image.
 
 ```
-ibmcloud cr vulnerability-assessment registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr vulnerability-assessment us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
-View a vulnerability assessment report for your image *`registry.ng.bluemix.net/birds/bluebird:1`* in JSON format, showing vulnerabilities only.
+View a vulnerability assessment report for your image `us.icr.io/birds/bluebird:1` in JSON format, showing vulnerabilities only.
 
 ```
-ibmcloud cr vulnerability-assessment --vulnerabilities  --output json registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr vulnerability-assessment --vulnerabilities  --output json us.icr.io/birds/bluebird:1
 ```
 {: pre}
+
