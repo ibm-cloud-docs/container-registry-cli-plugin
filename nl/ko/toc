@@ -1,7 +1,10 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="container-registry-cli-plugin" audience="cli" href="/docs/container-registry-cli-plugin/container-registry-cli.html" path="container-registry-cli-plugin"}
+{: .toc subcollection="container-registry-cli-plugin" audience="cli" href="/docs/container-registry-cli-plugin?topic=container-registry-cli-plugin-containerregcli" path="container-registry-cli-plugin"}
 IBM Cloud Container Registry CLI 참조
 
+    {: .navgroup id="reference"}
     container-registry-cli.md
+    {: .navgroup-end}
+    

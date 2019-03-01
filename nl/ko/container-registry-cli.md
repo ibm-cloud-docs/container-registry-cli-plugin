@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-24"
+lastupdated: "2019-02-22"
+
+keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
+
+subcollection: container-registry-cli-plugin
 
 ---
 
@@ -13,17 +17,20 @@ lastupdated: "2019-01-24"
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 {:download: .download}
 
-# {{site.data.keyword.registrylong_notm}} CLI
+# {{site.data.keyword.registrylong_notm}} CLI 
 {: #containerregcli}
 
 `container-registry` CLI 플러그인에서 제공되는 {{site.data.keyword.registrylong}} CLI를 사용하여 {{site.data.keyword.Bluemix_notm}} 계정의 레지스트리 및 해당 리소스를 관리할 수 있습니다.
 {: shortdesc}
 
-**선행 조건**
+**전제조건**
 
-* [{{site.data.keyword.Bluemix_notm}} CLI ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli/index.html#overview)를 설치하십시오. {{site.data.keyword.Bluemix_notm}} CLI를 사용하여 명령을 실행하기 위한 접두부는 `ibmcloud`입니다.
+* [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)를 설치하십시오. {{site.data.keyword.Bluemix_notm}} CLI를 사용하여 명령을 실행하기 위한 접두부는 `ibmcloud`입니다.
 
 * 레지스트리 명령을 실행하기 전에 `ibmcloud login` 명령으로 {{site.data.keyword.Bluemix_notm}}에 로그인하여 액세스 토큰을 생성하고 세션을 인증하십시오.
 
@@ -31,9 +38,9 @@ lastupdated: "2019-01-24"
 
 현재 버전의 `container-registry` CLI 플러그인을 보려면 `ibmcloud plugin list`를 실행하십시오.
 
-{{site.data.keyword.registrylong_notm}} CLI를 사용하는 방법에 대해 알아보려면 [{{site.data.keyword.registrylong_notm}} 시작하기](/docs/services/Registry/index.html#index)를 참조하십시오.
+{{site.data.keyword.registrylong_notm}} CLI를 사용하는 방법에 대해 알아보려면 [{{site.data.keyword.registrylong_notm}} 시작하기](/docs/services/Registry?topic=registry-index#index)를 참조하십시오.
 
-일부 명령에 필요한 IAM 플랫폼 및 서비스 액세스 역할에 대한 자세한 정보는 [IAM(Identity and Access Management)으로 사용자 액세스 관리](/docs/services/Registry/iam.html#iam)를 참조하십시오.
+일부 명령에 필요한 IAM 플랫폼 및 서비스 액세스 역할에 대한 자세한 정보는 [IAM(Identity and Access Management)으로 사용자 액세스 관리](/docs/services/Registry?topic=registry-iam#iam)를 참조하십시오.
 
 컨테이너 이미지, 네임스페이스 이름, 설명 필드(예: 레지스트리 토큰) 또는 이미지 구성 데이터(예: 이미지 이름 또는 이미지 레이블)에 개인 정보를 입력하지 마십시오.
 {:tip}
@@ -48,7 +55,7 @@ ibmcloud cr api
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
 없음
 
@@ -62,9 +69,9 @@ ibmcloud cr build [--no-cache] [--pull] [--quiet | -q] [--build-arg KEY=VALUE ..
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 사용하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_using)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 사용을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_using)을 참조하십시오.
 
 **명령 옵션**
 <dl>
@@ -103,9 +110,9 @@ ibmcloud cr exemption-add --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 구성하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_configure)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 구성을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_configure)을 참조하십시오.
 
 **명령 옵션**
 <dl>
@@ -153,9 +160,9 @@ ibmcloud cr exemption-list [--scope SCOPE]
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 구성하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_configure)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 구성을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_configure)을 참조하십시오.
 
 **명령 옵션**
 <dl>
@@ -183,9 +190,9 @@ ibmcloud cr exemption-rm --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE_
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 구성하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_configure)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 구성을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_configure)을 참조하십시오.
 
 **명령 옵션**
 <dl>
@@ -233,23 +240,23 @@ ibmcloud cr exemption-types
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 구성하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_configure)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 구성을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_configure)을 참조하십시오.
 
 ## `ibmcloud cr iam-policies-enable`
 {: #bx_cr_iam_policies_enable}
 
-IAM 인증을 사용 중인 경우 이 명령은 세부 단위의 인증을 사용으로 설정합니다. 자세한 정보는 [IAM(Identity and Access Management)으로 사용자 액세스 관리](/docs/services/Registry/iam.html#iam) 및 [사용자 액세스 역할 정책 정의](/docs/services/Registry/registry_users.html#user)를 참조하십시오.
+IAM 인증을 사용 중인 경우 이 명령은 세부 단위의 인증을 사용으로 설정합니다. 자세한 정보는 [IAM(Identity and Access Management)으로 사용자 액세스 관리](/docs/services/Registry?topic=registry-iam#iam) 및 [사용자 액세스 역할 정책 정의](/docs/services/Registry?topic=registry-user#user)를 참조하십시오.
 
 ```
 ibmcloud cr iam-policies-enable
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 구성하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_configure)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 구성을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_configure)을 참조하십시오.
 
 ## `ibmcloud cr image-inspect`
 {: #bx_cr_image_inspect}
@@ -261,16 +268,16 @@ ibmcloud cr image-inspect [--format FORMAT] IMAGE [IMAGE...]
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 사용하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_using)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 사용을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_using)을 참조하십시오.
 
 **명령 옵션**
 <dl>
 <dt>`--format FORMAT`</dt>
 <dd>(선택사항) Go 템플리트를 사용하여 출력 요소를 형식화합니다.
 
-자세한 정보는 [{{site.data.keyword.registrylong_notm}} 명령에 대한 CLI 출력 형식화 및 필터링](/docs/services/Registry/registry_cli_reference.html#registry_cli_listing)을 참조하십시오.
+자세한 정보는 [{{site.data.keyword.registrylong_notm}} 명령에 대한 CLI 출력 형식화 및 필터링](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing)을 참조하십시오.
 
 </dd>
 <dt>`IMAGE`</dt>
@@ -299,13 +306,13 @@ ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" registry.ng.blu
 {:tip}
 
 ```
-ibmcloud cr image-list [--no-trunc] [--format FORMAT] [-q, --quiet] [--restrict RESTRICTION] [--include-ibm]
+ibmcloud cr image-list [--no-trunc] [--format FORMAT] [--quiet | -q ] [--restrict RESTRICTION] [--include-ibm]
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 사용하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_using)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 사용을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_using)을 참조하십시오.
 
 **명령 옵션**
 <dl>
@@ -314,10 +321,10 @@ ibmcloud cr image-list [--no-trunc] [--format FORMAT] [-q, --quiet] [--restrict 
 <dt>`--format FORMAT`</dt>
 <dd>(선택사항) Go 템플리트를 사용하여 출력 요소를 형식화합니다.
 
-자세한 정보는 [{{site.data.keyword.registrylong_notm}} 명령에 대한 CLI 출력 형식화 및 필터링](/docs/services/Registry/registry_cli_reference.html#registry_cli_listing)을 참조하십시오.
+자세한 정보는 [{{site.data.keyword.registrylong_notm}} 명령에 대한 CLI 출력 형식화 및 필터링](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing)을 참조하십시오.
 
 </dd>
-<dt>`-q`, `--quiet`</dt>
+<dt>`--quiet`, `-q`</dt>
 <dd>(선택사항) 각 이미지가 `repository:tag` 형식으로 나열됩니다.</dd>
 <dt>`--restrict RESTRICTION`</dt>
 <dd>(선택사항) 지정된 네임스페이스 또는 네임스페이스와 저장소의 이미지만 표시하도록 출력을 제한합니다. </dd>
@@ -344,9 +351,9 @@ ibmcloud cr image-rm IMAGE [IMAGE...]
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 사용하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_using)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 사용을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_using)을 참조하십시오.
 
 **명령 옵션**
 
@@ -380,9 +387,9 @@ ibmcloud cr image-tag [SOURCE_IMAGE] [TARGET_IMAGE]
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 사용하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_using)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 사용을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_using)을 참조하십시오.
 
 **명령 옵션**
 <dl>
@@ -429,7 +436,7 @@ ibmcloud cr info
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
 없음
 
@@ -443,7 +450,7 @@ ibmcloud cr login
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
 없음
 
@@ -457,9 +464,9 @@ ibmcloud cr namespace-add NAMESPACE
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 사용하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_using)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 사용을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_using)을 참조하십시오.
 
 **명령 옵션**
 <dl>
@@ -492,9 +499,9 @@ ibmcloud cr namespace-list
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 사용하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_using)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 사용을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_using)을 참조하십시오.
 
 ## `ibmcloud cr namespace-rm`
 {: #bx_cr_namespace_rm}
@@ -502,18 +509,20 @@ ibmcloud cr namespace-list
 {{site.data.keyword.Bluemix_notm}} 계정에서 네임스페이스를 제거합니다. 네임스페이스가 제거되면 이 네임스페이스의 이미지가 삭제됩니다.
 
 ```
-ibmcloud cr namespace-rm NAMESPACE
+ibmcloud cr namespace-rm NAMESPACE  [--force | -f]
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 사용하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_using)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 사용을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_using)을 참조하십시오.
 
 **명령 옵션**
 <dl>
 <dt>`NAMESPACE`</dt>
 <dd>제거할 네임스페이스입니다.</dd>
+<dt>`--force`, `-f`</dt>
+<dd>(선택사항) 사용자 프롬프트 없이 실행하려면 명령을 강제 실행하십시오.</dd>
 </dl>
 
 **예**
@@ -535,25 +544,25 @@ ibmcloud cr plan
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 구성하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_configure)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 구성을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_configure)을 참조하십시오.
 
 ## `ibmcloud cr plan-upgrade`
 {: #bx_cr_plan_upgrade}
 
 표준 플랜으로 업그레이드합니다.
 
-플랜에 대한 정보는 [레지스트리 플랜](/docs/services/Registry/registry_overview.html#registry_plans)을 참조하십시오.
+플랜에 대한 정보는 [레지스트리 플랜](/docs/services/Registry?topic=registry-registry_overview#registry_plans)을 참조하십시오.
 
 ```
 ibmcloud cr plan-upgrade [PLAN]
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 구성하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_configure)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 구성을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_configure)을 참조하십시오.
 
 **명령 옵션**
 <dl>
@@ -582,9 +591,9 @@ ibmcloud cr ppa-archive-load --archive FILE --namespace NAMESPACE
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 사용하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_using)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 사용을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_using)을 참조하십시오.
 
 **명령 옵션**
 <dl>
@@ -619,9 +628,9 @@ ibmcloud cr quota
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 구성하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_configure)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 구성을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_configure)을 참조하십시오.
 
 ## `ibmcloud cr quota-set`
 {: #bx_cr_quota_set}
@@ -633,9 +642,9 @@ ibmcloud cr quota-set [--traffic TRAFFIC] [--storage STORAGE]
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 구성하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_configure)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 구성을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_configure)을 참조하십시오.
 
 **명령 옵션**
 <dl>
@@ -664,11 +673,11 @@ ibmcloud cr region
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
 없음
 
-자세한 정보는 [지역](/docs/services/Registry/registry_overview.html#registry_regions)을 참조하십시오.
+자세한 정보는 [지역](/docs/services/Registry?topic=registry-registry_overview#registry_regions)을 참조하십시오.
 
 ## `ibmcloud cr region-set`
 {: #bx_cr_region_set}
@@ -680,7 +689,7 @@ ibmcloud cr region-set [REGION]
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
 없음
 
@@ -689,7 +698,7 @@ ibmcloud cr region-set [REGION]
 <dt>`REGION`</dt>
 <dd>(선택사항) 대상 지역의 이름(예: `us-south`)입니다.
 
-자세한 정보는 [지역](/docs/services/Registry/registry_overview.html#registry_regions)을 참조하십시오.
+자세한 정보는 [지역](/docs/services/Registry?topic=registry-registry_overview#registry_regions)을 참조하십시오.
 
 </dd>
 </dl>
@@ -709,13 +718,13 @@ ibmcloud cr region-set us-south
 레지스트리에 대한 액세스를 제어하는 데 사용할 수 있는 토큰을 추가합니다.
 
 ```
-ibmcloud cr token-add [--description DESCRIPTION] [-q, --quiet] [--non-expiring] [--readwrite]
+ibmcloud cr token-add [--description DESCRIPTION] [--quiet | -q] [--non-expiring] [--readwrite]
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [플랫폼 관리 역할](/docs/services/Registry/iam.html#platform_management_roles)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [플랫폼 관리 역할](/docs/services/Registry?topic=registry-iam#platform_management_roles)을 참조하십시오.
 
 **명령 옵션**
 <dl>
@@ -727,7 +736,7 @@ ibmcloud cr token-add [--description DESCRIPTION] [-q, --quiet] [--non-expiring]
 </p>
 
 </dd>
-<dt>`-q`, `--quiet`</dt>
+<dt>`--quiet`, `-q`</dt>
 <dd>(선택사항) 주변 텍스트 없이 토큰만 표시합니다.</dd>
 <dt>`--non-expiring`</dt>
 <dd>(선택사항) 만료되지 않는 액세스 권한이 있는 토큰을 작성합니다. 이 매개변수를 설정하지 않으면 기본적으로 24시간 후에 토큰의 액세스 권한이 만료됩니다.</dd>
@@ -754,9 +763,9 @@ ibmcloud cr token-get TOKEN
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [플랫폼 관리 역할](/docs/services/Registry/iam.html#platform_management_roles)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [플랫폼 관리 역할](/docs/services/Registry?topic=registry-iam#platform_management_roles)을 참조하십시오.
 
 **명령 옵션**
 <dl>
@@ -783,16 +792,16 @@ ibmcloud cr token-list [--format FORMAT]
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [플랫폼 관리 역할](/docs/services/Registry/iam.html#platform_management_roles)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [플랫폼 관리 역할](/docs/services/Registry?topic=registry-iam#platform_management_roles)을 참조하십시오.
 
 **명령 옵션**
 <dl>
 <dt>`--format FORMAT`</dt>
 <dd>(선택사항) Go 템플리트를 사용하여 출력 요소를 형식화합니다.
 
-자세한 정보는 [{{site.data.keyword.registrylong_notm}} 명령에 대한 CLI 출력 형식화 및 필터링](/docs/services/Registry/registry_cli_reference.html#registry_cli_listing)을 참조하십시오.
+자세한 정보는 [{{site.data.keyword.registrylong_notm}} 명령에 대한 CLI 출력 형식화 및 필터링](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing)을 참조하십시오.
 
 </dd>
 </dl>
@@ -816,21 +825,23 @@ ibmcloud cr token-list --format "{{ if eq .ReadOnly true}}{{.ID}} - {{.Expiry}} 
 ## `ibmcloud cr token-rm`
 {: #bx_cr_token_rm}
 
-하나 이상의 지정된 토큰을 제거합니다.
+하나 이상의 지정된 레지스트리 토큰을 제거하십시오.
 
 ```
-ibmcloud cr token-rm TOKEN [TOKEN...]
+ibmcloud cr token-rm TOKEN [TOKEN...] [--force | -f]
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [플랫폼 관리 역할](/docs/services/Registry/iam.html#platform_management_roles)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [플랫폼 관리 역할](/docs/services/Registry?topic=registry-iam#platform_management_roles)을 참조하십시오.
 
 **명령 옵션**
 <dl>
 <dt>`TOKEN`</dt>
 <dd>`ibmcloud cr token-list`에 표시되는 바와 같이, TOKEN은 토큰 자체이거나 토큰의 고유 ID일 수 있습니다. 여러 토큰을 지정할 수 있으며 공백으로 구분해야 합니다.</dd>
+<dt>`--force`, `-f`</dt>
+<dd>(선택사항) 사용자 프롬프트 없이 실행하려면 명령을 강제 실행하십시오.</dd>
 </dl>
 
 **예**
@@ -852,9 +863,9 @@ ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] 
 ```
 {: codeblock}
 
-**선행 조건**
+**전제조건**
 
-필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}}를 사용하기 위한 액세스 역할](/docs/services/Registry/iam.html#access_roles_using)을 참조하십시오.
+필수 권한에 대한 정보를 찾으려면 [{{site.data.keyword.registrylong_notm}} 사용을 위한 액세스 역할](/docs/services/Registry?topic=registry-iam#access_roles_using)을 참조하십시오.
 
 **명령 옵션**
 <dl>
@@ -874,9 +885,15 @@ ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] 
 </ul>
 </p>
 
-자세한 정보는 [Vulnerability Advisor를 사용하여 이미지 보안 관리](/docs/services/va/va_index.html)를 참조하십시오.
+자세한 정보는 [Vulnerability Advisor를 사용하여 이미지 보안 관리](/docs/services/va?topic=va-va_index)를 참조하십시오.
 
 </dd>
+<dt>`--extended`, `-e`</dt>
+<dd>(선택사항) 명령 출력이 취약한 패키지의 수정사항에 대한 추가 정보를 표시합니다.</dd>
+<dt>`--vulnerabilities`, `-v`</dt>
+<dd>(선택사항) 명령 출력이 취약성만 표시하도록 제한됩니다.</dd>
+<dt>`--configuration-issues`, `-c`</dt>
+<dd>(선택사항) 명령 출력이 구성 문제만 표시하도록 제한됩니다.</dd>
 <dt>`--output FORMAT`, `-o FORMAT`</dt>
 <dd>(선택사항) 선택한 형식으로 명령 출력이 리턴됩니다. 기본 형식은 `text`입니다. 다음 형식이 지원됩니다.
 
@@ -886,13 +903,6 @@ ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] 
 </ul>
 
 </dd>
-<dt>`--vulnerabilities`, `-v`</dt>
-<dd>(선택사항) 명령 출력이 취약성만 표시하도록 제한됩니다.</dd>
-<dt>`--configuration-issues`, `-c`</dt>
-<dd>(선택사항) 명령 출력이 구성 문제만 표시하도록 제한됩니다.</dd>
-<dt>`--extended`, `-e`</dt>
-<dd>(선택사항) 명령 출력이 취약한 패키지의 수정사항에 대한 추가 정보를 표시합니다.</dd>
-
 </dl>
 
 **예**
