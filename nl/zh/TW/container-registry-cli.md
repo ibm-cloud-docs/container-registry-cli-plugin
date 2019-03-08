@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-22"
+lastupdated: "2019-02-25"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -22,7 +22,7 @@ subcollection: container-registry-cli-plugin
 {:deprecated: .deprecated}
 {:download: .download}
 
-# {{site.data.keyword.registrylong_notm}} CLI 
+# {{site.data.keyword.registrylong_notm}} CLI
 {: #containerregcli}
 
 您可以使用 `container-registry` CLI 外掛程式中提供的 {{site.data.keyword.registrylong}} CLI，針對您的 {{site.data.keyword.Bluemix_notm}} 帳戶管理登錄及其資源。
@@ -93,10 +93,10 @@ ibmcloud cr build [--no-cache] [--pull] [--quiet | -q] [--build-arg KEY=VALUE ..
 
 **範例**
 
-建置不使用先前建置之建置快取的 Docker 映像檔，其中會暫停建置輸出、標籤為 *`registry.ng.bluemix.net/birds/bluebird:1`*，且目錄是您的工作目錄。
+建置不使用先前建置之建置快取的 Docker 映像檔，其中會暫停建置輸出、標籤為 *`us.icr.io/birds/bluebird:1`*，且目錄是您的工作目錄。
 
 ```
-ibmcloud cr build --no-cache --quiet --tag registry.ng.bluemix.net/birds/bluebird:1 .
+ibmcloud cr build --no-cache --quiet --tag us.icr.io/birds/bluebird:1 .
 ```
 {: pre}
 
@@ -123,16 +123,16 @@ ibmcloud cr exemption-add --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE
 <dd>您要豁免的安全問題類型。若要尋找有效的問題類型，請執行 `ibmcloud cr exemption-types`。
 </dd>
 <dt>`--issue-id ISSUE_ID`</dt>
-<dd>您要豁免的安全問題 ID。若要尋找問題 ID，請執行 `ibmcloud cr va <image>`，其中 *&lt;image&gt;* 是您映像檔的名稱，並使用**漏洞 ID** 或**配置問題 ID** 直欄中的相關值。
+<dd>您要豁免的安全問題 ID。若要尋找問題 ID，請執行 `ibmcloud cr va <image>`，其中 `<image>` 是您的映像檔名稱，並使用來自**漏洞 ID** 或**配置問題 ID** 直欄的相關值。
 </dd>
 </dl>
 
 **範例**
 
-對於 `registry.ng.bluemix.net/birds/bluebird` 儲存庫中的所有映像檔，建立 ID 為 `CVE-2018-17929` 之 CVE 的 CVE 豁免。
+對於 `us.icr.io/birds/bluebird` 儲存庫中的所有映像檔，建立 ID 為 `CVE-2018-17929` 之 CVE 的 CVE 豁免。
 
 ```
-ibmcloud cr exemption-add --scope registry.ng.bluemix.net/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
+ibmcloud cr exemption-add --scope us.icr.io/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
@@ -143,10 +143,10 @@ ibmcloud cr exemption-add --scope "*" --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-對於標籤為 `registry.ng.bluemix.net/birds/bluebird:1` 的單一映像檔，建立問題 `application_configuration:nginx.ssl_protocols` 的配置問題豁免。
+對於標籤為 `us.icr.io/birds/bluebird:1` 的單一映像檔，建立問題 `application_configuration:nginx.ssl_protocols` 的配置問題豁免。
 
 ```
-ibmcloud cr exemption-add --scope registry.ng.bluemix.net/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
+ibmcloud cr exemption-add --scope us.icr.io/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
 ```
 {: pre}
 
@@ -209,10 +209,10 @@ ibmcloud cr exemption-rm --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE_
 
 **範例**
 
-對於 `registry.ng.bluemix.net/birds/bluebird` 儲存庫中的所有映像檔，刪除 ID 為 `CVE-2018-17929` 之 CVE 的 CVE 豁免。
+對於 `us.icr.io/birds/bluebird` 儲存庫中的所有映像檔，刪除 ID 為 `CVE-2018-17929` 之 CVE 的 CVE 豁免。
 
 ```
-ibmcloud cr exemption-rm --scope registry.ng.bluemix.net/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
+ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
@@ -223,10 +223,10 @@ ibmcloud cr exemption-rm --scope "*" --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-對於標籤為 `registry.ng.bluemix.net/birds/bluebird:1` 的單一映像檔，刪除問題 `application_configuration:nginx.ssl_protocols` 的配置問題豁免。
+對於標籤為 `us.icr.io/birds/bluebird:1` 的單一映像檔，刪除問題 `application_configuration:nginx.ssl_protocols` 的配置問題豁免。
 
 ```
-ibmcloud cr exemption-rm --scope registry.ng.bluemix.net/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
+ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
 ```
 {: pre}
 
@@ -290,10 +290,10 @@ ibmcloud cr image-inspect [--format FORMAT] IMAGE [IMAGE...]
 
 **範例**
 
-使用格式化指引 *`"{{ .Config.ExposedPorts }}"`*，以顯示映像檔 *`registry.ng.bluemix.net/birds/bluebird:1`* 之已公開埠的詳細資料。
+使用格式化指引 *`"{{ .Config.ExposedPorts }}"`*，以顯示映像檔 *`us.icr.io/birds/bluebird:1`* 之已公開埠的詳細資料。
 
 ```
-ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
@@ -359,7 +359,7 @@ ibmcloud cr image-rm IMAGE [IMAGE...]
 
 <dl>
 <dt>`IMAGE`</dt>
-<dd>您要刪除之映像檔的名稱。您可以藉由在指令中列出每一個映像檔，並以空格隔開每一個名稱，來同時刪除多個映像檔。`IMAGE` 的格式必須為 `repository:tag`，例如：`registry.ng.bluemix.net/namespace/image:latest`
+<dd>您要刪除之映像檔的名稱。您可以藉由在指令中列出每一個映像檔，並以空格隔開每一個名稱，來同時刪除多個映像檔。`IMAGE` 的格式必須為 `repository:tag`，例如：`us.icr.io/namespace/image:latest`
 
 <p>若要尋找映像檔的名稱，請執行 `ibmcloud cr image-list`。請以 `repository:tag` 格式，結合 **Repository** 及 **Tag** 直欄的內容，以建立映像檔名稱。如果映像檔名稱中未指定標籤，則依預設會刪除以 `latest` 標記的映像檔。</p>
 
@@ -367,10 +367,10 @@ ibmcloud cr image-rm IMAGE [IMAGE...]
 </dl>
 
 **範例**
-刪除映像檔 *`registry.ng.bluemix.net/birds/bluebird:1`*。
+刪除映像檔 `us.icr.io/birds/bluebird:1`。
 
 ```
-ibmcloud cr image-rm registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr image-rm us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
@@ -394,35 +394,35 @@ ibmcloud cr image-tag [SOURCE_IMAGE] [TARGET_IMAGE]
 **指令選項**
 <dl>
 <dt>`SOURCE_IMAGE`</dt>
-<dd>來源映像檔的名稱。`SOURCE_IMAGE` 的格式必須為 `repository:tag`，例如：`registry.ng.bluemix.net/namespace/image:latest`
+<dd>來源映像檔的名稱。`SOURCE_IMAGE` 的格式必須為 `repository:tag`，例如：`us.icr.io/namespace/image:latest`
 
 </dd>
 <dt>`TARGET_IMAGE`</dt>
-<dd>目標映像檔的名稱。`TARGET_IMAGE` 的格式必須為 `repository:tag`，例如：`registry.ng.bluemix.net/namespace/image:latest`
+<dd>目標映像檔的名稱。`TARGET_IMAGE` 的格式必須為 `repository:tag`，例如：`us.icr.io/namespace/image:latest`
 
 </dd>
 </dl>
 
 **範例**
 
-將另一個標記參照 (`latest`) 新增至映像檔 *`registry.ng.bluemix.net/birds/bluebird:1`*。
+將另一個標記參照 (`latest`) 新增至映像檔 `us.icr.io/birds/bluebird:1`。
 
 ```
-ibmcloud cr image-tag  registry.ng.bluemix.net/birds/bluebird:1 registry.ng.bluemix.net/birds/bluebird:latest
-```
-{: pre}
-
-將映像檔 `registry.ng.bluemix.net/birds/bluebird:peck` 複製到相同名稱空間 `birds/pigeon` 中的另一個儲存庫。
-
-```
-ibmcloud cr image-tag registry.ng.bluemix.net/birds/bluebird:peck registry.ng.bluemix.net/birds/pigeon:peck
+ibmcloud cr image-tag  us.icr.io/birds/bluebird:1 us.icr.io/birds/bluebird:latest
 ```
 {: pre}
 
-將映像檔 `registry.ng.bluemix.net/birds/bluebird:peck` 複製到您有權存取的另一個名稱空間 `animals`。
+將映像檔 `us.icr.io/birds/bluebird:peck` 複製到相同名稱空間 `birds/pigeon` 中的另一個儲存庫。
 
 ```
-ibmcloud cr image-tag registry.ng.bluemix.net/birds/bluebird:peck registry.ng.bluemix.net/animals/dog:bark
+ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/birds/pigeon:peck
+```
+{: pre}
+
+將映像檔 `us.icr.io/birds/bluebird:peck` 複製到您有權存取的另一個名稱空間 `animals`。
+
+```
+ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/animals/dog:bark
 ```
 {: pre}
 
@@ -910,13 +910,14 @@ ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] 
 檢視映像檔的標準漏洞評量報告。
 
 ```
-ibmcloud cr vulnerability-assessment registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr vulnerability-assessment us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
-檢視 *`registry.ng.bluemix.net/birds/bluebird:1`* 映像檔且為 JSON 格式的漏洞評量報告，並僅顯示漏洞。
+檢視 `us.icr.io/birds/bluebird:1` 映像檔且為 JSON 格式的漏洞評量報告，並僅顯示漏洞。
 
 ```
-ibmcloud cr vulnerability-assessment --vulnerabilities  --output json registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr vulnerability-assessment --vulnerabilities  --output json us.icr.io/birds/bluebird:1
 ```
 {: pre}
+

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-22"
+lastupdated: "2019-02-25"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -22,7 +22,7 @@ subcollection: container-registry-cli-plugin
 {:deprecated: .deprecated}
 {:download: .download}
 
-# {{site.data.keyword.registrylong_notm}} CLI 
+# {{site.data.keyword.registrylong_notm}} CLI
 {: #containerregcli}
 
 `container-registry` CLI 플러그인에서 제공되는 {{site.data.keyword.registrylong}} CLI를 사용하여 {{site.data.keyword.Bluemix_notm}} 계정의 레지스트리 및 해당 리소스를 관리할 수 있습니다.
@@ -93,10 +93,10 @@ ibmcloud cr build [--no-cache] [--pull] [--quiet | -q] [--build-arg KEY=VALUE ..
 
 **예**
 
-이전 빌드의 빌드 캐시를 사용하지 않는 Docker 이미지를 빌드하십시오. 이 경우 빌드 출력이 억제되고 태그는 *`registry.ng.bluemix.net/birds/bluebird:1`*이며 디렉토리는 사용자의 작업 디렉토리입니다.
+이전 빌드의 빌드 캐시를 사용하지 않는 Docker 이미지를 빌드하십시오. 이 경우 빌드 출력이 억제되고 태그는 *`us.icr.io/birds/bluebird:1`*이며 디렉토리는 사용자의 작업 디렉토리입니다.
 
 ```
-ibmcloud cr build --no-cache --quiet --tag registry.ng.bluemix.net/birds/bluebird:1 .
+ibmcloud cr build --no-cache --quiet --tag us.icr.io/birds/bluebird:1 .
 ```
 {: pre}
 
@@ -123,16 +123,16 @@ ibmcloud cr exemption-add --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE
 <dd>면제할 보안 문제의 유형입니다. 유효한 문제 유형을 찾으려면 `ibmcloud cr exemption-types`를 실행하십시오.
 </dd>
 <dt>`--issue-id ISSUE_ID`</dt>
-<dd>면제할 보안 문제의 ID입니다. 문제 ID를 찾으려면 `ibmcloud cr va <image>`를 실행하십시오. 여기서 *&lt;image&gt;*는 이미지의 이름이며, **취약성 ID** 또는 **구성 문제 ID** 열에 있는 값 중 관련된 값을 사용하십시오.
+<dd>면제할 보안 문제의 ID입니다. 문제 ID를 찾으려면 `ibmcloud cr va <image>`를 실행하십시오. 여기서 `<image>`는 이미지의 이름이며, **취약성 ID** 또는 **구성 문제 ID** 열에 있는 값 중 관련된 값을 사용하십시오.
 </dd>
 </dl>
 
 **예**
 
-`registry.ng.bluemix.net/birds/bluebird` 저장소에 있는 모든 이미지에 대해 ID가 `CVE-2018-17929`인 CVE에 대한 CVE 면제 항목을 작성합니다.
+`us.icr.io/birds/bluebird` 저장소에 있는 모든 이미지에 대해 ID가 `CVE-2018-17929`인 CVE에 대한 CVE 면제 항목을 작성합니다.
 
 ```
-ibmcloud cr exemption-add --scope registry.ng.bluemix.net/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
+ibmcloud cr exemption-add --scope us.icr.io/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
@@ -143,10 +143,10 @@ ibmcloud cr exemption-add --scope "*" --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-`registry.ng.bluemix.net/birds/bluebird:1` 태그가 지정된 단일 이미지에 대한 `application_configuration:nginx.ssl_protocols` 문제의 구성 문제 면제 항목을 작성합니다.
+`us.icr.io/birds/bluebird:1` 태그가 지정된 단일 이미지에 대한 `application_configuration:nginx.ssl_protocols` 문제의 구성 문제 면제 항목을 작성합니다.
 
 ```
-ibmcloud cr exemption-add --scope registry.ng.bluemix.net/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
+ibmcloud cr exemption-add --scope us.icr.io/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
 ```
 {: pre}
 
@@ -209,10 +209,10 @@ ibmcloud cr exemption-rm --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE_
 
 **예**
 
-`registry.ng.bluemix.net/birds/bluebird` 저장소에 있는 모든 이미지에 대해 ID가 `CVE-2018-17929`인 CVE에 대한 CVE 면제 항목을 삭제합니다.
+`us.icr.io/birds/bluebird` 저장소에 있는 모든 이미지에 대해 ID가 `CVE-2018-17929`인 CVE에 대한 CVE 면제 항목을 삭제합니다.
 
 ```
-ibmcloud cr exemption-rm --scope registry.ng.bluemix.net/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
+ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
@@ -223,10 +223,10 @@ ibmcloud cr exemption-rm --scope "*" --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-`registry.ng.bluemix.net/birds/bluebird:1` 태그가 지정된 단일 이미지에 대한 `application_configuration:nginx.ssl_protocols` 문제의 구성 문제 면제 항목을 삭제합니다.
+`us.icr.io/birds/bluebird:1` 태그가 지정된 단일 이미지에 대한 `application_configuration:nginx.ssl_protocols` 문제의 구성 문제 면제 항목을 삭제합니다.
 
 ```
-ibmcloud cr exemption-rm --scope registry.ng.bluemix.net/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
+ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
 ```
 {: pre}
 
@@ -290,10 +290,10 @@ ibmcloud cr image-inspect [--format FORMAT] IMAGE [IMAGE...]
 
 **예**
 
-형식화 지시문 *`"{{ .Config.ExposedPorts }}"`*를 사용하여 *`registry.ng.bluemix.net/birds/bluebird:1`* 이미지용으로 노출된 포트에 대한 세부사항을 표시합니다.
+형식화 지시문 *`"{{ .Config.ExposedPorts }}"`*를 사용하여 *`us.icr.io/birds/bluebird:1`* 이미지용으로 노출된 포트에 대한 세부사항을 표시합니다.
 
 ```
-ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
@@ -359,7 +359,7 @@ ibmcloud cr image-rm IMAGE [IMAGE...]
 
 <dl>
 <dt>`IMAGE`</dt>
-<dd>삭제할 이미지의 이름입니다. 각 이름 사이에 공백을 사용하여 명령에 각 이미지를 나열하면 동시에 여러 이미지를 삭제할 수 있습니다. `IMAGE`는 `repository:tag` 형식이어야 합니다(예: `registry.ng.bluemix.net/namespace/image:latest`).
+<dd>삭제할 이미지의 이름입니다. 각 이름 사이에 공백을 사용하여 명령에 각 이미지를 나열하면 동시에 여러 이미지를 삭제할 수 있습니다. `IMAGE`는 `repository:tag` 형식이어야 합니다(예: `us.icr.io/namespace/image:latest`).
 
 <p>이미지의 이름을 찾으려면 `ibmcloud cr image-list`를 실행하십시오. **저장소** 및 **태그** 열의 컨텐츠를 결합하여 `repository:tag` 형식의 이미지 이름을 작성하십시오. 이미지 이름에 태그를 지정하지 않은 경우 기본적으로 `latest`로 태그 지정된 이미지가 삭제됩니다.</p>
 
@@ -367,10 +367,10 @@ ibmcloud cr image-rm IMAGE [IMAGE...]
 </dl>
 
 **예**
-*`registry.ng.bluemix.net/birds/bluebird:1`* 이미지를 삭제합니다.
+*`us.icr.io/birds/bluebird:1`* 이미지를 삭제합니다.
 
 ```
-ibmcloud cr image-rm registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr image-rm us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
@@ -394,35 +394,35 @@ ibmcloud cr image-tag [SOURCE_IMAGE] [TARGET_IMAGE]
 **명령 옵션**
 <dl>
 <dt>`SOURCE_IMAGE`</dt>
-<dd>소스 이미지의 이름입니다. `SOURCE_IMAGE`는 `repository:tag` 형식이어야 합니다(예: `registry.ng.bluemix.net/namespace/image:latest`).
+<dd>소스 이미지의 이름입니다. `SOURCE_IMAGE`는 `repository:tag` 형식이어야 합니다(예: `us.icr.io/namespace/image:latest`).
 
 </dd>
 <dt>`TARGET_IMAGE`</dt>
-<dd>대상 이미지의 이름입니다. `TARGET_IMAGE`는 `repository:tag` 형식이어야 합니다(예: `registry.ng.bluemix.net/namespace/image:latest`).
+<dd>대상 이미지의 이름입니다. `TARGET_IMAGE`는 `repository:tag` 형식이어야 합니다(예: `us.icr.io/namespace/image:latest`).
 
 </dd>
 </dl>
 
 **예**
 
-또 다른 태그 참조, `latest`를 *`registry.ng.bluemix.net/birds/bluebird:1`* 이미지에 추가하십시오.
+또 다른 태그 참조, `latest`를 `us.icr.io/birds/bluebird:1` 이미지에 추가하십시오.
 
 ```
-ibmcloud cr image-tag  registry.ng.bluemix.net/birds/bluebird:1 registry.ng.bluemix.net/birds/bluebird:latest
-```
-{: pre}
-
-`registry.ng.bluemix.net/birds/bluebird:peck` 이미지를 동일한 네임스페이스 `birds/pigeon` 내의 또 다른 저장소에 복사합니다.
-
-```
-ibmcloud cr image-tag registry.ng.bluemix.net/birds/bluebird:peck registry.ng.bluemix.net/birds/pigeon:peck
+ibmcloud cr image-tag  us.icr.io/birds/bluebird:1 us.icr.io/birds/bluebird:latest
 ```
 {: pre}
 
-`registry.ng.bluemix.net/birds/bluebird:peck` 이미지를 사용자가 액세스 권한을 가진 또 다른 네임스페이스인 `animals`로 복사합니다.
+`us.icr.io/birds/bluebird:peck` 이미지를 동일한 네임스페이스 `birds/pigeon` 내의 또 다른 저장소에 복사합니다.
 
 ```
-ibmcloud cr image-tag registry.ng.bluemix.net/birds/bluebird:peck registry.ng.bluemix.net/animals/dog:bark
+ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/birds/pigeon:peck
+```
+{: pre}
+
+`us.icr.io/birds/bluebird:peck` 이미지를 사용자가 액세스 권한을 가진 또 다른 네임스페이스인 `animals`로 복사합니다.
+
+```
+ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/animals/dog:bark
 ```
 {: pre}
 
@@ -910,13 +910,14 @@ ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] 
 이미지에 대한 표준 취약성 평가 보고서를 봅니다.
 
 ```
-ibmcloud cr vulnerability-assessment registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr vulnerability-assessment us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
-취약성만 표시하는 JSON 형식의 *`registry.ng.bluemix.net/birds/bluebird:1`* 이미지에 대한 취약성 평가 보고서를 봅니다.
+취약성만 표시하는 JSON 형식의 `us.icr.io/birds/bluebird:1` 이미지에 대한 취약성 평가 보고서를 봅니다.
 
 ```
-ibmcloud cr vulnerability-assessment --vulnerabilities  --output json registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr vulnerability-assessment --vulnerabilities  --output json us.icr.io/birds/bluebird:1
 ```
 {: pre}
+

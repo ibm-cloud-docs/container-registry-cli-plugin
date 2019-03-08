@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-22"
+lastupdated: "2019-02-25"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -22,7 +22,7 @@ subcollection: container-registry-cli-plugin
 {:deprecated: .deprecated}
 {:download: .download}
 
-# {{site.data.keyword.registrylong_notm}}-CLI 
+# {{site.data.keyword.registrylong_notm}}-CLI
 {: #containerregcli}
 
 Mit der im CLI-Plug-in `container-registry` verfügbaren {{site.data.keyword.registrylong}}-CLI können Sie Ihre Registry und deren Ressourcen für Ihr {{site.data.keyword.Bluemix_notm}}-Konto verwalten.
@@ -93,10 +93,10 @@ Informationen zu den erforderlichen Berechtigungen finden Sie im Abschnitt [Zugr
 
 **Beispiel**
 
-Mit dem folgenden Befehl wird ein Build für ein Docker-Image erstellt, der keinen Build-Cache aus vorherigen Builds verwendet, bei dem die Buildausgabe unterdrückt wird, der Tag *`registry.ng.bluemix.net/birds/bluebird:1`* lautet und als Verzeichnis das Arbeitsverzeichnis verwendet wird.
+Mit dem folgenden Befehl wird ein Build für ein Docker-Image erstellt, der keinen Build-Cache aus vorherigen Builds verwendet, bei dem die Buildausgabe unterdrückt wird, der Tag *`us.icr.io/birds/bluebird:1`* lautet und als Verzeichnis das Arbeitsverzeichnis verwendet wird. 
 
 ```
-ibmcloud cr build --no-cache --quiet --tag registry.ng.bluemix.net/birds/bluebird:1 .
+ibmcloud cr build --no-cache --quiet --tag us.icr.io/birds/bluebird:1 .
 ```
 {: pre}
 
@@ -123,16 +123,16 @@ Informationen zu den erforderlichen Berechtigungen finden Sie im Abschnitt [Zugr
 <dd>Der Typ des Sicherheitsproblems, für das Sie eine Freistellung definieren wollen. Gültige Problemtypen können Sie durch Ausführung des Befehls `ibmcloud cr exemption-types` ermitteln.
 </dd>
 <dt>`--issue-id PROBLEM-ID`</dt>
-<dd>Die ID des Sicherheitsproblems, für das Sie eine Freistellung definieren wollen. Zur Ermittlung einer Problem-ID führen Sie den Befehl `ibmcloud cr va <image>` aus; hierbei steht *&lt;image&gt;* für den Namen Ihres Images. Verwenden Sie dann den relevanten Wert entweder aus der Spalte **Vulnerability ID** (Sicherheitslücken-ID) oder der Spalte **Configuration Issue ID** (Konfigurationsproblem-ID).
+<dd>Die ID des Sicherheitsproblems, für das Sie eine Freistellung definieren wollen. Zur Ermittlung einer Problem-ID führen Sie den Befehl `ibmcloud cr va <image>` aus, wobei `<image>` der Name des Images ist. Verwenden Sie den relevanten Wert entweder aus der Spalte **Sicherheitslücken-ID** oder aus der Spalte **Konfigurationsproblem-ID**.
 </dd>
 </dl>
 
 **Beispiele**
 
-Der folgende Befehl erstellt eine CVE-Freistellung für die CVE-ID `CVE-2018-17929` für alle Images im Repository `registry.ng.bluemix.net/birds/bluebird`.
+Der folgende Befehl erstellt eine CVE-Freistellung für die CVE-ID `CVE-2018-17929` für alle Images im Repository `us.icr.io/birds/bluebird`. 
 
 ```
-ibmcloud cr exemption-add --scope registry.ng.bluemix.net/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
+ibmcloud cr exemption-add --scope us.icr.io/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
@@ -143,10 +143,10 @@ ibmcloud cr exemption-add --scope "*" --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-Der folgende Befehl erstellt eine Konfigurationsproblemfreistellung für das Problem `application_configuration:nginx.ssl_protocols` für ein einzelnes Image mit dem Tag `registry.ng.bluemix.net/birds/bluebird:1`.
+Der folgende Befehl erstellt eine Konfigurationsproblemfreistellung für das Problem `application_configuration:nginx.ssl_protocols` für ein einzelnes Image mit dem Tag `us.icr.io/birds/bluebird:1`. 
 
 ```
-ibmcloud cr exemption-add --scope registry.ng.bluemix.net/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
+ibmcloud cr exemption-add --scope us.icr.io/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
 ```
 {: pre}
 
@@ -209,10 +209,10 @@ Informationen zu den erforderlichen Berechtigungen finden Sie im Abschnitt [Zugr
 
 **Beispiele**
 
-Der folgende Befehl löscht eine CVE-Freistellung für die CVE-ID `CVE-2018-17929` für alle Images im Repository `registry.ng.bluemix.net/birds/bluebird`.
+Der folgende Befehl löscht eine CVE-Freistellung für die CVE-ID `CVE-2018-17929` für alle Images im Repository `us.icr.io/birds/bluebird`. 
 
 ```
-ibmcloud cr exemption-rm --scope registry.ng.bluemix.net/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
+ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
@@ -223,10 +223,10 @@ ibmcloud cr exemption-rm --scope "*" --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-Der folgende Befehl löscht eine Konfigurationsproblemfreistellung für das Problem `application_configuration:nginx.ssl_protocols` für ein einzelnes Image mit dem Tag `registry.ng.bluemix.net/birds/bluebird:1`.
+Der folgende Befehl löscht eine Konfigurationsproblemfreistellung für das Problem `application_configuration:nginx.ssl_protocols` für ein einzelnes Image mit dem Tag `us.icr.io/birds/bluebird:1`. 
 
 ```
-ibmcloud cr exemption-rm --scope registry.ng.bluemix.net/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
+ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
 ```
 {: pre}
 
@@ -290,10 +290,10 @@ Weitere Informationen enthält der Abschnitt [CLI-Ausgabe für {{site.data.keywo
 
 **Beispiel**
 
-Der folgende Befehl zeigt Details über die zugänglichen Ports für das Image *`registry.ng.bluemix.net/birds/bluebird:1`* unter Verwendung der Formatierungsanweisung*`"{{ .Config.ExposedPorts }}"`* an.
+Der folgende Befehl zeigt Details über die zugänglichen Ports für das Image *`us.icr.io/birds/bluebird:1`* unter Verwendung der Formatierungsanweisung*`"{{ .Config.ExposedPorts }}"`* an.
 
 ```
-ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
@@ -359,30 +359,31 @@ Informationen zu den erforderlichen Berechtigungen finden Sie im Abschnitt [Zugr
 
 <dl>
 <dt>`IMAGE`</dt>
-<dd>Der Name des Images, das gelöscht werden soll. Sie können mehrere Images gleichzeitig löschen, indem Sie alle Images im Befehl auflisten und hierbei zwischen den einzelnen Namen jeweils ein Leerzeichen angeben. Der Wert für `IMAGE` muss im Format `repository:tag` angegeben werden (Beispiel: `registry.ng.bluemix.net/namespace/image:latest`).
+<dd>Der Name des Images, das gelöscht werden soll. Sie können mehrere Images gleichzeitig löschen, indem Sie alle Images im Befehl auflisten und hierbei zwischen den einzelnen Namen jeweils ein Leerzeichen angeben. Der Wert für `IMAGE` muss im Format `repository:tag` angegeben werden (Beispiel: `us.icr.io/namespace/image:latest`).
 
 <p>Die Namen Ihrer Images können Sie mit dem Befehl `ibmcloud cr image-list` ermitteln. Kombinieren Sie den Inhalt der Spalten **Repository** und **Tag**, um den Imagenamen im Format `repository:tag` zu erstellen. Falls im Imagenamen kein Tag angegeben ist, wird standardmäßig das Image mit dem Tag `latest` gelöscht.</p>
 
 </dd>
 </dl>
 
-**Beispiel** Mit dem folgenden Befehl wird das Image *`registry.ng.bluemix.net/birds/bluebird:1`* gelöscht.
+**Beispiel**
+Mit dem folgenden Befehl wird das Image `us.icr.io/birds/bluebird:1` gelöscht. 
 
 ```
-ibmcloud cr image-rm registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr image-rm us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
 ## `ibmcloud cr image-tag`
 {: #bx_cr_image_tag}
 
-Erstellt ein neues Image (ZIELIMAGE), das sich auf ein Quellenimage (QUELLENIMAGE) in {{site.data.keyword.registrylong_notm}} bezieht. Das Quellen- und das Zielimage müssen sich in derselben Region befinden.
+Erstellt ein neues Image (TARGET_IMAGE), das sich auf ein Quellenimage (SOURCE_IMAGE) in {{site.data.keyword.registrylong_notm}} bezieht. Das Quellen- und das Zielimage müssen sich in derselben Region befinden.
 
 Die Namen Ihrer Images können Sie mit dem Befehl `ibmcloud cr image-list` ermitteln. Kombinieren Sie den Inhalt der Spalten **Repository** und **Tag**, um den Imagenamen im Format `repository:tag` zu erstellen.
 {: tip}
 
 ```
-ibmcloud cr image-tag [QUELLENIMAGE] [ZIELIMAGE]
+ibmcloud cr image-tag [SOURCE_IMAGE] [TARGET_IMAGE]
 ```
 {: codeblock}
 
@@ -392,36 +393,36 @@ Informationen zu den erforderlichen Berechtigungen finden Sie im Abschnitt [Zugr
 
 **Befehlsoptionen**
 <dl>
-<dt>`QUELLENIMAGE`</dt>
-<dd>Der Name des Quellenimage. Der Wert für `QUELLENIMAGE` muss im Format `repository:tag` angegeben werden (Beispiel: `registry.ng.bluemix.net/namespace/image:latest`).
+<dt>`SOURCE_IMAGE`</dt>
+<dd>Der Name des Quellenimage. Der Wert für `SOURCE_IMAGE` muss im Format `repository:tag` angegeben werden (Beispiel: `us.icr.io/namespace/image:latest`).
 
 </dd>
-<dt>`ZIELIMAGE`</dt>
-<dd>Der Name des Zielimage. Der Wert für `ZIELIMAGE` muss im Format `repository:tag` angegeben werden (Beispiel: `registry.ng.bluemix.net/namespace/image:latest`).
+<dt>`TARGET_IMAGE`</dt>
+<dd>Der Name des Zielimage. Der Wert für `TARGET_IMAGE` muss im Format `repository:tag` angegeben werden (Beispiel: `us.icr.io/namespace/image:latest`).
 
 </dd>
 </dl>
 
 **Beispiele**
 
-Mit dem folgenden Befehl wird eine weitere Tagreferenz namens `latest` zum Image *`registry.ng.bluemix.net/birds/bluebird:1`* hinzugefügt.
+Mit dem folgenden Befehl wird eine weitere Tagreferenz namens `latest` zum Image `us.icr.io/birds/bluebird:1` hinzugefügt. 
 
 ```
-ibmcloud cr image-tag  registry.ng.bluemix.net/birds/bluebird:1 registry.ng.bluemix.net/birds/bluebird:latest
-```
-{: pre}
-
-Mit dem folgenden Befehl wird das Image `registry.ng.bluemix.net/birds/bluebird:peck` in ein anderes Repository desselben Namensbereichs `birds/pigeon` kopiert.
-
-```
-ibmcloud cr image-tag registry.ng.bluemix.net/birds/bluebird:peck registry.ng.bluemix.net/birds/pigeon:peck
+ibmcloud cr image-tag  us.icr.io/birds/bluebird:1 us.icr.io/birds/bluebird:latest
 ```
 {: pre}
 
-Mit dem folgenden Befehl wird das Image `registry.ng.bluemix.net/birds/bluebird:peck` in einen anderen Namensbereich namens `animals` kopiert, auf den Sie Zugriff besitzen.
+Mit dem folgenden Befehl wird das Image `us.icr.io/birds/bluebird:peck` in ein anderes Repository desselben Namensbereichs `birds/pigeon` kopiert.
 
 ```
-ibmcloud cr image-tag registry.ng.bluemix.net/birds/bluebird:peck registry.ng.bluemix.net/animals/dog:bark
+ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/birds/pigeon:peck
+```
+{: pre}
+
+Mit dem folgenden Befehl wird das Image `us.icr.io/birds/bluebird:peck` in einen anderen Namensbereich namens `animals` kopiert, auf den Sie Zugriff besitzen.
+
+```
+ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/animals/dog:bark
 ```
 {: pre}
 
@@ -521,7 +522,7 @@ Informationen zu den erforderlichen Berechtigungen finden Sie im Abschnitt [Zugr
 <dt>`NAMENSBEREICH`</dt>
 <dd>Der Namensbereich, den Sie entfernen möchten.</dd>
 <dt>`--force`, `-f`</dt>
-<dd>(Optional) Ausführung des Befehls ohne Benutzereingabeaufforderungen erzwingen. </dd>
+<dd>(Optional) Ausführung des Befehls ohne Benutzereingabeaufforderungen erzwingen.</dd>
 </dl>
 
 **Beispiel**
@@ -824,7 +825,7 @@ Dieses Beispiel erzeugt Ausgabe im folgenden Format:
 ## `ibmcloud cr token-rm`
 {: #bx_cr_token_rm}
 
-Ein oder mehrere angegebene Registry-Tokens entfernen. 
+Ein oder mehrere angegebene Registry-Tokens entfernen.
 
 ```
 ibmcloud cr token-rm TOKEN [TOKEN...] [--force | -f]
@@ -840,7 +841,7 @@ Informationen zu den erforderlichen Berechtigungen finden Sie im Abschnitt [Plat
 <dt>`TOKEN`</dt>
 <dd>Der Wert für TOKEN kann entweder das Token selbst oder die eindeutige Kennung des Tokens sein, die mit dem Befehl `ibmcloud cr token-list` ausgegeben wird. Sie können mehrere Tokens angeben; die Tokens müssen jeweils durch ein Leerzeichen voneinander getrennt werden.</dd>
 <dt>`--force`, `-f`</dt>
-<dd>(Optional) Ausführung des Befehls ohne Benutzereingabeaufforderungen erzwingen. </dd>
+<dd>(Optional) Ausführung des Befehls ohne Benutzereingabeaufforderungen erzwingen.</dd>
 </dl>
 
 **Beispiel**
@@ -909,13 +910,14 @@ Weitere Informationen finden Sie unter [Imagesicherheit mit Vulnerability Adviso
 Mit dem folgenden Befehl wird ein Bericht mit einer Standardschwachstellenanalyse für Ihr Image angezeigt.
 
 ```
-ibmcloud cr vulnerability-assessment registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr vulnerability-assessment us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
-Mit dem folgenden Befehl wird ein Bericht mit der Schwachstellenanalyse für Ihr Image *`registry.ng.bluemix.net/birds/bluebird:1`* im JSON-Format angezeigt, der ausschließlich Schwachstellen enthält.
+Mit dem folgenden Befehl wird ein Bericht mit der Schwachstellenanalyse für Ihr Image `us.icr.io/birds/bluebird:1` im JSON-Format angezeigt, der ausschließlich Schwachstellen enthält.
 
 ```
-ibmcloud cr vulnerability-assessment --vulnerabilities  --output json registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr vulnerability-assessment --vulnerabilities  --output json us.icr.io/birds/bluebird:1
 ```
 {: pre}
+

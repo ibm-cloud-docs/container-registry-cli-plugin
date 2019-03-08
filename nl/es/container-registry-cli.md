@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-22"
+lastupdated: "2019-02-25"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -22,7 +22,7 @@ subcollection: container-registry-cli-plugin
 {:deprecated: .deprecated}
 {:download: .download}
 
-# CLI de {{site.data.keyword.registrylong_notm}} 
+# CLI de {{site.data.keyword.registrylong_notm}}
 {: #containerregcli}
 
 Puede utilizar la CLI de {{site.data.keyword.registrylong}}, que se proporciona en el plugin de CLI `container-registry`, para gestionar el registro y sus recursos para la cuenta de {{site.data.keyword.Bluemix_notm}}.
@@ -93,17 +93,17 @@ Para obtener información sobre los permisos necesarios, consulte [Roles de acce
 
 **Ejemplo**
 
-Cree una imagen de Docker que no utilice una memoria caché de compilación de compilaciones anteriores, en la que se suprima la salida de compilación, la etiqueta sea *`registry.ng.bluemix.net/birds/bluebird:1`* y el directorio sea el directorio de trabajo.
+Crea una imagen de Docker que no utiliza una memoria caché de compilación, en la que la salida de compilación está suprimida, la etiqueta es *`us.icr.io/birds/bluebird:1`* y el directorio es su directorio de trabajo.
 
 ```
-ibmcloud cr build --no-cache --quiet --tag registry.ng.bluemix.net/birds/bluebird:1 .
+ibmcloud cr build --no-cache --quiet --tag us.icr.io/birds/bluebird:1 .
 ```
 {: pre}
 
 ## `ibmcloud cr exemption-add`
 {: #bx_cr_exemption_add}
 
-Crea una exención para un problema de seguridad. Cree una exención para un problema de seguridad que se aplique a varios ámbitos. El ámbito puede ser una cuenta, un espacio de nombres, un repositorio o una etiqueta.
+Crea una exención para un problema de seguridad. Puede crear una exención para un problema de seguridad que se aplique a varios ámbitos. El ámbito puede ser una cuenta, un espacio de nombres, un repositorio o una etiqueta.
 
 ```
 ibmcloud cr exemption-add --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE_ID
@@ -123,30 +123,30 @@ Para obtener información sobre los permisos necesarios, consulte [Roles de acce
 <dd>El tipo del problema de seguridad que desea eximir. Ejecute `ibmcloud cr exemption-types` para averiguar los tipos de problema válidos.
 </dd>
 <dt>`--issue-id ISSUE_ID`</dt>
-<dd>El ID del problema de seguridad que desea eximir. Para encontrar un ID de problema, ejecute `ibmcloud cr va <image>`, donde *&lt;image&gt;* es el nombre de la imagen. Utilice el valor que corresponda de la columna **ID de vulnerabilidad** o **ID de problema de configuración**.
+<dd>El ID del problema de seguridad que desea eximir. Para encontrar un ID de problema, ejecute `ibmcloud cr va <image>`, donde `<image>` es el nombre de la imagen. Utilice el valor que corresponda de la columna **ID de vulnerabilidad** o **ID de problema de configuración**.
 </dd>
 </dl>
 
 **Ejemplos**
 
-Cree una exención para CVE con el ID `CVE-2018-17929` para todas las imágenes del repositorio `registry.ng.bluemix.net/birds/bluebird`.
+Crea una exención para CVE con el ID `CVE-2018-17929` para todas las imágenes del repositorio `us.icr.io/birds/bluebird`.
 
 ```
-ibmcloud cr exemption-add --scope registry.ng.bluemix.net/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
+ibmcloud cr exemption-add --scope us.icr.io/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-Cree una exención de CVE de toda la cuenta para el CVE con el ID `CVE-2018-17929`.
+Crea una exención de CVE de toda la cuenta para el CVE con el ID `CVE-2018-17929`.
 
 ```
 ibmcloud cr exemption-add --scope "*" --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-Cree una exención de problema de configuración para el problema `application_configuration:nginx.ssl_protocols` para una sola imagen con la etiqueta `registry.ng.bluemix.net/birds/bluebird:1`.
+Crea una exención de problema de configuración para el problema `application_configuration:nginx.ssl_protocols` para una sola imagen con la etiqueta `us.icr.io/birds/bluebird:1`.
 
 ```
-ibmcloud cr exemption-add --scope registry.ng.bluemix.net/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
+ibmcloud cr exemption-add --scope us.icr.io/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
 ```
 {: pre}
 
@@ -173,7 +173,7 @@ Para obtener información sobre los permisos necesarios, consulte [Roles de acce
 
 **Ejemplo**
 
-Enumere todas las exenciones para los problemas de seguridad que se aplican a las imágenes del repositorio *`birds/bluebird`*. La salida incluye las exenciones de toda la cuenta, las exenciones limitadas al espacio de nombres *`birds`* y las exenciones limitadas al repositorio *`birds/bluebird`*, pero no las limitadas a etiquetas específicas dentro del repositorio *`birds/bluebird`*.
+Enumera todas las exenciones para los problemas de seguridad que se aplican a las imágenes del repositorio *`birds/bluebird`*. La salida incluye las exenciones de toda la cuenta, las exenciones limitadas al espacio de nombres *`birds`* y las exenciones limitadas al repositorio *`birds/bluebird`*, pero no las limitadas a etiquetas específicas dentro del repositorio *`birds/bluebird`*.
 
 ```
 ibmcloud cr exemption-list --scope birds/bluebird
@@ -209,24 +209,24 @@ Para obtener información sobre los permisos necesarios, consulte [Roles de acce
 
 **Ejemplos**
 
-Suprima una exención para CVE con el ID `CVE-2018-17929` para todas las imágenes del repositorio `registry.ng.bluemix.net/birds/bluebird`.
+Suprime una exención para CVE con el ID `CVE-2018-17929` para todas las imágenes del repositorio `us.icr.io/birds/bluebird`.
 
 ```
-ibmcloud cr exemption-rm --scope registry.ng.bluemix.net/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
+ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-Suprima una exención de CVE de toda la cuenta para el CVE con el ID `CVE-2018-17929`.
+Suprime una exención de CVE de toda la cuenta para el CVE con el ID `CVE-2018-17929`.
 
 ```
 ibmcloud cr exemption-rm --scope "*" --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-Suprima una exención de problema de configuración para el problema `application_configuration:nginx.ssl_protocols` para una sola imagen con la etiqueta `registry.ng.bluemix.net/birds/bluebird:1`.
+Suprime una exención de problema de configuración para el problema `application_configuration:nginx.ssl_protocols` para una sola imagen con la etiqueta `us.icr.io/birds/bluebird:1`.
 
 ```
-ibmcloud cr exemption-rm --scope registry.ng.bluemix.net/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
+ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
 ```
 {: pre}
 
@@ -290,10 +290,10 @@ Para obtener más información, consulte [Formateo y filtrado de la salida de la
 
 **Ejemplo**
 
-Muestre detalles sobre los puertos expuestos para la imagen *`registry.ng.bluemix.net/birds/bluebird:1`* mediante la directriz de formateo *`"{{ .Config.ExposedPorts }}"`*.
+Visualiza detalles sobre los puertos expuestos para la imagen *`us.icr.io/birds/bluebird:1`* mediante la directriz de formateo *`"{{ .Config.ExposedPorts }}"`*.
 
 ```
-ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
@@ -334,7 +334,7 @@ Para obtener más información, consulte [Formateo y filtrado de la salida de la
 
 **Ejemplo**
 
-Muestre las imágenes del espacio de nombres *`birds`* en el formato `repository:tag`, sin truncar los resúmenes de imagen.
+Visualiza las imágenes del espacio de nombres *`birds`* en el formato `repository:tag`, sin truncar los resúmenes de imagen.
 
 ```
 ibmcloud cr image-list --restrict birds --quiet --no-trunc
@@ -344,7 +344,7 @@ ibmcloud cr image-list --restrict birds --quiet --no-trunc
 ## `ibmcloud cr image-rm`
 {: #bx_cr_image_rm}
 
-Suprima una o varias de las imágenes especificadas de {{site.data.keyword.registrylong_notm}}.
+Suprime una o varias de las imágenes especificadas de {{site.data.keyword.registrylong_notm}}.
 
 ```
 ibmcloud cr image-rm IMAGE [IMAGE...]
@@ -359,24 +359,25 @@ Para obtener información sobre los permisos necesarios, consulte [Roles de acce
 
 <dl>
 <dt>`IMAGE`</dt>
-<dd>El nombre de la imagen que desea suprimir. Puede suprimir varias imágenes al mismo tiempo creando una lista de cada imagen en el mandato con un espacio entre cada nombre. `IMAGE` debe estar en el formato `repository:tag`, por ejemplo: `registry.ng.bluemix.net/namespace/image:latest`
+<dd>El nombre de la imagen que desea suprimir. Puede suprimir varias imágenes al mismo tiempo creando una lista de cada imagen en el mandato con un espacio entre cada nombre. `IMAGE` debe estar en el formato `repository:tag`, por ejemplo: `us.icr.io/namespace/image:latest`
 
 <p>Para encontrar los nombres de sus imágenes, ejecute `ibmcloud cr image-list`. Combine el contenido de las columnas **Repositorio** y **Etiqueta** para crear el nombre de imagen en el formato `repository:tag`. Si no se especifica una etiqueta en el nombre de la imagen, la imagen etiquetada como `latest` se suprime de forma predeterminada.</p>
 
 </dd>
 </dl>
 
-**Ejemplo** Suprima la imagen *`registry.ng.bluemix.net/birds/bluebird:1`*.
+**Ejemplo**
+Suprime la imagen `us.icr.io/birds/bluebird:1`.
 
 ```
-ibmcloud cr image-rm registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr image-rm us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
 ## `ibmcloud cr image-tag`
 {: #bx_cr_image_tag}
 
-Cree una nueva imagen, TARGET_IMAGE, que haga referencia a una imagen de origen, SOURCE_IMAGE, en {{site.data.keyword.registrylong_notm}}. Las imágenes de origen y de destino deben estar en la misma región.
+Crea una nueva imagen, TARGET_IMAGE, que haga referencia a una imagen de origen, SOURCE_IMAGE, en {{site.data.keyword.registrylong_notm}}. Las imágenes de origen y de destino deben estar en la misma región.
 
 Para encontrar los nombres de sus imágenes, ejecute `ibmcloud cr image-list`. Combine el contenido de las columnas **Repositorio** y **Etiqueta** para crear el nombre de imagen en el formato `repository:tag`.
 {: tip}
@@ -393,35 +394,35 @@ Para obtener información sobre los permisos necesarios, consulte [Roles de acce
 **Opciones del mandato**
 <dl>
 <dt>`SOURCE_IMAGE`</dt>
-<dd>El nombre de la imagen de origen. `SOURCE_IMAGE` debe estar en el formato `repository:tag`, por ejemplo: `registry.ng.bluemix.net/namespace/image:latest`
+<dd>El nombre de la imagen de origen. `SOURCE_IMAGE` debe estar en el formato `repository:tag`, por ejemplo: `us.icr.io/namespace/image:latest`
 
 </dd>
 <dt>`TARGET_IMAGE`</dt>
-<dd>El nombre de la imagen de destino. `TARGET_IMAGE` debe estar en el formato `repository:tag`, por ejemplo: `registry.ng.bluemix.net/namespace/image:latest`
+<dd>El nombre de la imagen de destino. `TARGET_IMAGE` debe estar en el formato `repository:tag`, por ejemplo: `us.icr.io/namespace/image:latest`
 
 </dd>
 </dl>
 
 **Ejemplos**
 
-Añada otra referencia de etiqueta, `latest`, a la imagen *`registry.ng.bluemix.net/birds/bluebird:1`*.
+Añade otra referencia de etiqueta, `latest`, a la imagen `us.icr.io/birds/bluebird:1`.
 
 ```
-ibmcloud cr image-tag  registry.ng.bluemix.net/birds/bluebird:1 registry.ng.bluemix.net/birds/bluebird:latest
-```
-{: pre}
-
-Copie la imagen `registry.ng.bluemix.net/birds/bluebird:peck` en otro repositorio en el mismo espacio de nombres `birds/pigeon`.
-
-```
-ibmcloud cr image-tag registry.ng.bluemix.net/birds/bluebird:peck registry.ng.bluemix.net/birds/pigeon:peck
+ibmcloud cr image-tag  us.icr.io/birds/bluebird:1 us.icr.io/birds/bluebird:latest
 ```
 {: pre}
 
-Copie la imagen `registry.ng.bluemix.net/birds/bluebird:peck` en otro espacio de nombres `animals` al que tenga acceso.
+Copia la imagen `us.icr.io/birds/bluebird:peck` en otro repositorio en el mismo espacio de nombres `birds/pigeon`.
 
 ```
-ibmcloud cr image-tag registry.ng.bluemix.net/birds/bluebird:peck registry.ng.bluemix.net/animals/dog:bark
+ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/birds/pigeon:peck
+```
+{: pre}
+
+Copia la imagen `us.icr.io/birds/bluebird:peck` en otro espacio de nombres `animals` al que tenga acceso.
+
+```
+ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/animals/dog:bark
 ```
 {: pre}
 
@@ -456,7 +457,7 @@ Ninguno
 ## `ibmcloud cr namespace-add`
 {: #bx_cr_namespace_add}
 
-Elija un nombre para el espacio de nombres y añádalo a su cuenta de {{site.data.keyword.Bluemix_notm}}.
+Elige un nombre para el espacio de nombres y lo añade a su cuenta de {{site.data.keyword.Bluemix_notm}}.
 
 ```
 ibmcloud cr namespace-add NAMESPACE
@@ -481,7 +482,7 @@ Para obtener información sobre los permisos necesarios, consulte [Roles de acce
 
 **Ejemplo**
 
-Cree un espacio de nombres con el nombre *`birds`*.
+Crea un espacio de nombres con el nombre *`birds`*.
 
 ```
 ibmcloud cr namespace-add birds
@@ -526,7 +527,7 @@ Para obtener información sobre los permisos necesarios, consulte [Roles de acce
 
 **Ejemplo**
 
-Elimine el espacio de nombres *`birds`*.
+Elimina el espacio de nombres *`birds`*.
 
 ```
 ibmcloud cr namespace-rm birds
@@ -571,7 +572,7 @@ Para obtener información sobre los permisos necesarios, consulte [Roles de acce
 
 **Ejemplo**
 
-Actualice al plan de precios estándar.
+Actualiza al plan de precios estándar.
 
 ```
 ibmcloud cr plan-upgrade standard
@@ -610,7 +611,7 @@ Para obtener información sobre los permisos necesarios, consulte [Roles de acce
 
 **Ejemplo**
 
-Importe el software y el paquete de IBM para utilizarlo con Helm en el espacio de nombres de {{site.data.keyword.registrylong_notm}} *`birds`*, donde la vía de acceso al archivo comprimido es *`downloads/compressed_file.tgz`*.
+Importa el software y el paquete de IBM para utilizarlo con Helm en el espacio de nombres de {{site.data.keyword.registrylong_notm}} *`birds`*, donde la vía de acceso al archivo comprimido es *`downloads/compressed_file.tgz`*.
 
 ```
 ibmcloud cr ppa-archive-load --archive downloads/compressed_file.tgz --namespace birds
@@ -655,7 +656,7 @@ Para obtener información sobre los permisos necesarios, consulte [Roles de acce
 
 **Ejemplo**
 
-Establezca el límite de cuota para el tráfico de extracción en *7000* megabytes y el almacenamiento en *600* megabytes.
+Establece el límite de cuota para el tráfico de extracción en *7000* megabytes y el almacenamiento en *600* megabytes.
 
 ```
 ibmcloud cr quota-set --traffic 7000 --storage 600
@@ -681,7 +682,7 @@ Para obtener más información, consulte [Regiones](/docs/services/Registry?topi
 ## `ibmcloud cr region-set`
 {: #bx_cr_region_set}
 
-Establezca una región de destino para los mandatos de {{site.data.keyword.registrylong_notm}}. Para enumerar las regiones disponibles, ejecute el mandato sin parámetros.
+Establece una región de destino para los mandatos de {{site.data.keyword.registrylong_notm}}. Para enumerar las regiones disponibles, ejecute el mandato sin parámetros.
 
 ```
 ibmcloud cr region-set [REGION]
@@ -704,7 +705,7 @@ Para obtener más información, consulte [Regiones](/docs/services/Registry?topi
 
 **Ejemplo**
 
-Establezca como destino la región EE.UU. sur.
+Establece como destino la región EE.UU. sur.
 
 ```
 ibmcloud cr region-set us-south
@@ -714,7 +715,7 @@ ibmcloud cr region-set us-south
 ## `ibmcloud cr token-add`
 {: #bx_cr_token_add}
 
-Añada una señal que sirva para controlar el acceso a un registro.
+Añade una señal que sirva para controlar el acceso a un registro.
 
 ```
 ibmcloud cr token-add [--description DESCRIPTION] [--quiet | -q] [--non-expiring] [--readwrite]
@@ -745,7 +746,7 @@ Para obtener información sobre los permisos necesarios, consulte [Roles de gest
 
 **Ejemplo**
 
-Añada una señal con la descripción *Token for my account* que no caduque y que tenga acceso de lectura/escritura.
+Añade una señal con la descripción *Token for my account* que no caduque y que tenga acceso de lectura/escritura.
 
 ```
 ibmcloud cr token-add --description "Token for my account" --non-expiring --readwrite
@@ -774,7 +775,7 @@ Para obtener información sobre los permisos necesarios, consulte [Roles de gest
 
 **Ejemplo**
 
-Recupere la señal *10101010-101x-1x10-x1xx-x10xx10xxx10*.
+Recupera la señal *10101010-101x-1x10-x1xx-x10xx10xxx10*.
 
 ```
 ibmcloud cr token-get 10101010-101x-1x10-x1xx-x10xx10xxx10
@@ -807,7 +808,7 @@ Para obtener más información, consulte [Formateo y filtrado de la salida de la
 
 **Ejemplo**
 
-Muestre todas las señales que son solo de lectura mediante el uso de la directriz de formateo *`"{{ if eq .ReadOnly true}}{{.ID}} - {{.Expiry}} - {{.ReadOnly}} - {{.Description}}{{ end }}"`*.
+Visualiza todas las señales que son solo de lectura mediante el uso de la directriz de formateo *`"{{ if eq .ReadOnly true}}{{.ID}} - {{.Expiry}} - {{.ReadOnly}} - {{.Description}}{{ end }}"`*.
 
 ```
 ibmcloud cr token-list --format "{{ if eq .ReadOnly true}}{{.ID}} - {{.Expiry}} - {{.ReadOnly}} - {{.Description}}{{ end }}"
@@ -845,7 +846,7 @@ Para obtener información sobre los permisos necesarios, consulte [Roles de gest
 
 **Ejemplo**
 
-Elimine la señal *10101010-101x-1x10-x1xx-x10xx10xxx10*.
+Elimina la señal *10101010-101x-1x10-x1xx-x10xx10xxx10*.
 
 ```
 ibmcloud cr token-rm 10101010-101x-1x10-x1xx-x10xx10xxx10
@@ -906,16 +907,17 @@ Para obtener más información, consulte [Gestión de imágenes de seguridad con
 
 **Ejemplos**
 
-Visualice un informe de evaluación de vulnerabilidad estándar para su imagen.
+Muestra un informe de evaluación de vulnerabilidad estándar para su imagen.
 
 ```
-ibmcloud cr vulnerability-assessment registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr vulnerability-assessment us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
-Visualice un informe de evaluación de vulnerabilidad para la imagen *`registry.ng.bluemix.net/birds/bluebird:1`* en formato JSON, que muestre solo vulnerabilidades.
+Muestra un informe de evaluación de vulnerabilidad para la imagen `us.icr.io/birds/bluebird:1` en formato JSON, que muestre solo vulnerabilidades.
 
 ```
-ibmcloud cr vulnerability-assessment --vulnerabilities  --output json registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr vulnerability-assessment --vulnerabilities  --output json us.icr.io/birds/bluebird:1
 ```
 {: pre}
+

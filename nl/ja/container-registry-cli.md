@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-22"
+lastupdated: "2019-02-25"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -22,7 +22,7 @@ subcollection: container-registry-cli-plugin
 {:deprecated: .deprecated}
 {:download: .download}
 
-# {{site.data.keyword.registrylong_notm}} CLI 
+# {{site.data.keyword.registrylong_notm}} CLI
 {: #containerregcli}
 
 {{site.data.keyword.Bluemix_notm}} アカウントのレジストリーとそのリソースを管理するには、`container-registry` CLI プラグイン内に用意されている {{site.data.keyword.registrylong}} CLI を使用できます。
@@ -30,7 +30,7 @@ subcollection: container-registry-cli-plugin
 
 **前提条件**
 
-* [{{site.data.keyword.Bluemix_notm}}CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) をインストールします。{{site.data.keyword.Bluemix_notm}} CLI を使用してコマンドを実行するための接頭部は、`ibmcloud` です。
+* [{{site.data.keyword.Bluemix_notm}}CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) をインストールします。 {{site.data.keyword.Bluemix_notm}} CLI を使用してコマンドを実行するための接頭部は、`ibmcloud` です。
 
 * レジストリー・コマンドを実行する前に、`ibmcloud login` コマンドを使用して {{site.data.keyword.Bluemix_notm}} にログインし、アクセス・トークンを生成して、セッションを認証します。
 
@@ -93,10 +93,10 @@ ibmcloud cr build [--no-cache] [--pull] [--quiet | -q] [--build-arg KEY=VALUE ..
 
 **例**
 
-ビルド出力が抑止される、以前のビルドからのビルド・キャッシュを使用しない Docker イメージをビルドします。タグは *`registry.ng.bluemix.net/birds/bluebird:1`* で、ディレクトリーはご使用の作業ディレクトリーです。
+ビルド出力が抑止される、以前のビルドからのビルド・キャッシュを使用しない Docker イメージをビルドします。タグは *`us.icr.io/birds/bluebird:1`* で、ディレクトリーはご使用の作業ディレクトリーです。
 
 ```
-ibmcloud cr build --no-cache --quiet --tag registry.ng.bluemix.net/birds/bluebird:1 .
+ibmcloud cr build --no-cache --quiet --tag us.icr.io/birds/bluebird:1 .
 ```
 {: pre}
 
@@ -123,16 +123,16 @@ ibmcloud cr exemption-add --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE
 <dd>免除するセキュリティー問題のタイプ。 有効な問題タイプを見つけるには、`ibmcloud cr exemption-types` を実行します。
 </dd>
 <dt>`--issue-id ISSUE_ID`</dt>
-<dd>免除するセキュリティー問題の ID。 問題 ID を見つけるには、`ibmcloud cr va <image>` を実行 (*&lt;image&gt;* はイメージの名前) して、**「脆弱性 ID (Vulnerability ID)」**列または**「構成問題 ID (Configuration Issue ID)」**列の関連する値を使用します。
+<dd>免除するセキュリティー問題の ID。 問題 ID を見つけるには、`ibmcloud cr va <image>` を実行 (`<image>` はイメージの名前) して、**「脆弱性 ID (Vulnerability ID)」**列または**「構成問題 ID (Configuration Issue ID)」**列の関連する値を使用します。
 </dd>
 </dl>
 
 **例**
 
-`registry.ng.bluemix.net/birds/bluebird` リポジトリー内のすべてのイメージについて、ID が `CVE-2018-17929` の CVE に対して CVE 免除を作成します。
+`us.icr.io/birds/bluebird` リポジトリー内のすべてのイメージについて、ID が `CVE-2018-17929` の CVE に対して CVE 免除を作成します。
 
 ```
-ibmcloud cr exemption-add --scope registry.ng.bluemix.net/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
+ibmcloud cr exemption-add --scope us.icr.io/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
@@ -143,10 +143,10 @@ ibmcloud cr exemption-add --scope "*" --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-タグが `registry.ng.bluemix.net/birds/bluebird:1` の単一のイメージについて、問題 `application_configuration:nginx.ssl_protocols` に対して構成問題の免除を作成します。
+タグが `us.icr.io/birds/bluebird:1` の単一のイメージについて、問題 `application_configuration:nginx.ssl_protocols` に対して構成問題の免除を作成します。
 
 ```
-ibmcloud cr exemption-add --scope registry.ng.bluemix.net/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
+ibmcloud cr exemption-add --scope us.icr.io/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
 ```
 {: pre}
 
@@ -209,10 +209,10 @@ ibmcloud cr exemption-rm --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE_
 
 **例**
 
-`registry.ng.bluemix.net/birds/bluebird` リポジトリー内のすべてのイメージについて、ID が `CVE-2018-17929` の CVE に対して CVE 免除を削除します。
+`us.icr.io/birds/bluebird` リポジトリー内のすべてのイメージについて、ID が `CVE-2018-17929` の CVE に対して CVE 免除を削除します。
 
 ```
-ibmcloud cr exemption-rm --scope registry.ng.bluemix.net/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
+ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
@@ -223,10 +223,10 @@ ibmcloud cr exemption-rm --scope "*" --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-タグが `registry.ng.bluemix.net/birds/bluebird:1` の単一のイメージについて、問題 `application_configuration:nginx.ssl_protocols` に対して構成問題の免除を削除します。
+タグが `us.icr.io/birds/bluebird:1` の単一のイメージについて、問題 `application_configuration:nginx.ssl_protocols` に対して構成問題の免除を削除します。
 
 ```
-ibmcloud cr exemption-rm --scope registry.ng.bluemix.net/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
+ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
 ```
 {: pre}
 
@@ -290,10 +290,10 @@ ibmcloud cr image-inspect [--format FORMAT] IMAGE [IMAGE...]
 
 **例**
 
-フォーマット設定ディレクティブ *`"{{ .Config.ExposedPorts }}"`* を使用して、イメージ *`registry.ng.bluemix.net/birds/bluebird:1`* の公開されているポートに関する詳細を表示します。
+フォーマット設定ディレクティブ *`"{{ .Config.ExposedPorts }}"`* を使用して、イメージ *`us.icr.io/birds/bluebird:1`* の公開されているポートに関する詳細を表示します。
 
 ```
-ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
@@ -359,7 +359,7 @@ ibmcloud cr image-rm IMAGE [IMAGE...]
 
 <dl>
 <dt>`IMAGE`</dt>
-<dd>削除するイメージの名前。 このコマンドに複数のイメージの名前をスペースで区切ってリストすると、複数のイメージを同時に削除できます。 `IMAGE` は `repository:tag` という形式である必要があります。例: `registry.ng.bluemix.net/namespace/image:latest`
+<dd>削除するイメージの名前。 このコマンドに複数のイメージの名前をスペースで区切ってリストすると、複数のイメージを同時に削除できます。 `IMAGE` は `repository:tag` という形式である必要があります。例: `us.icr.io/namespace/image:latest`
 
 <p>イメージの名前を調べるには、`ibmcloud cr image-list` を実行します。 **Repository** 列と **Tag** 列の内容を組み合わせると、`repository:tag` の形式のイメージ名になります。 イメージ名の中にタグを指定しない場合は、`latest` というタグが付いたイメージがデフォルトで削除されます。</p>
 
@@ -367,10 +367,10 @@ ibmcloud cr image-rm IMAGE [IMAGE...]
 </dl>
 
 **例**
-イメージ *`registry.ng.bluemix.net/birds/bluebird:1`* を削除します。
+イメージ `us.icr.io/birds/bluebird:1` を削除します。
 
 ```
-ibmcloud cr image-rm registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr image-rm us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
@@ -394,35 +394,35 @@ ibmcloud cr image-tag [SOURCE_IMAGE] [TARGET_IMAGE]
 **コマンド・オプション**
 <dl>
 <dt>`SOURCE_IMAGE`</dt>
-<dd>ソース・イメージの名前。 `SOURCE_IMAGE` は `repository:tag` という形式である必要があります。例: `registry.ng.bluemix.net/namespace/image:latest`
+<dd>ソース・イメージの名前。 `SOURCE_IMAGE` は `repository:tag` という形式である必要があります。例: `us.icr.io/namespace/image:latest`
 
 </dd>
 <dt>`TARGET_IMAGE`</dt>
-<dd>ターゲット・イメージの名前。 `TARGET_IMAGE` は `repository:tag` という形式である必要があります。例: `registry.ng.bluemix.net/namespace/image:latest`
+<dd>ターゲット・イメージの名前。 `TARGET_IMAGE` は `repository:tag` という形式である必要があります。例: `us.icr.io/namespace/image:latest`
 
 </dd>
 </dl>
 
 **例**
 
-別のタグ参照 `latest` をイメージ *`registry.ng.bluemix.net/birds/bluebird:1`* に追加します。
+別のタグ参照 `latest` をイメージ `us.icr.io/birds/bluebird:1` に追加します。
 
 ```
-ibmcloud cr image-tag  registry.ng.bluemix.net/birds/bluebird:1 registry.ng.bluemix.net/birds/bluebird:latest
-```
-{: pre}
-
-イメージ `registry.ng.bluemix.net/birds/bluebird:peck` を、同じ名前空間 `birds/pigeon` 内の別のリポジトリーにコピーします。
-
-```
-ibmcloud cr image-tag registry.ng.bluemix.net/birds/bluebird:peck registry.ng.bluemix.net/birds/pigeon:peck
+ibmcloud cr image-tag  us.icr.io/birds/bluebird:1 us.icr.io/birds/bluebird:latest
 ```
 {: pre}
 
-イメージ `registry.ng.bluemix.net/birds/bluebird:peck` を、自分にアクセス権限がある別の名前空間 `animals` にコピーします。
+イメージ `us.icr.io/birds/bluebird:peck` を、同じ名前空間 `birds/pigeon` 内の別のリポジトリーにコピーします。
 
 ```
-ibmcloud cr image-tag registry.ng.bluemix.net/birds/bluebird:peck registry.ng.bluemix.net/animals/dog:bark
+ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/birds/pigeon:peck
+```
+{: pre}
+
+イメージ `us.icr.io/birds/bluebird:peck` を、自分にアクセス権限がある別の名前空間 `animals` にコピーします。
+
+```
+ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/animals/dog:bark
 ```
 {: pre}
 
@@ -910,13 +910,14 @@ ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] 
 イメージの標準的な脆弱性評価レポートを表示します。
 
 ```
-ibmcloud cr vulnerability-assessment registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr vulnerability-assessment us.icr.io/birds/bluebird:1
 ```
 {: pre}
 
-JSON 形式でイメージ *`registry.ng.bluemix.net/birds/bluebird:1`* の脆弱性評価レポートを表示します。脆弱性のみ表示されます。
+JSON 形式でイメージ `us.icr.io/birds/bluebird:1` の脆弱性評価レポートを表示します。脆弱性のみ表示されます。
 
 ```
-ibmcloud cr vulnerability-assessment --vulnerabilities  --output json registry.ng.bluemix.net/birds/bluebird:1
+ibmcloud cr vulnerability-assessment --vulnerabilities  --output json us.icr.io/birds/bluebird:1
 ```
 {: pre}
+
