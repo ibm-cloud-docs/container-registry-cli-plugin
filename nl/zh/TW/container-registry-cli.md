@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-07"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -22,6 +22,7 @@ subcollection: container-registry-cli-plugin
 {:deprecated: .deprecated}
 {:download: .download}
 
+
 # {{site.data.keyword.registrylong_notm}} CLI
 {: #containerregcli}
 
@@ -38,7 +39,7 @@ subcollection: container-registry-cli-plugin
 
 如果您要檢視 `container-registry` CLI 外掛程式的現行版本，請執行 `ibmcloud plugin list`。
 
-若要瞭解如何使用 {{site.data.keyword.registrylong_notm}} CLI，請參閱[開始使用 {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-index#index)。
+若要瞭解如何使用 {{site.data.keyword.registrylong_notm}} CLI，請參閱[開始使用 {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-getting-started#getting-started)。
 
 如需部分指令所需 IAM 平台及服務存取角色的相關資訊，請參閱[使用 Identity and Access Management 管理使用者存取](/docs/services/Registry?topic=registry-iam#iam)。
 
@@ -920,4 +921,3 @@ ibmcloud cr vulnerability-assessment us.icr.io/birds/bluebird:1
 ibmcloud cr vulnerability-assessment --vulnerabilities  --output json us.icr.io/birds/bluebird:1
 ```
 {: pre}
-

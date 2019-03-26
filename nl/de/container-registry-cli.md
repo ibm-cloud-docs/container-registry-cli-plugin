@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-07"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -22,6 +22,7 @@ subcollection: container-registry-cli-plugin
 {:deprecated: .deprecated}
 {:download: .download}
 
+
 # {{site.data.keyword.registrylong_notm}}-CLI
 {: #containerregcli}
 
@@ -38,7 +39,7 @@ Wenn Aktualisierungen für die CLI `ibmcloud` und das CLI-Plug-in `container-reg
 
 Falls Sie die aktuelle Version Ihres CLI-Plug-ins `container-registry` anzeigen wollen, führen Sie den Befehl `ibmcloud plugin list` aus.
 
-Informationen zur Verwendung der {{site.data.keyword.registrylong_notm}}-CLI enthält der Abschnitt [Einführung in {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-index#index).
+Informationen zur Verwendung der {{site.data.keyword.registrylong_notm}}-CLI enthält der Abschnitt [Einführung in {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-getting-started#getting-started).
 
 Zusätzliche Angaben über die IAM-Plattform und die Servicezugriffsrollen, die für einige Befehle erforderlich sind, finden Sie unter [Benutzerzugriff mit Identity and Access Management verwalten](/docs/services/Registry?topic=registry-iam#iam).
 
@@ -93,7 +94,7 @@ Informationen zu den erforderlichen Berechtigungen finden Sie im Abschnitt [Zugr
 
 **Beispiel**
 
-Mit dem folgenden Befehl wird ein Build für ein Docker-Image erstellt, der keinen Build-Cache aus vorherigen Builds verwendet, bei dem die Buildausgabe unterdrückt wird, der Tag *`us.icr.io/birds/bluebird:1`* lautet und als Verzeichnis das Arbeitsverzeichnis verwendet wird. 
+Mit dem folgenden Befehl wird ein Build für ein Docker-Image erstellt, der keinen Build-Cache aus vorherigen Builds verwendet, bei dem die Buildausgabe unterdrückt wird, der Tag *`us.icr.io/birds/bluebird:1`* lautet und als Verzeichnis das Arbeitsverzeichnis verwendet wird.
 
 ```
 ibmcloud cr build --no-cache --quiet --tag us.icr.io/birds/bluebird:1 .
@@ -129,7 +130,7 @@ Informationen zu den erforderlichen Berechtigungen finden Sie im Abschnitt [Zugr
 
 **Beispiele**
 
-Der folgende Befehl erstellt eine CVE-Freistellung für die CVE-ID `CVE-2018-17929` für alle Images im Repository `us.icr.io/birds/bluebird`. 
+Der folgende Befehl erstellt eine CVE-Freistellung für die CVE-ID `CVE-2018-17929` für alle Images im Repository `us.icr.io/birds/bluebird`.
 
 ```
 ibmcloud cr exemption-add --scope us.icr.io/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
@@ -143,7 +144,7 @@ ibmcloud cr exemption-add --scope "*" --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-Der folgende Befehl erstellt eine Konfigurationsproblemfreistellung für das Problem `application_configuration:nginx.ssl_protocols` für ein einzelnes Image mit dem Tag `us.icr.io/birds/bluebird:1`. 
+Der folgende Befehl erstellt eine Konfigurationsproblemfreistellung für das Problem `application_configuration:nginx.ssl_protocols` für ein einzelnes Image mit dem Tag `us.icr.io/birds/bluebird:1`.
 
 ```
 ibmcloud cr exemption-add --scope us.icr.io/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
@@ -209,7 +210,7 @@ Informationen zu den erforderlichen Berechtigungen finden Sie im Abschnitt [Zugr
 
 **Beispiele**
 
-Der folgende Befehl löscht eine CVE-Freistellung für die CVE-ID `CVE-2018-17929` für alle Images im Repository `us.icr.io/birds/bluebird`. 
+Der folgende Befehl löscht eine CVE-Freistellung für die CVE-ID `CVE-2018-17929` für alle Images im Repository `us.icr.io/birds/bluebird`.
 
 ```
 ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
@@ -223,7 +224,7 @@ ibmcloud cr exemption-rm --scope "*" --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-Der folgende Befehl löscht eine Konfigurationsproblemfreistellung für das Problem `application_configuration:nginx.ssl_protocols` für ein einzelnes Image mit dem Tag `us.icr.io/birds/bluebird:1`. 
+Der folgende Befehl löscht eine Konfigurationsproblemfreistellung für das Problem `application_configuration:nginx.ssl_protocols` für ein einzelnes Image mit dem Tag `us.icr.io/birds/bluebird:1`.
 
 ```
 ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
@@ -367,7 +368,7 @@ Informationen zu den erforderlichen Berechtigungen finden Sie im Abschnitt [Zugr
 </dl>
 
 **Beispiel**
-Mit dem folgenden Befehl wird das Image `us.icr.io/birds/bluebird:1` gelöscht. 
+Mit dem folgenden Befehl wird das Image `us.icr.io/birds/bluebird:1` gelöscht.
 
 ```
 ibmcloud cr image-rm us.icr.io/birds/bluebird:1
@@ -405,7 +406,7 @@ Informationen zu den erforderlichen Berechtigungen finden Sie im Abschnitt [Zugr
 
 **Beispiele**
 
-Mit dem folgenden Befehl wird eine weitere Tagreferenz namens `latest` zum Image `us.icr.io/birds/bluebird:1` hinzugefügt. 
+Mit dem folgenden Befehl wird eine weitere Tagreferenz namens `latest` zum Image `us.icr.io/birds/bluebird:1` hinzugefügt.
 
 ```
 ibmcloud cr image-tag  us.icr.io/birds/bluebird:1 us.icr.io/birds/bluebird:latest
@@ -920,4 +921,3 @@ Mit dem folgenden Befehl wird ein Bericht mit der Schwachstellenanalyse für Ihr
 ibmcloud cr vulnerability-assessment --vulnerabilities  --output json us.icr.io/birds/bluebird:1
 ```
 {: pre}
-

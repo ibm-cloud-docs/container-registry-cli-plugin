@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-07"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -22,6 +22,7 @@ subcollection: container-registry-cli-plugin
 {:deprecated: .deprecated}
 {:download: .download}
 
+
 # CLI {{site.data.keyword.registrylong_notm}}
 {: #containerregcli}
 
@@ -38,7 +39,7 @@ Nella riga di comando, vieni informato quando sono disponibili degli aggiornamen
 
 Se vuoi visualizzare la versione corrente del tuo plug-in della CLI `container-registry`, esegui `ibmcloud plugin list`.
 
-Per informazioni su come utilizzare la CLI {{site.data.keyword.registrylong_notm}}, vedi [Introduzione a {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-index#index).
+Per informazioni su come utilizzare la CLI {{site.data.keyword.registrylong_notm}}, vedi [Introduzione a {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-getting-started#getting-started).
 
 Per ulteriori informazioni sulla piattaforma IAM e sui ruoli di accesso al servizio necessari per alcuni comandi, vedi [Gestione dell'accesso utente con Identity and Access Management](/docs/services/Registry?topic=registry-iam#iam).
 
@@ -920,4 +921,3 @@ Visualizza un report di valutazione delle vulnerabilità per le tue immagini `us
 ibmcloud cr vulnerability-assessment --vulnerabilities  --output json us.icr.io/birds/bluebird:1
 ```
 {: pre}
-

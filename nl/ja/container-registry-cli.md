@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-07"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -22,6 +22,7 @@ subcollection: container-registry-cli-plugin
 {:deprecated: .deprecated}
 {:download: .download}
 
+
 # {{site.data.keyword.registrylong_notm}} CLI
 {: #containerregcli}
 
@@ -38,7 +39,7 @@ subcollection: container-registry-cli-plugin
 
 `container-registry` CLI プラグインの現行バージョンを表示するには、`ibmcloud plugin list` を実行します。
 
-{{site.data.keyword.registrylong_notm}} CLI の使用方法については、[{{site.data.keyword.registrylong_notm}} の概説](/docs/services/Registry?topic=registry-index#index)を参照してください。
+{{site.data.keyword.registrylong_notm}} CLI の使用方法については、[{{site.data.keyword.registrylong_notm}} の概説](/docs/services/Registry?topic=registry-getting-started#getting-started)を参照してください。
 
 一部のコマンドにとって必要な IAM プラットフォームとサービス・アクセス役割について詳しくは、[Identity and Access Management を使用したユーザー・アクセス権限の管理](/docs/services/Registry?topic=registry-iam#iam)を参照してください。
 
@@ -920,4 +921,3 @@ JSON 形式でイメージ `us.icr.io/birds/bluebird:1` の脆弱性評価レポ
 ibmcloud cr vulnerability-assessment --vulnerabilities  --output json us.icr.io/birds/bluebird:1
 ```
 {: pre}
-
