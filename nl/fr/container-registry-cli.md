@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-04-03"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -22,7 +22,6 @@ subcollection: container-registry-cli-plugin
 {:deprecated: .deprecated}
 {:download: .download}
 
-
 # Interface de ligne de commande {{site.data.keyword.registrylong_notm}}
 {: #containerregcli}
 
@@ -31,8 +30,7 @@ Vous pouvez utiliser l'interface de ligne de commande d'{{site.data.keyword.regi
 
 **Prérequis**
 
-* Installez l'[interface de ligne de commande {{site.data.keyword.Bluemix_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli). Le préfixe pour l'exécution de commandes via l'interface CLI d'{{site.data.keyword.Bluemix_notm}} est `ibmcloud`.
-
+* Installez l'interface de ligne de commande [{{site.data.keyword.Bluemix_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli). Le préfixe pour l'exécution de commandes via l'interface CLI d'{{site.data.keyword.Bluemix_notm}} est `ibmcloud`.
 * Avant d'exécuter les commandes de registre, connectez-vous à {{site.data.keyword.Bluemix_notm}} à l'aide de la commande `ibmcloud login` pour générer un jeton d'accès et authentifier votre session.
 
 En ligne de commande, vous êtes averti lorsque les mises à jour de l'interface de ligne de commande `ibmcloud` et des plug-in d'interface de ligne de commande `container-registry` sont disponibles. Prenez soin de maintenir votre interface de ligne de commande à jour afin de pouvoir utiliser toutes les commandes et options disponibles.
@@ -94,7 +92,7 @@ Pour en savoir plus sur les droits requis, voir [Rôles d'accès pour l'utilisat
 
 **Exemple**
 
-Générez une image Docker n'utilisant pas de cache de génération des précédentes générations, où la sortie de génération est supprimée, où la balise est *`us.icr.io/birds/bluebird:1`* et avec votre répertoire de travail comme répertoire.
+Générez une image Docker n'utilisant pas de cache de génération des précédentes générations, où la sortie de génération est supprimée, où la balise est *`us.icr.io/birds/bluebird:1`* et où le répertoire est votre répertoire de travail.
 
 ```
 ibmcloud cr build --no-cache --quiet --tag us.icr.io/birds/bluebird:1 .
@@ -104,7 +102,7 @@ ibmcloud cr build --no-cache --quiet --tag us.icr.io/birds/bluebird:1 .
 ## `ibmcloud cr exemption-add`
 {: #bx_cr_exemption_add}
 
-Créez une exemption pour un problème de sécurité. Vous pouvez créer une exemption pour une question de sécurité qui s'applique à différentes portées. La portée peut être le compte, l'espace de nom, le référentiel ou la balise.
+Crée une exemption pour un problème de sécurité. Vous pouvez créer une exemption pour une question de sécurité qui s'applique à différentes portées. La portée peut être le compte, l'espace de nom, le référentiel ou la balise.
 
 ```
 ibmcloud cr exemption-add --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE_ID
@@ -124,7 +122,7 @@ Pour en savoir plus sur les droits requis, voir [Rôles d'accès pour la configu
 <dd>Type de problème de sécurité que vous voulez exempter. Pour connaître les types de problème valides, exécutez `ibmcloud cr exemption-types`.
 </dd>
 <dt>`--issue-id ISSUE_ID`</dt>
-<dd>ID de problème de sécurité que vous voulez exempter. Pour trouver un ID de problème, exécutez `ibmcloud cr va <image>`, où `<image>` est le nom de votre image, et utilisez la valeur pertinente de la colonne **ID de vulnérabilité** ou **ID du problème de configuration**.
+<dd>ID de problème de sécurité que vous voulez exempter. Pour trouver un ID de problème, exécutez `ibmcloud cr va <image>`, où `<image>` est le nom de votre image, et utilisez la valeur pertinente de la colonne **Vulnerability ID** ou **Configuration Issue ID**.
 </dd>
 </dl>
 
@@ -234,7 +232,7 @@ ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird:1 --issue-type configu
 ## `ibmcloud cr exemption-types`
 {: #bx_cr_exemption_types}
 
-Liste les types de problèmes de sécurité que vous pouvez exempter.
+Répertorie les types de problèmes de sécurité que vous pouvez exempter.
 
 ```
 ibmcloud cr exemption-types
@@ -259,10 +257,20 @@ ibmcloud cr iam-policies-enable
 
 Pour en savoir plus sur les droits requis, voir [Rôles d'accès pour la configuration d'{{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
+## `ibmcloud cr iam-policies-status`
+{: #bx_cr_iam_policies_status}
+
+Affiche le statut des règles IAM du compte {{site.data.keyword.registryshort_notm}} ciblé. Pour plus d'informations, voir [Gestion des accès utilisateur à l'aide d'Identity and Access Management](/docs/services/Registry?topic=registry-iam#iam) et [Définition de règles de rôle d'accès utilisateur](/docs/services/Registry?topic=registry-user#user).
+
+```
+ibmcloud cr iam-policies-status
+```
+{: codeblock}
+
 ## `ibmcloud cr image-inspect`
 {: #bx_cr_image_inspect}
 
-Affiche les détails d'une image spécifique.
+Affichez les détails d'une image spécifique.
 
 ```
 ibmcloud cr image-inspect [--format FORMAT] IMAGE [IMAGE...]
@@ -284,7 +292,7 @@ Pour plus d'informations, voir [Formatage et filtrage de la sortie de l'interfac
 <dt>`IMAGE`</dt>
 <dd>Nom de l'image pour laquelle vous voulez obtenir un rapport. Vous pouvez inspecter plusieurs images en les répertoriant dans la commande, séparées les unes des autres par un espace.
 
-<p>Pour trouver les noms de vos images, exécutez `ibmcloud cr image-list`. Associez le contenu des colonnes **Référentiel** et **Balise** pour créer le nom de l'image au format `repository:tag`. Si aucune étiquette n'est spécifiée dans le nom de l'image, l'image associée à l'étiquette `latest` est inspectée. </p>
+<p>Pour trouver les noms de vos images, exécutez `ibmcloud cr image-list`. Associez le contenu des colonnes **Repository** et **Tag** pour créer le nom de l'image au format `repository:tag`. Si aucune étiquette n'est spécifiée dans le nom de l'image, l'image associée à l'étiquette `latest` est inspectée. </p>
 
 </dd>
 </dl>
@@ -303,7 +311,7 @@ ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds
 
 Affiche toutes les images de votre compte {{site.data.keyword.Bluemix_notm}}.
 
-Le nom de l'image est la combinaison du contenu des colonnes **Référentiel** et **Balise** au format `repository:tag`.
+Le nom de l'image est la combinaison du contenu des colonnes **Repository** et **Tag** au format `repository:tag`.
 {:tip}
 
 ```
@@ -362,7 +370,7 @@ Pour en savoir plus sur les droits requis, voir [Rôles d'accès pour l'utilisat
 <dt>`IMAGE`</dt>
 <dd>Nom de l'image que vous souhaitez supprimer. Vous pouvez supprimer plusieurs images en même temps en les répertoriant dans la commande, séparées les unes des autres par un espace. `IMAGE` doit être au format `repository:tag`, par exemple : `us.icr.io/namespace/image:latest`
 
-<p>Pour trouver les noms de vos images, exécutez `ibmcloud cr image-list`. Associez le contenu des colonnes **Référentiel** et **Balise** pour créer le nom de l'image au format `repository:tag`. Si aucune étiquette n'est spécifiée dans le nom de l'image, l'image associée à l'étiquette `latest` est supprimée par défaut.</p>
+<p>Pour trouver les noms de vos images, exécutez `ibmcloud cr image-list`. Associez le contenu des colonnes **Repository** et **Tag** pour créer le nom de l'image au format `repository:tag`. Si aucune étiquette n'est spécifiée dans le nom de l'image, l'image associée à l'étiquette `latest` est supprimée par défaut.</p>
 
 </dd>
 </dl>
@@ -378,9 +386,9 @@ ibmcloud cr image-rm us.icr.io/birds/bluebird:1
 ## `ibmcloud cr image-tag`
 {: #bx_cr_image_tag}
 
-Créez une nouvelle image, TARGET_IMAGE, qui fait référence à une image source, SOURCE_IMAGE, dans {{site.data.keyword.registrylong_notm}}. Les images source et cible doivent se trouver dans la même région.
+Crée une nouvelle image, TARGET_IMAGE, qui fait référence à une image source, SOURCE_IMAGE, dans {{site.data.keyword.registrylong_notm}}. Les images source et cible doivent se trouver dans la même région.
 
-Pour trouver les noms de vos images, exécutez `ibmcloud cr image-list`. Associez le contenu des colonnes **Référentiel** et **Balise** pour créer le nom de l'image au format `repository:tag`.
+Pour trouver les noms de vos images, exécutez `ibmcloud cr image-list`. Associez le contenu des colonnes **Repository** et **Tag** pour créer le nom de l'image au format `repository:tag`.
 {: tip}
 
 ```
@@ -413,14 +421,14 @@ ibmcloud cr image-tag  us.icr.io/birds/bluebird:1 us.icr.io/birds/bluebird:lates
 ```
 {: pre}
 
-Copiez l'image `us.icr.io/birds/bluebird:peck` vers un autre référentiel dans le même espace de nom `birds/pigeon`.
+Copiez l'image `us.icr.io/birds/bluebird:peck` dans un autre référentiel du même espace de nom `birds/pigeon`.
 
 ```
 ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/birds/pigeon:peck
 ```
 {: pre}
 
-Copiez l'image `us.icr.io/birds/bluebird:peck` vers un autre espace de nom `animals` auquel vous avez accès.
+Copiez l'image `us.icr.io/birds/bluebird:peck` dans un autre espace de nom `animals` auquel vous avez accès.
 
 ```
 ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/animals/dog:bark
@@ -458,7 +466,7 @@ Néant
 ## `ibmcloud cr namespace-add`
 {: #bx_cr_namespace_add}
 
-Choisissez un nom pour votre espace de nom et l'ajoute à votre compte {{site.data.keyword.Bluemix_notm}}.
+Choisit un nom pour votre espace de nom et l'ajoute à votre compte {{site.data.keyword.Bluemix_notm}}.
 
 ```
 ibmcloud cr namespace-add NAMESPACE
@@ -523,7 +531,7 @@ Pour en savoir plus sur les droits requis, voir [Rôles d'accès pour l'utilisat
 <dt>`NAMESPACE`</dt>
 <dd>Espace de nom que vous désirez supprimer.</dd>
 <dt>`--force`, `-f`</dt>
-<dd>(Facultatif) Force la commande à s'exécuter sans invites utilisateur.</dd>
+<dd>(Facultatif) Force l'exécution de la commande sans invites utilisateur.</dd>
 </dl>
 
 **Exemple**
@@ -585,7 +593,7 @@ ibmcloud cr plan-upgrade standard
 
 Importe le logiciel {{site.data.keyword.IBM_notm}} qui est téléchargé depuis [IBM Passport Advantage Online pour les clients ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/software/passportadvantage/pao_customer.html) et conditionné pour une utilisation avec Helm dans votre espace de nom {{site.data.keyword.registrylong_notm}}.
 
-Les images de conteneur sont envoyées par commande push à votre espace de nom {{site.data.keyword.registryshort_notm}} privé. Les chartes Helm sont écrites dans un répertoire `ppa-import` créé dans le répertoire à partir duquel vous exécutez la commande. Vous avez la possibilité d'utiliser le [projet open source Chart Museum ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/kubernetes/charts/tree/master/stable/chartmuseum) pour héberger des chartes Helm.
+Les images de conteneur sont envoyées par commande push à votre espace de nom {{site.data.keyword.registryshort_notm}} privé. Les chartes Helm sont écrites dans un répertoire `ppa-import` créé dans le répertoire à partir duquel vous exécutez la commande. Vous avez la possibilité d'utiliser le [projet open source Chart Museum ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/helm/charts/tree/master/stable/chartmuseum) pour héberger des chartes Helm.
 
 ```
 ibmcloud cr ppa-archive-load --archive FILE --namespace NAMESPACE
@@ -603,11 +611,11 @@ Pour en savoir plus sur les droits requis, voir [Rôles d'accès pour l'utilisat
   <dt>`--namespace NAMESPACE`</dt>
   <dd>Un de vos espaces de nom. Les images de conteneur du fichier compressé sont envoyées par commande push vers cet espace de nom. Pour répertorier les espaces de nom, exécutez `ibmcloud cr namespace-list`.</dd>
   <dt>`--chartmuseum-uri URI`</dt>
-  <dd>(Facultatif) Votre ID ressource unique [Chart Museum ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/kubernetes/charts/tree/master/stable/chartmuseum).</dd>
+  <dd>(Facultatif) Votre ID ressource unique [Chart Museum ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/helm/charts/tree/master/stable/chartmuseum).</dd>
   <dt>`--chartmuseum-user USER`</dt>
-  <dd>(Facultatif) Votre nom d'utilisateur [Chart Museum ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/kubernetes/charts/tree/master/stable/chartmuseum).</dd>
+  <dd>(Facultatif) Votre nom d'utilisateur [Chart Museum ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/helm/charts/tree/master/stable/chartmuseum).</dd>
   <dt>`--chartmuseum-password PASSWORD`</dt>
-  <dd>(Facultatif) Votre mot de passe [Chart Museum ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/kubernetes/charts/tree/master/stable/chartmuseum).</dd>
+  <dd>(Facultatif) Votre mot de passe [Chart Museum ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/helm/charts/tree/master/stable/chartmuseum).</dd>
 </dl>
 
 **Exemple**
@@ -828,7 +836,7 @@ Cet exemple produit une sortie au format suivant :
 ## `ibmcloud cr token-rm`
 {: #bx_cr_token_rm}
 
-Retire un ou plusieurs jetons de registre spécifiés.
+Supprime un ou plusieurs des jetons de registre spécifiés.
 
 ```
 ibmcloud cr token-rm TOKEN [TOKEN...] [--force | -f]
@@ -844,7 +852,7 @@ Pour en savoir plus sur les droits requis, voir [Rôles de gestion de plateforme
 <dt>`TOKEN`</dt>
 <dd>TOKEN peut correspondre au jeton proprement dit ou à l'identificateur unique du jeton, comme indiqué dans `ibmcloud cr token-list`. Vous pouvez spécifier plusieurs jetons en les séparant par un espace.</dd>
 <dt>`--force`, `-f`</dt>
-<dd>(Facultatif) Force la commande à s'exécuter sans invites utilisateur.</dd>
+<dd>(Facultatif) Force l'exécution de la commande sans invites utilisateur.</dd>
 </dl>
 
 **Exemple**
@@ -875,7 +883,7 @@ Pour en savoir plus sur les droits requis, voir [Rôles d'accès pour l'utilisat
 <dt>`IMAGE`</dt>
 <dd>Nom de l'image pour laquelle vous voulez obtenir un rapport. Le rapport vous signale si l'image comporte des vulnérabilités de package connues. Vous pouvez demander des rapports pour plusieurs images en même temps en les répertoriant dans la commande, séparées les unes des autres par un espace.
 
-<p>Pour trouver les noms de vos images, exécutez `ibmcloud cr image-list`. Associez le contenu des colonnes **Référentiel** et **Balise** pour créer le nom de l'image au format `repository:tag`. Si aucune étiquette n'est spécifiée dans le nom de l'image, le rapport évalue l'image associée à l'étiquette `latest`.</p>
+<p>Pour trouver les noms de vos images, exécutez `ibmcloud cr image-list`. Associez le contenu des colonnes **Repository** et **Tag** pour créer le nom de l'image au format `repository:tag`. Si aucune étiquette n'est spécifiée dans le nom de l'image, le rapport évalue l'image associée à l'étiquette `latest`.</p>
 
 <p>Les systèmes d'exploitation suivants sont pris en charge :
 

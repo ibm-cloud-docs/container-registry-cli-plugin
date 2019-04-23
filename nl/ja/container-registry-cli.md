@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-04-03"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -22,7 +22,6 @@ subcollection: container-registry-cli-plugin
 {:deprecated: .deprecated}
 {:download: .download}
 
-
 # {{site.data.keyword.registrylong_notm}} CLI
 {: #containerregcli}
 
@@ -31,13 +30,12 @@ subcollection: container-registry-cli-plugin
 
 **前提条件**
 
-* [{{site.data.keyword.Bluemix_notm}}CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) をインストールします。 {{site.data.keyword.Bluemix_notm}} CLI を使用してコマンドを実行するための接頭部は、`ibmcloud` です。
-
+* [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) をインストールします。 {{site.data.keyword.Bluemix_notm}} CLI を使用してコマンドを実行するための接頭部は、`ibmcloud` です。
 * レジストリー・コマンドを実行する前に、`ibmcloud login` コマンドを使用して {{site.data.keyword.Bluemix_notm}} にログインし、アクセス・トークンを生成して、セッションを認証します。
 
 `ibmcloud` CLI および `container-registry` CLI プラグインの更新が使用可能になると、コマンド・ラインに通知が表示されます。 使用可能なすべてのコマンドとフラグを使用できるように、CLI を最新の状態に保つようにしてください。
 
-`container-registry` CLI プラグインの現行バージョンを表示するには、`ibmcloud plugin list` を実行します。
+現行バージョンの `container-registry` CLI プラグインを表示しようとしている場合は、`ibmcloud plugin list` を実行します。
 
 {{site.data.keyword.registrylong_notm}} CLI の使用方法については、[{{site.data.keyword.registrylong_notm}} の概説](/docs/services/Registry?topic=registry-getting-started#getting-started)を参照してください。
 
@@ -72,7 +70,7 @@ ibmcloud cr build [--no-cache] [--pull] [--quiet | -q] [--build-arg KEY=VALUE ..
 
 **前提条件**
 
-必要な許可については、[ {{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
 
 **コマンド・オプション**
 <dl>
@@ -113,7 +111,7 @@ ibmcloud cr exemption-add --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE
 
 **前提条件**
 
-必要な許可については、[{{site.data.keyword.registrylong_notm}} の構成に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} を構成するためのアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
 
 **コマンド・オプション**
 <dl>
@@ -163,7 +161,7 @@ ibmcloud cr exemption-list [--scope SCOPE]
 
 **前提条件**
 
-必要な許可については、[{{site.data.keyword.registrylong_notm}} の構成に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} を構成するためのアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
 
 **コマンド・オプション**
 <dl>
@@ -193,7 +191,7 @@ ibmcloud cr exemption-rm --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE_
 
 **前提条件**
 
-必要な許可については、[{{site.data.keyword.registrylong_notm}} の構成に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} を構成するためのアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
 
 **コマンド・オプション**
 <dl>
@@ -243,7 +241,7 @@ ibmcloud cr exemption-types
 
 **前提条件**
 
-必要な許可については、[{{site.data.keyword.registrylong_notm}} の構成に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} を構成するためのアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
 
 ## `ibmcloud cr iam-policies-enable`
 {: #bx_cr_iam_policies_enable}
@@ -257,7 +255,17 @@ ibmcloud cr iam-policies-enable
 
 **前提条件**
 
-必要な許可については、[{{site.data.keyword.registrylong_notm}} の構成に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} を構成するためのアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
+
+## `ibmcloud cr iam-policies-status`
+{: #bx_cr_iam_policies_status}
+
+ターゲットである {{site.data.keyword.registryshort_notm}} アカウントの IAM ポリシーの状況を表示します。詳しくは、[Identity and Access Management を使用したユーザー・アクセス権限の管理](/docs/services/Registry?topic=registry-iam#iam)と[ユーザー・アクセスの役割ポリシーの定義](/docs/services/Registry?topic=registry-user#user)を参照してください。
+
+```
+ibmcloud cr iam-policies-status
+```
+{: codeblock}
 
 ## `ibmcloud cr image-inspect`
 {: #bx_cr_image_inspect}
@@ -271,7 +279,7 @@ ibmcloud cr image-inspect [--format FORMAT] IMAGE [IMAGE...]
 
 **前提条件**
 
-必要な許可については、[ {{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
 
 **コマンド・オプション**
 <dl>
@@ -313,7 +321,7 @@ ibmcloud cr image-list [--no-trunc] [--format FORMAT] [--quiet | -q ] [--restric
 
 **前提条件**
 
-必要な許可については、[ {{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
 
 **コマンド・オプション**
 <dl>
@@ -354,7 +362,7 @@ ibmcloud cr image-rm IMAGE [IMAGE...]
 
 **前提条件**
 
-必要な許可については、[ {{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
 
 **コマンド・オプション**
 
@@ -378,7 +386,7 @@ ibmcloud cr image-rm us.icr.io/birds/bluebird:1
 ## `ibmcloud cr image-tag`
 {: #bx_cr_image_tag}
 
-{{site.data.keyword.registrylong_notm}} で、ソース・イメージ SOURCE_IMAGE を参照する新規イメージ TARGET_IMAGE を作成します。 これらのソース・イメージとターゲット・イメージは、同じ地域に存在する必要があります。
+{{site.data.keyword.registrylong_notm}} で、ソース・イメージ SOURCE_IMAGE を参照する新しいイメージ TARGET_IMAGE を作成します。 ソース・イメージとターゲット・イメージは、同一の領域内になければなりません。
 
 イメージの名前を調べるには、`ibmcloud cr image-list` を実行します。 **Repository** 列と **Tag** 列の内容を組み合わせると、`repository:tag` の形式のイメージ名になります。
 {: tip}
@@ -390,7 +398,7 @@ ibmcloud cr image-tag [SOURCE_IMAGE] [TARGET_IMAGE]
 
 **前提条件**
 
-必要な許可については、[ {{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
 
 **コマンド・オプション**
 <dl>
@@ -413,14 +421,14 @@ ibmcloud cr image-tag  us.icr.io/birds/bluebird:1 us.icr.io/birds/bluebird:lates
 ```
 {: pre}
 
-イメージ `us.icr.io/birds/bluebird:peck` を、同じ名前空間 `birds/pigeon` 内の別のリポジトリーにコピーします。
+イメージ `us.icr.io/birds/bluebird:peck` を同じ名前空間 `birds/pigeon` にある別のリポジトリーにコピーします。
 
 ```
 ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/birds/pigeon:peck
 ```
 {: pre}
 
-イメージ `us.icr.io/birds/bluebird:peck` を、自分にアクセス権限がある別の名前空間 `animals` にコピーします。
+イメージ `us.icr.io/birds/bluebird:peck` をアクセス権限のある別の名前空間 `animals` にコピーします。
 
 ```
 ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/animals/dog:bark
@@ -467,7 +475,7 @@ ibmcloud cr namespace-add NAMESPACE
 
 **前提条件**
 
-必要な許可については、[ {{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
 
 **コマンド・オプション**
 <dl>
@@ -502,7 +510,7 @@ ibmcloud cr namespace-list
 
 **前提条件**
 
-必要な許可については、[ {{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
 
 ## `ibmcloud cr namespace-rm`
 {: #bx_cr_namespace_rm}
@@ -516,14 +524,14 @@ ibmcloud cr namespace-rm NAMESPACE  [--force | -f]
 
 **前提条件**
 
-必要な許可については、[ {{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
 
 **コマンド・オプション**
 <dl>
 <dt>`NAMESPACE`</dt>
 <dd>削除する名前空間。</dd>
 <dt>`--force`, `-f`</dt>
-<dd>(オプション) ユーザー・プロンプトを出さずにコマンドを実行するように強制します。</dd>
+<dd>(オプション) ユーザー・プロンプトを出さずに強制的にコマンドを実行します。</dd>
 </dl>
 
 **例**
@@ -547,7 +555,7 @@ ibmcloud cr plan
 
 **前提条件**
 
-必要な許可については、[{{site.data.keyword.registrylong_notm}} の構成に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} を構成するためのアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
 
 ## `ibmcloud cr plan-upgrade`
 {: #bx_cr_plan_upgrade}
@@ -563,7 +571,7 @@ ibmcloud cr plan-upgrade [PLAN]
 
 **前提条件**
 
-必要な許可については、[{{site.data.keyword.registrylong_notm}} の構成に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} を構成するためのアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
 
 **コマンド・オプション**
 <dl>
@@ -583,9 +591,9 @@ ibmcloud cr plan-upgrade standard
 ## `ibmcloud cr ppa-archive-load`
 {: #bx_cr_ppa_archive_load}
 
-[IBM お客様向けパスポート・アドバンテージ・オンライン ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/software/passportadvantage/pao_customer.html) からダウンロードした、Helm で使用できるようにパッケージ化された {{site.data.keyword.IBM_notm}} ソフトウェアを、{{site.data.keyword.registrylong_notm}} 名前空間にインポートします。
+[IBM お客様向けパスポート・アドバンテージ・オンライン ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/software/passportadvantage/pao_customer.html) からダウンロードした、Helm で使用できるようにパッケージ化された {{site.data.keyword.IBM_notm}} ソフトウェアを、{{site.data.keyword.registrylong_notm}}名前空間にインポートします。
 
-コンテナー・イメージは、プライベート {{site.data.keyword.registryshort_notm}} 名前空間にプッシュされます。 Helm チャートは、このコマンドを実行したディレクトリー内に作成される `ppa-import` ディレクトリーに書き込まれます。 オプションで、[Chart Museum オープン・ソース・プロジェクト ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/kubernetes/charts/tree/master/stable/chartmuseum) を使用して helm チャートをホストできます。
+コンテナー・イメージは、プライベート {{site.data.keyword.registryshort_notm}} 名前空間にプッシュされます。 Helm チャートは、このコマンドを実行したディレクトリー内に作成される `ppa-import` ディレクトリーに書き込まれます。 オプションで、[Chart Museum オープン・ソース・プロジェクト ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/helm/charts/tree/master/stable/chartmuseum) を使用して helm チャートをホストできます。
 
 ```
 ibmcloud cr ppa-archive-load --archive FILE --namespace NAMESPACE
@@ -594,7 +602,7 @@ ibmcloud cr ppa-archive-load --archive FILE --namespace NAMESPACE
 
 **前提条件**
 
-必要な許可については、[ {{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
 
 **コマンド・オプション**
 <dl>
@@ -603,16 +611,16 @@ ibmcloud cr ppa-archive-load --archive FILE --namespace NAMESPACE
   <dt>`--namespace NAMESPACE`</dt>
   <dd>所有する名前空間のいずれか。 圧縮ファイルのコンテナー・イメージがこの名前空間にプッシュされます。 名前空間をリストするには、`ibmcloud cr namespace-list` を実行します。</dd>
   <dt>`--chartmuseum-uri URI`</dt>
-  <dd>(オプション) [Chart Museum ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/kubernetes/charts/tree/master/stable/chartmuseum) の固有リソース ID。</dd>
+  <dd>(オプション) [Chart Museum ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/helm/charts/tree/master/stable/chartmuseum) の固有リソース ID。</dd>
   <dt>`--chartmuseum-user USER`</dt>
-  <dd>(オプション) [Chart Museum ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/kubernetes/charts/tree/master/stable/chartmuseum) のユーザー名。</dd>
+  <dd>(オプション) [Chart Museum ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/helm/charts/tree/master/stable/chartmuseum) のユーザー名。</dd>
   <dt>`--chartmuseum-password PASSWORD`</dt>
-  <dd>(オプション) [Chart Museum ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/kubernetes/charts/tree/master/stable/chartmuseum) のパスワード。</dd>
+  <dd>(オプション) [Chart Museum ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/helm/charts/tree/master/stable/chartmuseum) のパスワード。</dd>
 </dl>
 
 **例**
 
-IBM ソフトウェアを {{site.data.keyword.registrylong_notm}} 名前空間 *`birds`* 内にインポートし、Helm で使用できるようにパッケージ化します。圧縮ファイルへのパスは *`downloads/compressed_file.tgz`* です。
+IBM ソフトウェアを{{site.data.keyword.registrylong_notm}} 名前空間 *`birds`* 内にインポートし、Helm で使用できるようにパッケージ化します。圧縮ファイルへのパスは *`downloads/compressed_file.tgz`* です。
 
 ```
 ibmcloud cr ppa-archive-load --archive downloads/compressed_file.tgz --namespace birds
@@ -631,7 +639,7 @@ ibmcloud cr quota
 
 **前提条件**
 
-必要な許可については、[{{site.data.keyword.registrylong_notm}} の構成に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} を構成するためのアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
 
 ## `ibmcloud cr quota-set`
 {: #bx_cr_quota_set}
@@ -645,7 +653,7 @@ ibmcloud cr quota-set [--traffic TRAFFIC] [--storage STORAGE]
 
 **前提条件**
 
-必要な許可については、[{{site.data.keyword.registrylong_notm}} の構成に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} を構成するためのアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_configure)を参照してください。
 
 **コマンド・オプション**
 <dl>
@@ -725,7 +733,7 @@ ibmcloud cr token-add [--description DESCRIPTION] [--quiet | -q] [--non-expiring
 
 **前提条件**
 
-必要な許可については、[プラットフォーム管理の役割](/docs/services/Registry?topic=registry-iam#platform_management_roles)を参照してください。
+必要な許可について調べるには、[プラットフォーム管理の役割](/docs/services/Registry?topic=registry-iam#platform_management_roles)を参照してください。
 
 **コマンド・オプション**
 <dl>
@@ -766,7 +774,7 @@ ibmcloud cr token-get TOKEN
 
 **前提条件**
 
-必要な許可については、[プラットフォーム管理の役割](/docs/services/Registry?topic=registry-iam#platform_management_roles)を参照してください。
+必要な許可について調べるには、[プラットフォーム管理の役割](/docs/services/Registry?topic=registry-iam#platform_management_roles)を参照してください。
 
 **コマンド・オプション**
 <dl>
@@ -795,7 +803,7 @@ ibmcloud cr token-list [--format FORMAT]
 
 **前提条件**
 
-必要な許可については、[プラットフォーム管理の役割](/docs/services/Registry?topic=registry-iam#platform_management_roles)を参照してください。
+必要な許可について調べるには、[プラットフォーム管理の役割](/docs/services/Registry?topic=registry-iam#platform_management_roles)を参照してください。
 
 **コマンド・オプション**
 <dl>
@@ -835,14 +843,14 @@ ibmcloud cr token-rm TOKEN [TOKEN...] [--force | -f]
 
 **前提条件**
 
-必要な許可については、[プラットフォーム管理の役割](/docs/services/Registry?topic=registry-iam#platform_management_roles)を参照してください。
+必要な許可について調べるには、[プラットフォーム管理の役割](/docs/services/Registry?topic=registry-iam#platform_management_roles)を参照してください。
 
 **コマンド・オプション**
 <dl>
 <dt>`TOKEN`</dt>
-<dd>TOKEN には、トークン自体またはトークンの固有 ID (`ibmcloud cr token-list` で表示される) のいずれかを指定できます。 複数のトークンをスペースで区切って指定できます。</dd>
+<dd>TOKEN には、トークン自体を指定することもトークンの固有 ID (`ibmcloud cr token-list` で表示されます) を指定することもできます。 複数のトークンをスペースで区切って指定できます。</dd>
 <dt>`--force`, `-f`</dt>
-<dd>(オプション) ユーザー・プロンプトを出さずにコマンドを実行するように強制します。</dd>
+<dd>(オプション) ユーザー・プロンプトを出さずに強制的にコマンドを実行します。</dd>
 </dl>
 
 **例**
@@ -866,7 +874,7 @@ ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] 
 
 **前提条件**
 
-必要な許可については、[ {{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
+必要な許可について調べるには、[{{site.data.keyword.registrylong_notm}} の使用に関するアクセス役割](/docs/services/Registry?topic=registry-iam#access_roles_using)を参照してください。
 
 **コマンド・オプション**
 <dl>
@@ -886,7 +894,7 @@ ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] 
 </ul>
 </p>
 
-詳しくは、[脆弱性アドバイザーを使用したイメージ・セキュリティーの管理](/docs/services/va?topic=va-va_index)を参照してください。
+詳しくは、[脆弱性アドバイザーによるイメージのセキュリティーの管理](/docs/services/va?topic=va-va_index)を参照してください。
 
 </dd>
 <dt>`--extended`, `-e`</dt>

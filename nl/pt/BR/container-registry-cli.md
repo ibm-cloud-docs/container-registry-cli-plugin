@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-04-03"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -22,22 +22,21 @@ subcollection: container-registry-cli-plugin
 {:deprecated: .deprecated}
 {:download: .download}
 
-
-# CLI do {{site.data.keyword.registrylong_notm}}
+# {{site.data.keyword.registrylong_notm}} CLI (interface da linha de comandos)
 {: #containerregcli}
 
-É possível usar a CLI do {{site.data.keyword.registrylong}}, que é fornecida no plug-in da CLI `container-registry`, para gerenciar seu registro e seus recursos da sua conta do {{site.data.keyword.Bluemix_notm}}.
+É possível usar a CLI do {{site.data.keyword.registrylong}}, que é fornecida no plug-in da CLI `container-registry`, para gerenciar seu registro e seus recursos para sua conta do {{site.data.keyword.Bluemix_notm}}.
 {: shortdesc}
 
 **Pré-requisitos**
 
-* Instale a [ CLI do {{site.data.keyword.Bluemix_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli). O prefixo para executar comandos usando a CLI do {{site.data.keyword.Bluemix_notm}} é `ibmcloud`.
-
-* Antes de executar os comandos de registro, efetue login no {{site.data.keyword.Bluemix_notm}} com o comando `ibmcloud login` para gerar um token de acesso e autenticar sua sessão.
+* Instale a [CLI do {{site.data.keyword.Bluemix_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli). O prefixo para executar comandos usando a CLI do {{site.data.keyword.Bluemix_notm}} é `ibmcloud`.
+* Antes de executar os comandos de registro, efetue login no {{site.data.keyword.Bluemix_notm}}
+ com o comando `ibmcloud login` para gerar um token de acesso e autenticar sua sessão.
 
 Na linha de comandos, você é notificado quando as atualizações para os plug-ins da CLI `ibmcloud` e da CLI `container-registry` estão disponíveis. Assegure-se de manter sua CLI atualizada para que seja possível usar todos os comandos e sinalizadores disponíveis.
 
-Se você desejar visualizar a versão atual do plug-in da CLI `container-registry`, execute `ibmcloud plugin list`.
+Se desejar visualizar a versão atual do plug-in da CLI `container-registry`, execute `ibmcloud plugin list`.
 
 Para descobrir sobre como usar a CLI do {{site.data.keyword.registrylong_notm}}, veja [Introdução ao {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-getting-started#getting-started).
 
@@ -47,7 +46,7 @@ Não coloque informações pessoais em imagens de contêiner, nomes de namespace
 exemplo, nomes ou rótulos de imagem).
 {:tip}
 
-## `ibmcloud cr api`
+## ` ibmcloud cr api `
 {: #bx_cr_api}
 
 Retorna os detalhes sobre o terminal de API de registro com relação ao qual os comandos são executados.
@@ -59,9 +58,9 @@ ibmcloud cr api
 
 **Pré-requisitos**
 
-Nenhum
+Nenhuma
 
-## `ibmcloud cr build`
+## ` ibmcloud cr build `
 {: #bx_cr_build}
 
 Constrói uma imagem do Docker no {{site.data.keyword.registrylong_notm}}.
@@ -73,7 +72,7 @@ ibmcloud cr build [--no-cache] [--pull] [--quiet | -q] [--build-arg KEY=VALUE ..
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Opções de comandos**
 <dl>
@@ -95,14 +94,14 @@ Para saber sobre as permissões necessárias, consulte [Funções de acesso para
 
 **Exemplo**
 
-Construa uma imagem do Docker que não use um cache de construção de construções anteriores, em que a saída da construção seja suprimida, a tag seja *`us.icr.io/birds/bluebird:1`* e o diretório seja seu diretório ativo.
+Construa uma imagem do Docker que não use um cache de construções anteriores, cuja saída de construção seja suprimida, a tag seja *`us.icr.io/birds/bluebird:1`* e o diretório seja seu diretório ativo.
 
 ```
 ibmcloud cr build --no-cache --quiet --tag us.icr.io/birds/bluebird:1 .
 ```
 {: pre}
 
-## `ibmcloud cr exemption-add`
+## ` ibmcloud cr UNK-add `
 {: #bx_cr_exemption_add}
 
 Crie uma isenção para um problema de segurança. É possível criar uma isenção para um problema de segurança que se aplica a diferentes escopos. O escopo pode ser a conta, o namespace, o repositório ou a tag.
@@ -114,7 +113,7 @@ ibmcloud cr exemption-add --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
 **Opções de comandos**
 <dl>
@@ -147,7 +146,7 @@ ibmcloud cr exemption-add --scope "*" --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-Crie uma isenção de problema de configuração para emitir `application_configuration:nginx.ssl_protocols` para a imagem única com a tag `us.icr.io/birds/bluebird:1`.
+Crie uma isenção de problema de configuração para emitir `application_configuration:nginx.ssl_protocols` para uma imagem única com a tag `us.icr.io/birds/bluebird:1`.
 
 ```
 ibmcloud cr exemption-add --scope us.icr.io/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
@@ -160,13 +159,13 @@ ibmcloud cr exemption-add --scope us.icr.io/birds/bluebird:1 --issue-type config
 Liste suas isenções para problemas de segurança.
 
 ```
-ibmcloud cr exemption-list [--scope SCOPE]
+ibmcloud cr UNK-list [ -- scope SCOPE ]
 ```
 {: codeblock}
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
 **Opções de comandos**
 <dl>
@@ -177,14 +176,14 @@ Para saber sobre as permissões necessárias, consulte [Funções de acesso para
 
 **Exemplo**
 
-Liste todas as suas isenções para problemas de segurança que se aplicam a imagens no repositório *`birds/bluebird`*. A saída inclui isenções que são em toda a conta, isenções com escopo definido para o namespace *`birds`* e isenções com escopo definido para o repositório *`birds/bluebird`*, mas nenhuma com escopo definido para tags específicas dentro do repositório *`birds/bluebird`*.
+Liste todas as suas isenções para problemas de segurança que se aplicam a imagens no repositório *`birds/bluebird`*. A saída inclui isenções que abrangem toda a conta, isenções com escopo definido no namespace *`birds`* e isenções com escopo definido no repositório *`birds/bluebird`*, mas não com escopo definido para tags específicas dentro do repositório *`birds/bluebird`*.
 
 ```
 ibmcloud cr exemption-list --scope birds/bluebird
 ```
 {: pre}
 
-## `ibmcloud cr exemption-rm`
+## ` ibmcloud cr isenção-rm `
 {: #bx_cr_exemption_rm}
 
 Exclua uma isenção para um problema de segurança. Para visualizar suas isenções existentes, execute `ibmcloud cr exemption-list`.
@@ -196,7 +195,7 @@ ibmcloud cr exemption-rm --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE_
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
 **Opções de comandos**
 <dl>
@@ -227,14 +226,15 @@ ibmcloud cr exemption-rm --scope "*" --issue-type cve --issue-id CVE-2018-17929
 ```
 {: pre}
 
-Exclua uma isenção de problema de configuração para emitir `application_configuration:nginx.ssl_protocols` para uma imagem única com a tag `us.icr.io/birds/bluebird:1`.
+Exclua uma isenção do problema de configuração para emitir `application_configuration:nginx.ssl_protocols` para uma imagem única com a tag `us.icr.io/birds/bluebird:1`.
 
 ```
 ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird:1 --issue-type configuration --issue-id application_configuration:nginx.ssl_protocols
 ```
 {: pre}
 
-## `ibmcloud cr exemption-types`
+## `ibmcloud cr exemption-types
+`
 {: #bx_cr_exemption_types}
 
 Lista os tipos de problemas de segurança que podem ser isentados.
@@ -246,7 +246,7 @@ ibmcloud cr exemption-types
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
 ## `ibmcloud cr iam-policies-enable`
 {: #bx_cr_iam_policies_enable}
@@ -260,9 +260,19 @@ ibmcloud cr iam-policies-enable
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
-## `ibmcloud cr image-inspect`
+## `ibmcloud cr iam-policies-status`
+{: #bx_cr_iam_policies_status}
+
+Exibe o status da política do IAM da conta de destino do {{site.data.keyword.registryshort_notm}}. Para obter mais informações, consulte [Gerenciando acesso de usuário com o Identity and Access Management](/docs/services/Registry?topic=registry-iam#iam) e [Definindo políticas de função de acesso do usuário](/docs/services/Registry?topic=registry-user#user).
+
+```
+ibmcloud cr iam-policies-status
+```
+{: codeblock}
+
+## ` ibmcloud cr image-inspect `
 {: #bx_cr_image_inspect}
 
 Exibe detalhes sobre uma imagem específica.
@@ -274,7 +284,7 @@ ibmcloud cr image-inspect [--format FORMAT] IMAGE [IMAGE...]
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Opções de comandos**
 <dl>
@@ -306,7 +316,7 @@ ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds
 ## `ibmcloud cr image-list` (`ibmcloud cr images`)
 {: #bx_cr_image_list}
 
-Exibe todas as imagens na conta do {{site.data.keyword.Bluemix_notm}}.
+Exibe todas as imagens em sua conta. {{site.data.keyword.Bluemix_notm}}
 
 O nome da imagem é a combinação do conteúdo das colunas **Repositório** e **Tag** no formato: `repository:tag`
 {:tip}
@@ -318,7 +328,7 @@ ibmcloud cr image-list [--no-trunc] [--format FORMAT] [--quiet | -q ] [--restric
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Opções de comandos**
 <dl>
@@ -349,19 +359,19 @@ ibmcloud cr image-list --restrict birds --quiet --no-trunc
 ```
 {: pre}
 
-## `ibmcloud cr image-rm`
+## ` Imagem do ibmcloud cr-rm `
 {: #bx_cr_image_rm}
 
 Exclua uma ou mais imagens especificadas do {{site.data.keyword.registrylong_notm}}.
 
 ```
-ibmcloud cr image-rm IMAGE [IMAGE...]
+ibmcloud cr image-rm IMAGE [ IMAGE ...]
 ```
 {: codeblock}
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Opções de comandos**
 
@@ -374,11 +384,10 @@ Para saber sobre as permissões necessárias, consulte [Funções de acesso para
 </dd>
 </dl>
 
-**Exemplo**
-Exclua a imagem `us.icr.io/birds/bluebird:1`.
+** Exemplo **  Exclua a imagem  ` us.icr.io/birds/bluebird: 1 `.
 
 ```
-ibmcloud cr image-rm us.icr.io/birds/bluebird:1
+ibmcloud cr image-rm us.icr.io/birds/bluebird: 1
 ```
 {: pre}
 
@@ -397,7 +406,7 @@ ibmcloud cr image-tag [SOURCE_IMAGE] [TARGET_IMAGE]
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Opções de comandos**
 <dl>
@@ -413,10 +422,10 @@ Para saber sobre as permissões necessárias, consulte [Funções de acesso para
 
 **Exemplos**
 
-Inclua outra referência de tag, `latest`, na imagem `us.icr.io/birds/bluebird:1`.
+Inclua outra referência de tag, `latest`, para a imagem `us.icr.io/birds/bluebird:1`.
 
 ```
-ibmcloud cr image-tag  us.icr.io/birds/bluebird:1 us.icr.io/birds/bluebird:latest
+ibmcloud cr image-tag us.icr.io/birds/bluebird: 1 us.icr.io/birds/bluebird:latest
 ```
 {: pre}
 
@@ -427,14 +436,15 @@ ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/birds/pigeon:peck
 ```
 {: pre}
 
-Copie a imagem `us.icr.io/birds/bluebird:peck` em outro namespace `animals` ao qual tiver acesso.
+Copie a imagem `us.icr.io/birds/bluebird:peck` em outro namespace `animals` aos quais você tem acesso.
 
 ```
 ibmcloud cr image-tag us.icr.io/birds/bluebird:peck us.icr.io/animals/dog:bark
 ```
 {: pre}
 
-## `ibmcloud cr info`
+## `ibmcloud cr info
+`
 {: #bx_cr_info}
 
 Exibe o nome e a conta do registro ao qual você está conectado.
@@ -446,9 +456,10 @@ ibmcloud cr info
 
 **Pré-requisitos**
 
-Nenhum
+Nenhuma
 
-## `ibmcloud cr login`
+## `  ibmcloud cr login
+  `
 {: #bx_cr_login}
 
 Esse comando executa o comando `docker login` no registro. O comando `docker login` é necessário para poder executar os comandos `docker push` ou `docker pull` para o registro. Esse comando não é necessário para executar outros comandos `ibmcloud cr`. Se o Docker não estiver instalado, esse comando retornará uma mensagem de erro.
@@ -460,7 +471,7 @@ ibmcloud cr login
 
 **Pré-requisitos**
 
-Nenhum
+Nenhuma
 
 ## `ibmcloud cr namespace-add`
 {: #bx_cr_namespace_add}
@@ -474,7 +485,7 @@ ibmcloud cr namespace-add NAMESPACE
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Opções de comandos**
 <dl>
@@ -509,9 +520,9 @@ ibmcloud cr namespace-list
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
-## `ibmcloud cr namespace-rm`
+## ` ibmcloud cr namespace-rm `
 {: #bx_cr_namespace_rm}
 
 Remove um namespace de sua conta do {{site.data.keyword.Bluemix_notm}}. As imagens nesse namespace são excluídas quando o namespace é removido.
@@ -523,14 +534,14 @@ ibmcloud cr namespace-rm NAMESPACE  [--force | -f]
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Opções de comandos**
 <dl>
 <dt>`NAMESPACE`</dt>
 <dd>O namespace que deseja remover.</dd>
 <dt>`--force`, `-f`</dt>
-<dd>(Opcional) Forçar o comando para que seja executado sem prompts de usuário.</dd>
+<dd>(Opcional) Forçar o comando a ser executado sem prompts de usuário.</dd>
 </dl>
 
 **Exemplo**
@@ -542,7 +553,8 @@ ibmcloud cr namespace-rm birds
 ```
 {: pre}
 
-## `ibmcloud cr plan`
+## `ibmcloud cr plan
+`
 {: #bx_cr_plan}
 
 Exibe seu plano de precificação.
@@ -554,12 +566,12 @@ ibmcloud cr plan
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
-## `ibmcloud cr plan-upgrade`
+## ` ibmcloud cr plan-upgrade `
 {: #bx_cr_plan_upgrade}
 
-Faz upgrade para o plano padrão.
+Upgrades para você o plano padrão.
 
 Para obter informações sobre planos, veja [Planos de registro](/docs/services/Registry?topic=registry-registry_overview#registry_plans).
 
@@ -570,7 +582,7 @@ ibmcloud cr plan-upgrade [PLAN]
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
 **Opções de comandos**
 <dl>
@@ -588,12 +600,12 @@ ibmcloud cr plan-upgrade standard
 ```
 {: pre}
 
-## `ibmcloud cr ppa-archive-load`
+## ` ibmcloud cr ppa-archive-load `
 {: #bx_cr_ppa_archive_load}
 
-Importa o software {{site.data.keyword.IBM_notm}} que é transferido por download do [IBM Passport Advantage Online para clientes ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/software/passportadvantage/pao_customer.html) e compactado para uso com o Helm em seu namespace do {{site.data.keyword.registrylong_notm}}.
+Importa o software {{site.data.keyword.IBM_notm}} que é transferido por download por meio do [IBM Passport Advantage Online para clientes ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/software/passportadvantage/pao_customer.html) e empacotado para uso com o Helm no namespace do {{site.data.keyword.registrylong_notm}}.
 
-As imagens de contêiner são enviadas por push para o namespace privado do {{site.data.keyword.registryshort_notm}}. Os gráficos de Helm são gravados em um diretório `ppa-import` criado no diretório em que o comando é executado. Opcionalmente, é possível usar o [Projeto de software livre Chart Museum ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/kubernetes/charts/tree/master/stable/chartmuseum) para hospedar gráficos de Helm.
+As imagens de contêiner são enviadas por push para o namespace privado do {{site.data.keyword.registryshort_notm}}. Os gráficos de Helm são gravados em um diretório `ppa-import` criado no diretório em que o comando é executado. Opcionalmente, é possível usar o [Projeto de software livre Chart Museum ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/helm/charts/tree/master/stable/chartmuseum) para hospedar gráficos de Helm.
 
 ```
 ibmcloud cr ppa-archive-load --archive FILE --namespace NAMESPACE
@@ -602,7 +614,7 @@ ibmcloud cr ppa-archive-load --archive FILE --namespace NAMESPACE
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Opções de comandos**
 <dl>
@@ -611,23 +623,24 @@ Para saber sobre as permissões necessárias, consulte [Funções de acesso para
   <dt>`-- namespace NAMESPACE`</dt>
   <dd>Um dos seus namespaces. Imagens do contêiner do arquivo compactado são enviadas por push para esse namespace. Para listar namespaces, execute `ibmcloud cr namespace-list`.</dd>
   <dt>`--chartmuseum-uri URI`</dt>
-  <dd>(Opcional) Seu identificador de recurso exclusivo do [Chart Museum ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/kubernetes/charts/tree/master/stable/chartmuseum).</dd>
+  <dd>(Opcional) Seu identificador de recurso exclusivo do [Chart Museum ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/helm/charts/tree/master/stable/chartmuseum).</dd>
   <dt>`-- USUÁRIO chartmuseum Usuário`</dt>
-  <dd>(Opcional) Seu nome de usuário do [Chart Museum ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/kubernetes/charts/tree/master/stable/chartmuseum).</dd>
+  <dd>(Opcional) Seu nome de usuário do [Chart Museum ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/helm/charts/tree/master/stable/chartmuseum).</dd>
   <dt>`-- chartmuseum-password PASSWORD`</dt>
-  <dd>(Opcional) Sua senha do [Chart Museum ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/kubernetes/charts/tree/master/stable/chartmuseum).</dd>
+  <dd>(Opcional) Sua senha do [Chart Museum ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/helm/charts/tree/master/stable/chartmuseum).</dd>
 </dl>
 
 **Exemplo**
 
-Importe o software IBM e compacte-o para uso com o Helm em seu namespace *`birds`* do {{site.data.keyword.registrylong_notm}}, em que o caminho para o arquivo compactado é *`downloads/compressed_file.tgz`*.
+Importe o software IBM e empacote-o para uso com o Helm no namespace do {{site.data.keyword.registrylong_notm}} *`birds`*, em que o caminho para o arquivo compactado é *`downloads/compressed_file.tgz`*.
 
 ```
 ibmcloud cr ppa-archive-load --archive downloads/compressed_file.tgz --namespace birds
 ```
 {: pre}
 
-## `ibmcloud cr quota`
+## `    ibmcloud cr quota
+    `
 {: #bx_cr_quota}
 
 Exibe suas cotas atuais para tráfego e armazenamento e informações de uso com relação a essas cotas.
@@ -639,9 +652,9 @@ ibmcloud cr quota
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
-## `ibmcloud cr quota-set`
+## ` cota ibmcloud cr-set `
 {: #bx_cr_quota_set}
 
 Modifique a cota especificada.
@@ -653,7 +666,7 @@ ibmcloud cr quota-set [--traffic TRAFFIC] [--storage STORAGE]
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para configurar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
 
 **Opções de comandos**
 <dl>
@@ -672,7 +685,8 @@ ibmcloud cr quota-set --traffic 7000 --storage 600
 ```
 {: pre}
 
-## `ibmcloud cr region`
+## `ibmcloud cr region
+`
 {: #bx_cr_region}
 
 Exibe a região de destino e o registro.
@@ -684,23 +698,23 @@ ibmcloud cr region
 
 **Pré-requisitos**
 
-Nenhum
+Nenhuma
 
 Para obter mais informações, consulte [Regiões](/docs/services/Registry?topic=registry-registry_overview#registry_regions).
 
-## `ibmcloud cr region-set`
+## ` ibmcloud cr region-set `
 {: #bx_cr_region_set}
 
 Configure uma região de destino para os comandos do {{site.data.keyword.registrylong_notm}}. Para listar as regiões disponíveis, execute o comando sem parâmetros.
 
 ```
-ibmcloud cr region-set [REGION]
+ibmcloud cr region-set [ REGION ]
 ```
 {: codeblock}
 
 **Pré-requisitos**
 
-Nenhum
+Nenhuma
 
 **Opções de comandos**
 <dl>
@@ -721,7 +735,7 @@ ibmcloud cr region-set us-south
 ```
 {: pre}
 
-## `ibmcloud cr token-add`
+## ` ibmcloud cr token-add `
 {: #bx_cr_token_add}
 
 Inclua um token que possa ser usado para controlar o acesso a um registro.
@@ -733,7 +747,7 @@ ibmcloud cr token-add [--description DESCRIPTION] [--quiet | -q] [--non-expiring
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de gerenciamento de plataforma](/docs/services/Registry?topic=registry-iam#platform_management_roles).
+Para saber mais sobre as permissões necessárias, consulte [Funções de gerenciamento da plataforma](/docs/services/Registry?topic=registry-iam#platform_management_roles).
 
 **Opções de comandos**
 <dl>
@@ -774,7 +788,7 @@ ibmcloud cr token-get TOKEN
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de gerenciamento de plataforma](/docs/services/Registry?topic=registry-iam#platform_management_roles).
+Para saber mais sobre as permissões necessárias, consulte [Funções de gerenciamento da plataforma](/docs/services/Registry?topic=registry-iam#platform_management_roles).
 
 **Opções de comandos**
 <dl>
@@ -803,7 +817,7 @@ ibmcloud cr token-list [--format FORMAT]
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de gerenciamento de plataforma](/docs/services/Registry?topic=registry-iam#platform_management_roles).
+Para saber mais sobre as permissões necessárias, consulte [Funções de gerenciamento da plataforma](/docs/services/Registry?topic=registry-iam#platform_management_roles).
 
 **Opções de comandos**
 <dl>
@@ -833,26 +847,26 @@ Este exemplo produz saída no formato a seguir:
 ```
 {: screen}
 
-## `ibmcloud cr token-rm`
+## ` ibmcloud cr token-rm `
 {: #bx_cr_token_rm}
 
 Remover um ou mais tokens de registro especificados.
 
 ```
-ibmcloud cr token-rm TOKEN [TOKEN...] [--force | -f]
+ibmcloud cr token-rm TOKEN [ TOKEN ...] [--force | -f]
 ```
 {: codeblock}
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de gerenciamento de plataforma](/docs/services/Registry?topic=registry-iam#platform_management_roles).
+Para saber mais sobre as permissões necessárias, consulte [Funções de gerenciamento da plataforma](/docs/services/Registry?topic=registry-iam#platform_management_roles).
 
 **Opções de comandos**
 <dl>
 <dt>`TOKEN`</dt>
 <dd>O TOKEN pode ser o próprio token ou o identificador exclusivo do token, conforme mostrado em `ibmcloud cr token-list`. É possível especificar múltiplos tokens e devem ser separados por um espaço.</dd>
 <dt>`--force`, `-f`</dt>
-<dd>(Opcional) Forçar o comando para que seja executado sem prompts de usuário.</dd>
+<dd>(Opcional) Forçar o comando a ser executado sem prompts de usuário.</dd>
 </dl>
 
 **Exemplo**
@@ -876,7 +890,7 @@ ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] 
 
 **Pré-requisitos**
 
-Para saber sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
+Para saber mais sobre as permissões necessárias, consulte [Funções de acesso para usar o {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_using).
 
 **Opções de comandos**
 <dl>
@@ -921,11 +935,11 @@ Para obter mais informações, consulte [Gerenciando a segurança de imagens com
 Visualize um relatório de avaliação de vulnerabilidade padrão para sua imagem.
 
 ```
-ibmcloud cr vulnerability-assessment us.icr.io/birds/bluebird:1
+ibmcloud cr vulnerability-assessment us.icr.io/birds/bluebird: 1
 ```
 {: pre}
 
-Visualize um relatório de avaliação de vulnerabilidade para sua imagem `us.icr.io/birds/bluebird:1` em formato JSON, mostrando somente as vulnerabilidades.
+Visualize um relatório de avaliação de vulnerabilidade para sua imagem `us.icr.io/birds/bluebird:1` no formato JSON, mostrando vulnerabilidades apenas.
 
 ```
 ibmcloud cr vulnerability-assessment --vulnerabilities  --output json us.icr.io/birds/bluebird:1

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-04-03"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -22,26 +22,24 @@ subcollection: container-registry-cli-plugin
 {:deprecated: .deprecated}
 {:download: .download}
 
-
 # CLI de {{site.data.keyword.registrylong_notm}}
 {: #containerregcli}
 
-Puede utilizar la CLI de {{site.data.keyword.registrylong}}, que se proporciona en el plugin de CLI `container-registry`, para gestionar el registro y sus recursos para la cuenta de {{site.data.keyword.Bluemix_notm}}.
+La CLI de {{site.data.keyword.registrylong}}, que se proporciona en el plugin de CLI `container-registry`, sirve para gestionar su registro y sus recursos para su cuenta de {{site.data.keyword.Bluemix_notm}}.
 {: shortdesc}
 
 **Requisitos previos**
 
-* Instale la [CLI de {{site.data.keyword.Bluemix_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli). El prefijo para ejecutar mandatos mediante la CLI de {{site.data.keyword.Bluemix_notm}} es `ibmcloud`.
-
+* Instale la CLI de [{{site.data.keyword.Bluemix_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli). El prefijo para ejecutar mandatos utilizando la CLI de {{site.data.keyword.Bluemix_notm}} es `ibmcloud`.
 * Antes de ejecutar los mandatos de registro, inicie sesión en {{site.data.keyword.Bluemix_notm}} con el mandato `ibmcloud login` para generar una señal de acceso y autenticar la sesión.
 
-En la línea de mandatos, se le notifica cuando están disponibles las actualizaciones de la CLI de `ibmcloud` y los plugins de CLI `container-registry`. Asegúrese de mantener la CLI actualizada para poder utilizar todos los mandatos y distintivos disponibles.
+En la línea de mandatos, se le notifica cuando hay actualizaciones de la CLI de `ibmcloud` y de los plugins de CLI `container-registry` disponibles. Asegúrese de mantener la CLI actualizada para poder utilizar todos los mandatos y distintivos disponibles.
 
 Si desea ver la versión actual del plugin de CLI `container-registry`, ejecute `ibmcloud plugin list`.
 
 Para obtener más información sobre cómo utilizar la CLI de {{site.data.keyword.registrylong_notm}}, consulte [Iniciación a {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-getting-started#getting-started).
 
-Para obtener más información sobre la plataforma IAM y los roles de acceso a servicios necesarios para algunos mandatos, consulte [Gestión del acceso de usuario con Identity and Access Management](/docs/services/Registry?topic=registry-iam#iam).
+Para obtener más información sobre la plataforma IAM y los roles de acceso al servicio necesarios para algunos mandatos, consulte [Gestión del acceso de usuario con Identity and Access Management](/docs/services/Registry?topic=registry-iam#iam).
 
 No coloque información personal en las imágenes de contenedor, nombres de espacio de nombres, campos de descripción (por ejemplo, en señales de registro), o en cualesquiera datos de configuración de imágenes (por ejemplo, nombres de imágenes o etiquetas de imagen).
 {:tip}
@@ -85,11 +83,11 @@ Para obtener información sobre los permisos necesarios, consulte [Roles de acce
 <dt>`--quiet`, `-q`</dt>
 <dd>(Opcional) Si se especifica, la salida de compilación se suprimirá a menos que se produzca un error.</dd>
 <dt>`--build-arg KEY=VALUE`</dt>
-<dd>(Opcional) Especifica un argumento de compilación adicional en el formato `'KEY=VALUE'`. Se pueden especificar varios argumentos de compilación incluyendo este parámetro varias veces. El valor de cada argumento de compilación está disponible como variable de entorno al especificar una línea ARG que coincida con la clave del Dockerfile.</dd>
+<dd>(Opcional) Especifica un argumento de compilación adicional en el formato `'KEY=VALUE'`. Se pueden especificar varios argumentos de compilación incluyendo este parámetro varias veces. El valor de cada argumento de compilación está disponible como una variable de entorno cuando especifica una línea ARG que coincide con la clave del archivo Docker.</dd>
 <dt>`--file FILE`, `-f FILE`</dt>
 <dd>(Opcional) Si utiliza los mismos archivos para varias compilaciones, puede elegir una vía de acceso hasta un Dockerfile diferente. Especifique la ubicación del Dockerfile relativo al contexto de compilación. Si no se especifica, el valor predeterminado es `PATH/Dockerfile`, donde PATH es la raíz del contexto de compilación.</dd>
 <dt>`--tag TAG`, `-t TAG`</dt>
-<dd>El nombre completo de la imagen que desea crear, que incluye el URL de registro y el espacio de nombres.</dd>
+<dd>El nombre completo de la imagen que desea compilar, que incluye el espacio de nombres y el URL de registro.</dd>
 </dl>
 
 **Ejemplo**
@@ -258,6 +256,16 @@ ibmcloud cr iam-policies-enable
 **Requisitos previos**
 
 Para obtener información sobre los permisos necesarios, consulte [Roles de acceso para configurar {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-iam#access_roles_configure).
+
+## `ibmcloud cr iam-policies-status`
+{: #bx_cr_iam_policies_status}
+
+Muestra el estado de la política de IAM de la cuenta de {{site.data.keyword.registryshort_notm}} establecida como destino. Para obtener más información, consulte [Gestión del acceso de usuario con Identity and Access Management](/docs/services/Registry?topic=registry-iam#iam) y [Definición de políticas de roles de acceso](/docs/services/Registry?topic=registry-user#user).
+
+```
+ibmcloud cr iam-policies-status
+```
+{: codeblock}
 
 ## `ibmcloud cr image-inspect`
 {: #bx_cr_image_inspect}
@@ -585,7 +593,7 @@ ibmcloud cr plan-upgrade standard
 
 Importa software de {{site.data.keyword.IBM_notm}} que se descarga desde [IBM Passport Advantage Online para clientes ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/software/passportadvantage/pao_customer.html) y que se empaqueta para utilizarlo con Helm en el espacio de nombres de {{site.data.keyword.registrylong_notm}}.
 
-Las imágenes de contenedor se envían al espacio de nombres privado de {{site.data.keyword.registryshort_notm}}. Las gráficas de Helm se graban en un directorio `ppa-import` que se crea en el directorio desde el que ejecuta el mandato. Opcionalmente, puede utilizar el [proyecto de código abierto de Chart Museum ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/kubernetes/charts/tree/master/stable/chartmuseum) para alojar gráficas de helm.
+Las imágenes de contenedor se envían al espacio de nombres privado de {{site.data.keyword.registryshort_notm}}. Las gráficas de Helm se graban en un directorio `ppa-import` que se crea en el directorio desde el que ejecuta el mandato. Opcionalmente, puede utilizar el [proyecto de código abierto de Chart Museum ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/helm/charts/tree/master/stable/chartmuseum) para alojar gráficas de helm.
 
 ```
 ibmcloud cr ppa-archive-load --archive FILE --namespace NAMESPACE
@@ -603,11 +611,11 @@ Para obtener información sobre los permisos necesarios, consulte [Roles de acce
   <dt>`--namespace NAMESPACE`</dt>
   <dd>Uno de sus espacios de nombres. Las imágenes de contenedor del archivo comprimido se envían a este espacio de nombres. Para listar los espacios de nombres, ejecute `ibmcloud cr namespace-list`.</dd>
   <dt>`--chartmuseum-uri URI`</dt>
-  <dd>(Opcional) El identificador de recursos exclusivo de [Chart Museum ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/kubernetes/charts/tree/master/stable/chartmuseum).</dd>
+  <dd>(Opcional) El identificador de recursos exclusivo de [Chart Museum ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/helm/charts/tree/master/stable/chartmuseum).</dd>
   <dt>`--chartmuseum-user USER`</dt>
-  <dd>(Opcional) El nombre de usuario de [Chart Museum ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/kubernetes/charts/tree/master/stable/chartmuseum).</dd>
+  <dd>(Opcional) El nombre de usuario de [Chart Museum ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/helm/charts/tree/master/stable/chartmuseum).</dd>
   <dt>`--chartmuseum-password PASSWORD`</dt>
-  <dd>(Opcional) La contraseña de [Chart Museum ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/kubernetes/charts/tree/master/stable/chartmuseum).</dd>
+  <dd>(Opcional) La contraseña de [Chart Museum ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/helm/charts/tree/master/stable/chartmuseum).</dd>
 </dl>
 
 **Ejemplo**
