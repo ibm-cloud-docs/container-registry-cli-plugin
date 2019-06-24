@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-06-07"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -25,13 +25,13 @@ subcollection: container-registry-cli-plugin
 # {{site.data.keyword.registrylong_notm}} CLI
 {: #containerregcli}
 
-Sie können die {{site.data.keyword.registrylong}}-CLI, die im `container-registry`-CLI-Plug-in bereitgestellt wird, verwenden, um Ihre Registry und die zugehörigen Ressourcen für Ihr {{site.data.keyword.Bluemix_notm}}-Konto zu verwalten.
+Sie können die {{site.data.keyword.registrylong}}-CLI, die im `container-registry`-CLI-Plug-in bereitgestellt wird, verwenden, um Ihre Registry und die zugehörigen Ressourcen für Ihr {{site.data.keyword.cloud_notm}}-Konto zu verwalten.
 {: shortdesc}
 
 **Voraussetzungen**
 
-* Installieren Sie die [Befehlszeilenschnittstelle von {{site.data.keyword.Bluemix_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli). Das Präfix für die Ausführung von Befehlen unter Verwendung der {{site.data.keyword.Bluemix_notm}}-CLI lautet `ibmcloud`.
-* Bevor Sie die Registry-Befehle ausführen, melden Sie sich bei {{site.data.keyword.Bluemix_notm}} an, wobei Sie den Befehl `ibmcloud login` verwenden, um ein Zugriffstoken zu generieren und Ihre Sitzung zu authentifizieren.
+* Installieren Sie die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli). Das Präfix für die Ausführung von Befehlen unter Verwendung der {{site.data.keyword.cloud_notm}}-CLI lautet `ibmcloud`.
+* Bevor Sie die Registry-Befehle ausführen, melden Sie sich bei {{site.data.keyword.cloud_notm}} an, wobei Sie den Befehl `ibmcloud login` verwenden, um ein Zugriffstoken zu generieren und Ihre Sitzung zu authentifizieren.
 
 Sobald Aktualisierungen für die `ibmcloud`-CLI und `container-registry`-CLI-Plug-ins verfügbar sind, erhalten Sie eine Benachrichtigung über die Befehlszeile. Stellen Sie sicher, dass Sie Ihre CLI aktuell halten, damit Sie alle verfügbaren Befehle und Flags verwenden können.
 
@@ -286,7 +286,7 @@ ibmcloud cr image-inspect [--format FORMAT] IMAGE [IMAGE...]
 <dt>`--format FORMAT`</dt>
 <dd>(Optional) Formatiert die Ausgabeelemente unter Verwendung einer Go-Vorlage.
 
-Weitere Informationen finden Sie unter [CLI-Ausgabe für {{site.data.keyword.registrylong_notm}}-Befehle formatieren und filtern](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing).
+Weitere Informationen finden Sie unter [CLI-Ausgabe für {{site.data.keyword.registrylong_notm}}-Befehle formatieren und filtern](/docs/services/Registry?topic=registry-registry_cli_list).
 
 </dd>
 <dt>`IMAGE`</dt>
@@ -309,7 +309,7 @@ ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds
 ## `ibmcloud cr image-list` (`ibmcloud cr images`)
 {: #bx_cr_image_list}
 
-Zeigt alle Images in Ihrem {{site.data.keyword.Bluemix_notm}}-Konto an.
+Zeigt alle Images in Ihrem {{site.data.keyword.cloud_notm}}-Konto an.
 
 Der Imagename ist eine Kombination des Inhalts der Spalten **Repository** und **Tag** im Format `repository:tag`.
 {:tip}
@@ -330,7 +330,7 @@ ibmcloud cr image-list [--no-trunc] [--format FORMAT] [--quiet | -q ] [--restric
 <dt>`--format FORMAT`</dt>
 <dd>(Optional) Formatiert die Ausgabeelemente unter Verwendung einer Go-Vorlage.
 
-Weitere Informationen finden Sie unter [CLI-Ausgabe für {{site.data.keyword.registrylong_notm}}-Befehle formatieren und filtern](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing).
+Weitere Informationen finden Sie unter [CLI-Ausgabe für {{site.data.keyword.registrylong_notm}}-Befehle formatieren und filtern](/docs/services/Registry?topic=registry-registry_cli_list).
 
 </dd>
 <dt>`--quiet`, `-q`</dt>
@@ -386,7 +386,7 @@ ibmcloud cr image-rm us.icr.io/birds/bluebird:1
 ## `ibmcloud cr image-tag`
 {: #bx_cr_image_tag}
 
-Erstellen Sie ein neues Image (ZIELIMAGE), das sich auf ein Quellenimage (QUELLENIMAGE) in {{site.data.keyword.registrylong_notm}} bezieht. Die Quellen- und Zielimages müssen sich in derselben Region befinden.
+Erstellen Sie ein Image (ZIELIMAGE), das sich auf ein Quellenimage (QUELLENIMAGE) in {{site.data.keyword.registrylong_notm}} bezieht. Die Quellen- und Zielimages müssen sich in derselben Region befinden.
 
 Um die Namen Ihrer Images zu ermitteln, führen Sie `ibmcloud cr image-list` aus. Kombinieren Sie den Inhalt der Spalten **Repository** und **Tag**, um den Imagenamen im Format `repository:tag` zu erstellen.
 {: tip}
@@ -466,7 +466,7 @@ Keine
 ## `ibmcloud cr namespace-add`
 {: #bx_cr_namespace_add}
 
-Wählen Sie einen Namen für Ihren Namensbereich aus und fügen Sie ihn Ihrem {{site.data.keyword.Bluemix_notm}}-Konto hinzu.
+Wählen Sie einen Namen für Ihren Namensbereich aus und fügen Sie ihn Ihrem {{site.data.keyword.cloud_notm}}-Konto hinzu.
 
 ```
 ibmcloud cr namespace-add NAMESPACE
@@ -480,7 +480,7 @@ ibmcloud cr namespace-add NAMESPACE
 **Befehlsoptionen**
 <dl>
 <dt>`NAMESPACE`</dt>
-<dd>Der hinzuzufügende Namensbereich. Der Namensbereich muss in allen {{site.data.keyword.Bluemix_notm}}-Konten derselben Region eindeutig sein. Namensbereiche müssen 4 bis 30 Zeichen lang sein und dürfen nur Kleinbuchstaben, Zahlen, Bindestriche und Unterstreichungszeichen enthalten. Namensbereiche müssen mit einem Buchstaben oder einer Zahl beginnen und enden.
+<dd>Der hinzuzufügende Namensbereich. Der Namensbereich muss in allen {{site.data.keyword.cloud_notm}}-Konten derselben Region eindeutig sein. Namensbereiche müssen 4 bis 30 Zeichen lang sein und dürfen nur Kleinbuchstaben, Zahlen, Bindestriche und Unterstreichungszeichen enthalten. Namensbereiche müssen mit einem Buchstaben oder einer Zahl beginnen und enden.
   
 <p>  
 <strong>Tipp</strong> Beziehen Sie keine personenbezogenen Daten in Ihre Namensbereichsnamen ein.
@@ -501,7 +501,7 @@ ibmcloud cr namespace-add birds
 ## `ibmcloud cr namespace-list` (`ibmcloud cr namespaces`)
 {: #bx_cr_namespace_list}
 
-Zeigt alle Namensbereiche an, die Ihrem {{site.data.keyword.Bluemix_notm}}-Konto eigen sind.
+Zeigt alle Namensbereiche an, die Ihrem {{site.data.keyword.cloud_notm}}-Konto eigen sind.
 
 ```
 ibmcloud cr namespace-list
@@ -515,7 +515,7 @@ ibmcloud cr namespace-list
 ## `ibmcloud cr namespace-rm`
 {: #bx_cr_namespace_rm}
 
-Entfernt einen Namensbereich aus Ihrem {{site.data.keyword.Bluemix_notm}}-Konto. Images in diesem Namensbereich werden gelöscht, wenn der Namensbereich entfernt wird.
+Entfernt einen Namensbereich aus Ihrem {{site.data.keyword.cloud_notm}}-Konto. Images in diesem Namensbereich werden gelöscht, wenn der Namensbereich entfernt wird.
 
 ```
 ibmcloud cr namespace-rm NAMESPACE  [--force | -f]
@@ -562,7 +562,7 @@ ibmcloud cr plan
 
 Führt ein Upgrade auf den Standardplan durch.
 
-Informationen zu den Plänen finden Sie unter [Registry-Pläne](/docs/services/Registry?topic=registry-registry_overview#registry_plans).
+Weitere Informationen zu den Plänen finden Sie unter [Registry-Pläne](/docs/services/Registry?topic=registry-registry_overview#registry_plans).
 
 ```
 ibmcloud cr plan-upgrade [PLAN]
@@ -794,7 +794,7 @@ ibmcloud cr token-get 10101010-101x-1x10-x1xx-x10xx10xxx10
 ## `ibmcloud cr token-list` (`ibmcloud cr tokens`)
 {: #bx_cr_token_list}
 
-Zeigt alle Tokens an, die für Ihr {{site.data.keyword.Bluemix_notm}}-Konto vorhanden sind.
+Zeigt alle Tokens an, die für Ihr {{site.data.keyword.cloud_notm}}-Konto vorhanden sind.
 
 ```
 ibmcloud cr token-list [--format FORMAT]
@@ -810,7 +810,7 @@ ibmcloud cr token-list [--format FORMAT]
 <dt>`--format FORMAT`</dt>
 <dd>(Optional) Formatiert die Ausgabeelemente unter Verwendung einer Go-Vorlage.
 
-Weitere Informationen finden Sie unter [CLI-Ausgabe für {{site.data.keyword.registrylong_notm}}-Befehle formatieren und filtern](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing).
+Weitere Informationen finden Sie unter [CLI-Ausgabe für {{site.data.keyword.registrylong_notm}}-Befehle formatieren und filtern](/docs/services/Registry?topic=registry-registry_cli_list).
 
 </dd>
 </dl>

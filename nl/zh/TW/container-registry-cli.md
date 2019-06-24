@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-06-07"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -25,13 +25,13 @@ subcollection: container-registry-cli-plugin
 # {{site.data.keyword.registrylong_notm}} CLI
 {: #containerregcli}
 
-您可以使用 {{site.data.keyword.registrylong}} CLI（其在 `container-registry` 外掛程式中提供），針對您的 {{site.data.keyword.Bluemix_notm}} 帳戶管理登錄及其資源。
+您可以使用 {{site.data.keyword.registrylong}} CLI（其在 `container-registry` 外掛程式中提供），針對您的 {{site.data.keyword.cloud_notm}} 帳戶管理登錄及其資源。
 {: shortdesc}
 
 **必要條件**
 
-* 安裝 [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)。使用 {{site.data.keyword.Bluemix_notm}} CLI 來執行指令的字首是 `ibmcloud`。
-* 在執行登錄指令之前，請先使用 `ibmcloud login` 指令登入 {{site.data.keyword.Bluemix_notm}}，以產生存取記號並鑑別您的階段作業。
+* 安裝 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)。使用 {{site.data.keyword.cloud_notm}} CLI 來執行指令的字首是 `ibmcloud`。
+* 在執行登錄指令之前，請先使用 `ibmcloud login` 指令登入 {{site.data.keyword.cloud_notm}}，以產生存取記號並鑑別您的階段作業。
 
 在指令行中，當有 `ibmcloud` CLI 及 `container-registry` CLI 外掛程式的更新可用時，即會通知您。請確定您保持最新的 CLI，讓您可以使用所有可用的指令及旗標。
 
@@ -83,7 +83,7 @@ ibmcloud cr build [--no-cache] [--pull] [--quiet | -q] [--build-arg KEY=VALUE ..
 <dt>`--quiet`, `-q`</dt>
 <dd>（選用）如果指定，即會暫停建置輸出，除非發生錯誤。</dd>
 <dt>`--build-arg KEY=VALUE`</dt>
-<dd>（選用）以 `'KEY=VALUE'` 格式指定其他建置引數。藉由多次包含此參數，即可指定多個建置引數。當您指定符合 Dockerfile 中之金鑰的 ARG 行時，每一個建置引數的值會以環境變數的方式提供使用。</dd>
+<dd>（選用）以 `'KEY=VALUE'` 格式指定額外的建置引數。藉由多次包含此參數，即可指定多個建置引數。當您指定符合 Dockerfile 中之金鑰的 ARG 行時，每一個建置引數的值會以環境變數的方式提供使用。</dd>
 <dt>`--file FILE`, `-f FILE`</dt>
 <dd>（選用）如果您對多個建置使用相同的檔案，則可以選擇另一個 Dockerfile 的路徑。請指定與建置環境定義相關的 Dockerfile 位置。如果未指定，則預設值為 `PATH/Dockerfile`，其中 PATH 是建置環境定義的根目錄。</dd>
 <dt>`--tag TAG`, `-t TAG`</dt>
@@ -285,7 +285,7 @@ ibmcloud cr image-inspect [--format FORMAT] IMAGE [IMAGE...]
 <dt>`--format FORMAT`</dt>
 <dd>（選用）使用 Go 範本來將輸出元素格式化。
 
-如需相關資訊，請參閱[格式化及過濾 {{site.data.keyword.registrylong_notm}} 指令的 CLI 輸出](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing)。
+如需相關資訊，請參閱[格式化及過濾 {{site.data.keyword.registrylong_notm}} 指令的 CLI 輸出](/docs/services/Registry?topic=registry-registry_cli_list)。
 
 </dd>
 <dt>`IMAGE`</dt>
@@ -308,7 +308,7 @@ ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds
 ## `ibmcloud cr image-list` (`ibmcloud cr images`)
 {: #bx_cr_image_list}
 
-顯示 {{site.data.keyword.Bluemix_notm}} 帳戶中的所有映像檔。
+顯示 {{site.data.keyword.cloud_notm}} 帳戶中的所有映像檔。
 
 映像檔名稱是 **Repository** 及 **Tag** 直欄的內容組合，格式為：`repository:tag`
 {:tip}
@@ -329,7 +329,7 @@ ibmcloud cr image-list [--no-trunc] [--format FORMAT] [--quiet | -q ] [--restric
 <dt>`--format FORMAT`</dt>
 <dd>（選用）使用 Go 範本來將輸出元素格式化。
 
-如需相關資訊，請參閱[格式化及過濾 {{site.data.keyword.registrylong_notm}} 指令的 CLI 輸出](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing)。
+如需相關資訊，請參閱[格式化及過濾 {{site.data.keyword.registrylong_notm}} 指令的 CLI 輸出](/docs/services/Registry?topic=registry-registry_cli_list)。
 
 </dd>
 <dt>`--quiet`, `-q`</dt>
@@ -385,7 +385,7 @@ ibmcloud cr image-rm us.icr.io/birds/bluebird:1
 ## `ibmcloud cr image-tag`
 {: #bx_cr_image_tag}
 
-在 {{site.data.keyword.registrylong_notm}} 中，建立一個新映像檔 TARGET_IMAGE，其參照來源映像檔 SOURCE_IMAGE。來源及目標映像檔必須位於相同地區。
+在 {{site.data.keyword.registrylong_notm}} 中，建立一個映像檔 TARGET_IMAGE，其參照來源映像檔 SOURCE_IMAGE。來源及目標映像檔必須位於相同地區。
 
 若要尋找映像檔的名稱，請執行 `ibmcloud cr image-list`。請以 `repository:tag` 格式，結合 **Repository** 及 **Tag** 直欄的內容，以建立映像檔名稱。
 {: tip}
@@ -465,7 +465,7 @@ ibmcloud cr login
 ## `ibmcloud cr namespace-add`
 {: #bx_cr_namespace_add}
 
-選擇名稱空間的名稱，並將其新增至 {{site.data.keyword.Bluemix_notm}} 帳戶。
+選擇名稱空間的名稱，並將其新增至 {{site.data.keyword.cloud_notm}} 帳戶。
 
 ```
 ibmcloud cr namespace-add NAMESPACE
@@ -479,7 +479,7 @@ ibmcloud cr namespace-add NAMESPACE
 **指令選項**
 <dl>
 <dt>`NAMESPACE`</dt>
-<dd>您要新增的名稱空間。此名稱空間在相同地區的所有 {{site.data.keyword.Bluemix_notm}} 帳戶中必須是唯一的。名稱空間必須有 4-30 個字元，且只能包含小寫字母、數字、連字號及底線。名稱空間的開頭和結尾必須是字母或數字。
+<dd>您要新增的名稱空間。此名稱空間在相同地區的所有 {{site.data.keyword.cloud_notm}} 帳戶中必須是唯一的。名稱空間必須有 4 - 30 個字元，且只能包含小寫字母、數字、連字號及底線。名稱空間的開頭和結尾必須是字母或數字。
   
 <p>  
 <strong>提示</strong>：請不要將個人資訊放在名稱空間名稱中。
@@ -500,7 +500,7 @@ ibmcloud cr namespace-add birds
 ## `ibmcloud cr namespace-list` (`ibmcloud cr namespaces`)
 {: #bx_cr_namespace_list}
 
-顯示 {{site.data.keyword.Bluemix_notm}} 帳戶所擁有的所有名稱空間。
+顯示 {{site.data.keyword.cloud_notm}} 帳戶所擁有的所有名稱空間。
 
 ```
 ibmcloud cr namespace-list
@@ -514,7 +514,7 @@ ibmcloud cr namespace-list
 ## `ibmcloud cr namespace-rm`
 {: #bx_cr_namespace_rm}
 
-從 {{site.data.keyword.Bluemix_notm}} 帳戶中移除名稱空間。移除名稱空間時，會刪除此名稱空間中的映像檔。
+從 {{site.data.keyword.cloud_notm}} 帳戶中移除名稱空間。移除名稱空間時，會刪除此名稱空間中的映像檔。
 
 ```
 ibmcloud cr namespace-rm NAMESPACE  [--force | -f]
@@ -793,7 +793,7 @@ ibmcloud cr token-get 10101010-101x-1x10-x1xx-x10xx10xxx10
 ## `ibmcloud cr token-list` (`ibmcloud cr tokens`)
 {: #bx_cr_token_list}
 
-顯示 {{site.data.keyword.Bluemix_notm}} 帳戶的所有現有記號。
+顯示 {{site.data.keyword.cloud_notm}} 帳戶的所有現有記號。
 
 ```
 ibmcloud cr token-list [--format FORMAT]
@@ -809,7 +809,7 @@ ibmcloud cr token-list [--format FORMAT]
 <dt>`--format FORMAT`</dt>
 <dd>（選用）使用 Go 範本來將輸出元素格式化。
 
-如需相關資訊，請參閱[格式化及過濾 {{site.data.keyword.registrylong_notm}} 指令的 CLI 輸出](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing)。
+如需相關資訊，請參閱[格式化及過濾 {{site.data.keyword.registrylong_notm}} 指令的 CLI 輸出](/docs/services/Registry?topic=registry-registry_cli_list)。
 
 </dd>
 </dl>
@@ -878,7 +878,7 @@ ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] 
 **指令選項**
 <dl>
 <dt>`IMAGE`</dt>
-<dd>您要取得其報告的映像檔名稱。報告會告訴您映像檔是否有任何已知的套件漏洞。您可以藉由在指令中列出每一個映像檔，並以空格隔開每一個名稱，來同時要求多個映像檔的報告。
+<dd>您要取得其報告的映像檔名稱。報告會指出映像檔是否有任何已知的套件漏洞。您可以藉由在指令中列出每一個映像檔，並以空格隔開每一個名稱，來同時要求多個映像檔的報告。
 
 <p>若要尋找映像檔的名稱，請執行 `ibmcloud cr image-list`。請以 `repository:tag` 格式，結合 **Repository** 及 **Tag** 直欄的內容，以建立映像檔名稱。如果映像檔名稱中未指定標籤，則報告會評量以 `latest` 標記的映像檔。</p>
 
@@ -893,7 +893,7 @@ ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] 
 </ul>
 </p>
 
-如需相關資訊，請參閱[使用漏洞警告器管理映像檔安全](/docs/services/va?topic=va-va_index)。
+如需相關資訊，請參閱[使用 Vulnerability Advisor 管理映像檔安全](/docs/services/va?topic=va-va_index)。
 
 </dd>
 <dt>`--extended`, `-e`</dt>

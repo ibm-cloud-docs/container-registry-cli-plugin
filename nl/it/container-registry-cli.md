@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-06-07"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -25,13 +25,13 @@ subcollection: container-registry-cli-plugin
 # {{site.data.keyword.registrylong_notm}} CLI
 {: #containerregcli}
 
-Puoi utilizzare la CLI {{site.data.keyword.registrylong}}, che è fornita nel plug-in CLI `container-registry`, per gestire il tuo registro e le relative risorse per il tuo account {{site.data.keyword.Bluemix_notm}}.
+Puoi utilizzare la CLI {{site.data.keyword.registrylong}}, che è fornita nel plug-in CLI `container-registry`, per gestire il tuo registro e le relative risorse per il tuo account {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
 
 **Prerequisiti**
 
-* Installa la [CLI {{site.data.keyword.Bluemix_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli). Il prefisso per l'esecuzione dei comandi utilizzando la CLI {{site.data.keyword.Bluemix_notm}} è `ibmcloud`.
-* Prima di eseguire i comandi del registro, effettua l'accesso a {{site.data.keyword.Bluemix_notm}}
+* Installa la [CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli). Il prefisso per l'esecuzione dei comandi utilizzando la CLI {{site.data.keyword.cloud_notm}} è `ibmcloud`.
+* Prima di eseguire i comandi del registro, effettua l'accesso a {{site.data.keyword.cloud_notm}}
  con il comando `ibmcloud login` per generare un token di accesso e autenticare la tua sessione.
 
 Nella riga di comando, vieni avvisato quando sono disponibili gli aggiornamenti alla CLI `ibmcloud` e ai plug-in CLI `container-registry`. Assicurati di mantenere la CLI aggiornata in modo da poter utilizzare tutti i comandi e gli indicatori disponibili.
@@ -80,7 +80,7 @@ Per trovare delle informazioni sulle autorizzazioni necessarie, consulta [Ruoli 
 <dt>`--no-cache`</dt>
 <dd>(Facoltativo)  Se specificato, i livelli di immagine memorizzati in cache dalle build precedenti non vengono utilizzati in questa build.</dd>
 <dt>`--pull`</dt>
-<dd>(Facoltativo) Se specificato, le immagini di base vengono estratte anche se sull'host di build esiste già un'immagine con una tag corrispondente.</dd>
+<dd>(Facoltativo) Se specificato, le immagini di base vengono estratte, anche se sull'host di build esiste già un'immagine con una tag corrispondente.</dd>
 <dt>`--quiet`, `-q`</dt>
 <dd>(Facoltativo) Se specificato, l'output di build viene eliminato a meno che non si verifichi un errore.</dd>
 <dt>`--build-arg KEY=VALUE`</dt>
@@ -287,7 +287,7 @@ Per trovare delle informazioni sulle autorizzazioni necessarie, consulta [Ruoli 
 <dt>`--format FORMAT`</dt>
 <dd>(Facoltativo) Formatta gli elementi di output utilizzando un template Go.
 
-Per ulteriori informazioni, vedi [Formattazione e filtro dell'output della CLI per i comandi {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing).
+Per ulteriori informazioni, vedi [Formattazione e filtro dell'output della CLI per i comandi {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-registry_cli_list).
 
 </dd>
 <dt>`IMAGE`</dt>
@@ -310,7 +310,7 @@ ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds
 ## `ibmcloud cr image-list` (`ibmcloud cr images`)
 {: #bx_cr_image_list}
 
-Visualizza tutte le immagini nel tuo account {{site.data.keyword.Bluemix_notm}}.
+Visualizza tutte le immagini nel tuo account {{site.data.keyword.cloud_notm}}.
 
 Il nome dell'immagine è la combinazione del contenuto delle colonne **Repository** e **Tag** nel formato: `repository:tag`
 {:tip}
@@ -331,7 +331,7 @@ Per trovare delle informazioni sulle autorizzazioni necessarie, consulta [Ruoli 
 <dt>`--format FORMAT`</dt>
 <dd>(Facoltativo) Formatta gli elementi di output utilizzando un template Go.
 
-Per ulteriori informazioni, vedi [Formattazione e filtro dell'output della CLI per i comandi {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing).
+Per ulteriori informazioni, vedi [Formattazione e filtro dell'output della CLI per i comandi {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-registry_cli_list).
 
 </dd>
 <dt>`--quiet`, `-q`</dt>
@@ -387,7 +387,7 @@ ibmcloud cr image-rm us.icr.io/birds/bluebird:1
 ## `ibmcloud cr image-tag`
 {: #bx_cr_image_tag}
 
-Crea una nuova immagine, TARGET_IMAGE, che fa riferimento a un'immagine di origine, SOURCE_IMAGE, in {{site.data.keyword.registrylong_notm}}. Le immagini di origine e di destinazione devono essere nella stessa regione.
+Crea un'immagine, TARGET_IMAGE, che fa riferimento a un'immagine di origine, SOURCE_IMAGE, in {{site.data.keyword.registrylong_notm}}. Le immagini di origine e di destinazione devono essere nella stessa regione.
 
 Per trovare i nomi delle tue immagini, esegui `ibmcloud cr image-list`. Combina il contenuto delle colonne **Repository** e **Tag** per creare il nome dell'immagine nel formato `repository:tag`.
 {: tip}
@@ -467,7 +467,7 @@ Nessun valore
 ## `ibmcloud cr namespace-add`
 {: #bx_cr_namespace_add}
 
-Scegli un nome per il tuo spazio dei nomi e aggiungilo al tuo account {{site.data.keyword.Bluemix_notm}}.
+Scegli un nome per il tuo spazio dei nomi e aggiungilo al tuo account {{site.data.keyword.cloud_notm}}.
 
 ```
 ibmcloud cr namespace-add NAMESPACE
@@ -481,7 +481,7 @@ Per trovare delle informazioni sulle autorizzazioni necessarie, consulta [Ruoli 
 **Opzioni del comando**
 <dl>
 <dt>`NAMESPACE`</dt>
-<dd>Lo spazio dei nomi che desideri aggiungere. Lo spazio dei nomi deve essere univoco tra tutti gli account {{site.data.keyword.Bluemix_notm}} nella stessa regione. Gli spazi dei nomi devono avere tra i 4 e i 30 caratteri e contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura. Gli spazi dei nomi devono iniziare e terminare con una lettera o un numero.
+<dd>Lo spazio dei nomi che desideri aggiungere. Lo spazio dei nomi deve essere univoco tra tutti gli account {{site.data.keyword.cloud_notm}} nella stessa regione. Gli spazi dei nomi devono avere tra i 4 e i 30 caratteri e contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura. Gli spazi dei nomi devono iniziare e terminare con una lettera o un numero.
   
 <p>  
 <strong>Suggerimento</strong> non inserire informazioni personali nei tuoi nomi dello spazio dei nomi.
@@ -502,7 +502,7 @@ ibmcloud cr namespace-add birds
 ## `ibmcloud cr namespace-list` (`ibmcloud cr namespaces`)
 {: #bx_cr_namespace_list}
 
-Visualizza tutti gli spazi dei nomi che appartengono al tuo account {{site.data.keyword.Bluemix_notm}}.
+Visualizza tutti gli spazi dei nomi che appartengono al tuo account {{site.data.keyword.cloud_notm}}.
 
 ```
 ibmcloud cr namespace-list
@@ -516,7 +516,7 @@ Per trovare delle informazioni sulle autorizzazioni necessarie, consulta [Ruoli 
 ## `ibmcloud cr namespace-rm`
 {: #bx_cr_namespace_rm}
 
-Rimuove uno spazio dei nomi dal tuo account {{site.data.keyword.Bluemix_notm}}. Le immagini in questo spazio dei nomi vengono eliminate quando si rimuove lo spazio dei nomi.
+Rimuove uno spazio dei nomi dal tuo account {{site.data.keyword.cloud_notm}}. Le immagini in questo spazio dei nomi vengono eliminate quando si rimuove lo spazio dei nomi.
 
 ```
 ibmcloud cr namespace-rm NAMESPACE  [--force | -f]
@@ -563,7 +563,7 @@ Per trovare delle informazioni sulle autorizzazioni necessarie, consulta [Ruoli 
 
 Esegue il tuo upgrade al piano standard.
 
-Per informazioni sui piani, vedi [Piani del registro](/docs/services/Registry?topic=registry-registry_overview#registry_plans).
+Per ulteriori informazioni sui piani, vedi [Piani del registro](/docs/services/Registry?topic=registry-registry_overview#registry_plans).
 
 ```
 ibmcloud cr plan-upgrade [PLAN]
@@ -795,7 +795,7 @@ ibmcloud cr token-get 10101010-101x-1x10-x1xx-x10xx10xxx10
 ## `ibmcloud cr token-list` (`ibmcloud cr tokens`)
 {: #bx_cr_token_list}
 
-Visualizza tutti i token esistenti per il tuo account {{site.data.keyword.Bluemix_notm}}.
+Visualizza tutti i token esistenti per il tuo account {{site.data.keyword.cloud_notm}}.
 
 ```
 ibmcloud cr token-list [--format FORMAT]
@@ -811,7 +811,7 @@ Per trovare delle informazioni sulle autorizzazioni necessarie, consulta [Ruoli 
 <dt>`--format FORMAT`</dt>
 <dd>(Facoltativo) Formatta gli elementi di output utilizzando un template Go.
 
-Per ulteriori informazioni, vedi [Formattazione e filtro dell'output della CLI per i comandi {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing).
+Per ulteriori informazioni, vedi [Formattazione e filtro dell'output della CLI per i comandi {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-registry_cli_list).
 
 </dd>
 </dl>
@@ -880,7 +880,7 @@ Per trovare delle informazioni sulle autorizzazioni necessarie, consulta [Ruoli 
 **Opzioni del comando**
 <dl>
 <dt>`IMAGE`</dt>
-<dd>Il nome dell'immagine per cui vuoi ottenere un report. Il report ti informa se l'immagine ha delle vulnerabilità di pacchetto note. Puoi richiedere report per più immagini contemporaneamente elencando ogni immagine nel comando con uno spazio tra ciascun nome.
+<dd>Il nome dell'immagine per cui vuoi ottenere un report. Il report indica se l'immagine ha delle vulnerabilità di pacchetto note. Puoi richiedere report per più immagini contemporaneamente elencando ogni immagine nel comando con uno spazio tra ciascun nome.
 
 <p>Per trovare i nomi delle tue immagini, esegui `ibmcloud cr image-list`. Combina il contenuto delle colonne **Repository** e **Tag** per creare il nome dell'immagine nel formato `repository:tag`. Se nel nome immagine non è specificata alcuna tag, il report valuta l'immagine contrassegnata con la tag `latest`.</p>
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-06-07"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -25,13 +25,13 @@ subcollection: container-registry-cli-plugin
 # {{site.data.keyword.registrylong_notm}} CLI
 {: #containerregcli}
 
-您可以使用在 `container-registry` CLI 插件中提供的 {{site.data.keyword.registrylong}} CLI 来管理 {{site.data.keyword.Bluemix_notm}} 帐户的注册表及其资源。
+您可以使用在 `container-registry` CLI 插件中提供的 {{site.data.keyword.registrylong}} CLI 来管理 {{site.data.keyword.cloud_notm}} 帐户的注册表及其资源。
 {: shortdesc}
 
 **先决条件**
 
-* 安装 [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)。使用 {{site.data.keyword.Bluemix_notm}} CLI 运行命令的前缀为 `ibmcloud`。
-* 在运行注册表命令之前，请使用 `ibmcloud login` 命令登录到 {{site.data.keyword.Bluemix_notm}}，以生成访问令牌并对会话进行认证。
+* 安装 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)。使用 {{site.data.keyword.cloud_notm}} CLI 运行命令的前缀为 `ibmcloud`。
+* 在运行注册表命令之前，请使用 `ibmcloud login` 命令登录到 {{site.data.keyword.cloud_notm}}，以生成访问令牌并对会话进行认证。
 
 在命令行中，`ibmcloud` CLI 和 `container-registry` CLI 插件更新可用时会通知您。请确保使 CLI 保持最新，以便可以使用所有可用的命令和标志。
 
@@ -83,7 +83,7 @@ ibmcloud cr build [--no-cache] [--pull] [--quiet | -q] [--build-arg KEY=VALUE ..
 <dt>`--quiet`, `-q`</dt>
 <dd>（可选）如果指定此项，将禁止构建输出，除非发生错误。</dd>
 <dt>`--build-arg KEY=VALUE`</dt>
-<dd>（可选）以“`KEY=VALUE`”格式指定其他构建自变量。通过包含此参数多次可以指定多个构建自变量。指定与 Dockerfile 中的密钥相匹配的 ARG 行时，每个构建自变量的值都可用作环境变量。</dd>
+<dd>（可选）以 `KEY=VALUE` 格式指定其他构建自变量。通过包含此参数多次可以指定多个构建自变量。指定与 Dockerfile 中的密钥相匹配的 ARG 行时，每个构建自变量的值都可用作环境变量。</dd>
 <dt>`--file FILE`, `-f FILE`</dt>
 <dd>（可选）如果对多个构建使用相同的文件，那么可以选择指向其他 Dockerfile 的路径。指定 Dockerfile 相对于构建上下文的位置。如果未指定此项，缺省值为 `PATH/Dockerfile`，其中 PATH 是构建上下文的根目录。</dd>
 <dt>`--tag TAG`, `-t TAG`</dt>
@@ -122,7 +122,8 @@ ibmcloud cr exemption-add --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE
 <dd>要豁免的安全问题的类型。要查找有效的问题类型，请运行 `ibmcloud cr exemption-types`。
 </dd>
 <dt>`--issue-id ISSUE_ID`</dt>
-<dd>要豁免的安全问题的标识。要查找问题标识，请运行 `ibmcloud cr va <image>`，其中 `<image>` 是映像的名称，并使用 **Vulnerability ID** 或 **Configuration Issue ID** 列中的相关值。</dd>
+<dd>要豁免的安全问题的标识。要找到问题标识，运行`ibmcloud cr va <image>`，其中 `<image>` 是映像的名称，并使用 **Vulnerability ID** 或 **Configuration Issue ID** 列中的相关值。
+</dd>
 </dl>
 
 **示例**
@@ -205,7 +206,7 @@ ibmcloud cr exemption-rm --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE_
 
 **示例**
 
-针对 `us.icr.io/birds/bluebird` 存储库中的所有映像，为标识为 `CVE-2018-17929` 的 CVE 删除 CVE 豁免。 
+针对 `us.icr.io/birds/bluebird` 存储库中的所有映像，为标识为 `CVE-2018-17929` 的 CVE 删除 CVE 豁免。
 
 ```
 ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird --issue-type cve --issue-id CVE-2018-17929
@@ -283,7 +284,7 @@ ibmcloud cr image-inspect [--format FORMAT] IMAGE [IMAGE...]
 <dt>`--format FORMAT`</dt>
 <dd>（可选）使用 Go 模板来设置输出元素的格式。
 
-有关更多信息，请参阅[对 {{site.data.keyword.registrylong_notm}} 命令的 CLI 输出进行格式设置和过滤](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing)。
+有关更多信息，请参阅[对 {{site.data.keyword.registrylong_notm}} 命令的 CLI 输出进行格式设置和过滤](/docs/services/Registry?topic=registry-registry_cli_list)。
 
 </dd>
 <dt>`IMAGE`</dt>
@@ -306,7 +307,7 @@ ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds
 ## `ibmcloud cr image-list` (`ibmcloud cr images`)
 {: #bx_cr_image_list}
 
-显示 {{site.data.keyword.Bluemix_notm}} 帐户中的所有映像。
+显示 {{site.data.keyword.cloud_notm}} 帐户中的所有映像。
 
 映像名称是**存储库**和**标记**列的内容组合，格式为 `repository:tag`。
 {:tip}
@@ -327,7 +328,7 @@ ibmcloud cr image-list [--no-trunc] [--format FORMAT] [--quiet | -q ] [--restric
 <dt>`--format FORMAT`</dt>
 <dd>（可选）使用 Go 模板来设置输出元素的格式。
 
-有关更多信息，请参阅[对 {{site.data.keyword.registrylong_notm}} 命令的 CLI 输出进行格式设置和过滤](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing)。
+有关更多信息，请参阅[对 {{site.data.keyword.registrylong_notm}} 命令的 CLI 输出进行格式设置和过滤](/docs/services/Registry?topic=registry-registry_cli_list)。
 
 </dd>
 <dt>`--quiet`, `-q`</dt>
@@ -335,7 +336,7 @@ ibmcloud cr image-list [--no-trunc] [--format FORMAT] [--quiet | -q ] [--restric
 <dt>`--restrict RESTRICTION`</dt>
 <dd>（可选）将输出限制为仅显示指定名称空间或名称空间和存储库中的映像。</dd>
 <dt>`--include-ibm`</dt>
-<dd>（可选）在输出中包含 {{site.data.keyword.IBM_notm}} 提供的公用映像。不使用此选项时，缺省情况下仅列出专用映像。</dd>
+<dd>（可选）在输出中包含 {{site.data.keyword.IBM_notm}} 提供的公用映像。如果不使用此选项，缺省情况下仅列出专用映像。</dd>
 </dl>
 
 **示例**
@@ -463,7 +464,7 @@ ibmcloud cr login
 ## `ibmcloud cr namespace-add`
 {: #bx_cr_namespace_add}
 
-选择名称空间的名称，然后将其添加到 {{site.data.keyword.Bluemix_notm}} 帐户。
+选择名称空间的名称，然后将其添加到 {{site.data.keyword.cloud_notm}} 帐户。
 
 ```
 ibmcloud cr namespace-add NAMESPACE
@@ -477,7 +478,7 @@ ibmcloud cr namespace-add NAMESPACE
 **命令选项**
 <dl>
 <dt>`NAMESPACE`</dt>
-<dd>要添加的名称空间。名称空间在同一区域的所有 {{site.data.keyword.Bluemix_notm}} 帐户中必须唯一。名称空间必须具有 4 到 30 个字符，并且只能包含小写字母、数字、连字符和下划线。名称空间必须以字母或数字开头和结尾。
+<dd>要添加的名称空间。名称空间在同一区域的所有 {{site.data.keyword.cloud_notm}} 帐户中必须唯一。名称空间必须具有 4 到 30 个字符，并且只能包含小写字母、数字、连字符和下划线。名称空间必须以字母或数字开头和结尾。
   
 <p>  
 <strong>提示</strong>：不要将个人信息放入名称空间名称中。
@@ -498,7 +499,7 @@ ibmcloud cr namespace-add birds
 ## `ibmcloud cr namespace-list` (`ibmcloud cr namespaces`)
 {: #bx_cr_namespace_list}
 
-显示 {{site.data.keyword.Bluemix_notm}} 帐户拥有的所有名称空间。
+显示 {{site.data.keyword.cloud_notm}} 帐户拥有的所有名称空间。
 
 ```
 ibmcloud cr namespace-list
@@ -512,7 +513,7 @@ ibmcloud cr namespace-list
 ## `ibmcloud cr namespace-rm`
 {: #bx_cr_namespace_rm}
 
-从 {{site.data.keyword.Bluemix_notm}} 帐户中除去名称空间。除去名称空间时，将删除此名称空间中的映像。
+从 {{site.data.keyword.cloud_notm}} 帐户中除去名称空间。除去名称空间时，将删除此名称空间中的映像。
 
 ```
 ibmcloud cr namespace-rm NAMESPACE  [--force | -f]
@@ -559,7 +560,7 @@ ibmcloud cr plan
 
 升级到标准套餐。
 
-有关套餐的信息，请参阅[注册表套餐](/docs/services/Registry?topic=registry-registry_overview#registry_plans)。
+有关套餐的更多信息，请参阅[注册表套餐](/docs/services/Registry?topic=registry-registry_overview#registry_plans)。
 
 ```
 ibmcloud cr plan-upgrade [PLAN]
@@ -791,7 +792,7 @@ ibmcloud cr token-get 10101010-101x-1x10-x1xx-x10xx10xxx10
 ## `ibmcloud cr token-list` (`ibmcloud cr tokens`)
 {: #bx_cr_token_list}
 
-显示 {{site.data.keyword.Bluemix_notm}} 帐户存在的所有令牌。
+显示 {{site.data.keyword.cloud_notm}} 帐户存在的所有令牌。
 
 ```
 ibmcloud cr token-list [--format FORMAT]
@@ -807,7 +808,7 @@ ibmcloud cr token-list [--format FORMAT]
 <dt>`--format FORMAT`</dt>
 <dd>（可选）使用 Go 模板来设置输出元素的格式。
 
-有关更多信息，请参阅[对 {{site.data.keyword.registrylong_notm}} 命令的 CLI 输出进行格式设置和过滤](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing)。
+有关更多信息，请参阅[对 {{site.data.keyword.registrylong_notm}} 命令的 CLI 输出进行格式设置和过滤](/docs/services/Registry?topic=registry-registry_cli_list)。
 
 </dd>
 </dl>
@@ -876,7 +877,7 @@ ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] 
 **命令选项**
 <dl>
 <dt>`IMAGE`</dt>
-<dd>要获取其报告的映像的名称。此报告指示该映像是否具有任何已知的包漏洞。可以通过在命令中列出每个映像（各名称之间用一个空格分隔）来同时请求多个映像的报告。
+<dd>要获取其报告的映像的名称。此报告指出该映像是否有任何已知的包漏洞。可以通过在命令中列出每个映像（各名称之间用一个空格分隔）来同时请求多个映像的报告。
 
 <p>要查找映像的名称，请运行 `ibmcloud cr image-list`。将**存储库**和**标记**列的内容组合在一起，以创建格式为 `repository:tag` 的映像名称。如果未在映像名称中指定标记，那么报告会评估标记为 `latest` 的映像。</p>
 

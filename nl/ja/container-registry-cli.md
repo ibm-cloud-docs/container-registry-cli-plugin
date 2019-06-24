@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-06-07"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -25,13 +25,13 @@ subcollection: container-registry-cli-plugin
 # {{site.data.keyword.registrylong_notm}} CLI
 {: #containerregcli}
 
-{{site.data.keyword.Bluemix_notm}} アカウントのレジストリーとそのリソースを管理するには、`container-registry` CLI プラグイン内に用意されている {{site.data.keyword.registrylong}} CLI を使用できます。
+`container-registry` CLI プラグインで提供されている {{site.data.keyword.registrylong}} CLI を使用して、{{site.data.keyword.cloud_notm}} アカウントのレジストリーとそのリソースを管理できます。
 {: shortdesc}
 
 **前提条件**
 
-* [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) をインストールします。 {{site.data.keyword.Bluemix_notm}} CLI を使用してコマンドを実行するための接頭部は、`ibmcloud` です。
-* レジストリー・コマンドを実行する前に、`ibmcloud login` コマンドを使用して {{site.data.keyword.Bluemix_notm}} にログインし、アクセス・トークンを生成して、セッションを認証します。
+* [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) をインストールします。 {{site.data.keyword.cloud_notm}} CLI を使用してコマンドを実行するための接頭部は、`ibmcloud` です。
+* レジストリー・コマンドを実行する前に、`ibmcloud login` コマンドを使用して {{site.data.keyword.cloud_notm}} にログインし、アクセス・トークンを生成して、セッションを認証します。
 
 `ibmcloud` CLI および `container-registry` CLI プラグインの更新が使用可能になると、コマンド・ラインに通知が表示されます。 使用可能なすべてのコマンドとフラグを使用できるように、CLI を最新の状態に保つようにしてください。
 
@@ -83,7 +83,7 @@ ibmcloud cr build [--no-cache] [--pull] [--quiet | -q] [--build-arg KEY=VALUE ..
 <dt>`--quiet`, `-q`</dt>
 <dd>(オプション) 指定されている場合、エラーが発生しない限り、ビルド出力は抑止されます。</dd>
 <dt>`--build-arg KEY=VALUE`</dt>
-<dd>(オプション) 「``」の形式で追加のビルド引数を指定します。 このパラメーターを複数回指定して複数のビルド引数を指定することができます。 キーに一致する ARG 行を Dockerfile 内に指定すれば、各ビルド引数の値を環境変数として使用できます。</dd>
+<dd>(オプション) 「`KEY=VALUE`」の形式で追加のビルド引数を指定します。このパラメーターを複数回指定して複数のビルド引数を指定することができます。 キーに一致する ARG 行を Dockerfile 内に指定すれば、各ビルド引数の値を環境変数として使用できます。</dd>
 <dt>`--file FILE`, `-f FILE`</dt>
 <dd>(オプション) 複数のビルドのために複数の同じファイルを使用する場合は、別の Dockerfile のパスを選択できます。 ビルド・コンテキストに対する Dockerfile の相対位置を指定します。 指定しない場合、デフォルトは `PATH/Dockerfile` です。PATH は、ビルド・コンテキストのルートです。</dd>
 <dt>`--tag TAG`, `-t TAG`</dt>
@@ -172,7 +172,7 @@ ibmcloud cr exemption-list [--scope SCOPE]
 
 **例**
 
-*`birds/bluebird`* リポジトリー内のイメージに適用するセキュリティー問題に関する免除をすべてリストします。 出力には、アカウント規模の免除、*`birds`* 名前空間が適用範囲になる免除、*`birds/bluebird`* リポジトリーは適用範囲になるものの *`birds/bluebird`* リポジトリー内の特定のタグは適用範囲にならない免除が含まれます。
+*`birds/bluebird`* リポジトリー内のイメージに適用するセキュリティー問題に関する免除をすべてリストします。 出力には、アカウント規模の免除、*`birds`* 名前空間が適用範囲になる免除、および *`birds/bluebird`* リポジトリーが適用範囲になる免除は含まれますが、 *`birds/bluebird`* リポジトリー内の特定のタグが適用範囲になる免除は含まれません。
 
 ```
 ibmcloud cr exemption-list --scope birds/bluebird
@@ -260,7 +260,7 @@ ibmcloud cr iam-policies-enable
 ## `ibmcloud cr iam-policies-status`
 {: #bx_cr_iam_policies_status}
 
-ターゲットである {{site.data.keyword.registryshort_notm}} アカウントの IAM ポリシーの状況を表示します。詳しくは、[Identity and Access Management を使用したユーザー・アクセス権限の管理](/docs/services/Registry?topic=registry-iam#iam)と[ユーザー・アクセスの役割ポリシーの定義](/docs/services/Registry?topic=registry-user#user)を参照してください。
+ターゲットである {{site.data.keyword.registryshort_notm}} アカウントの IAM ポリシーの状況を表示します。 詳しくは、[Identity and Access Management を使用したユーザー・アクセス権限の管理](/docs/services/Registry?topic=registry-iam#iam)と[ユーザー・アクセスの役割ポリシーの定義](/docs/services/Registry?topic=registry-user#user)を参照してください。
 
 ```
 ibmcloud cr iam-policies-status
@@ -286,7 +286,7 @@ ibmcloud cr image-inspect [--format FORMAT] IMAGE [IMAGE...]
 <dt>`--format FORMAT`</dt>
 <dd>(オプション) Go テンプレートを使用して出力要素のフォーマットを設定します。
 
-詳しくは、[{{site.data.keyword.registrylong_notm}} コマンドの CLI 出力のフォーマット設定およびフィルター操作](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing)を参照してください。
+詳しくは、[{{site.data.keyword.registrylong_notm}} コマンドの CLI 出力のフォーマット設定およびフィルター操作](/docs/services/Registry?topic=registry-registry_cli_list)を参照してください。
 
 </dd>
 <dt>`IMAGE`</dt>
@@ -309,7 +309,7 @@ ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds
 ## `ibmcloud cr image-list` (`ibmcloud cr images`)
 {: #bx_cr_image_list}
 
-{{site.data.keyword.Bluemix_notm}} アカウント内のすべてのイメージを表示します。
+{{site.data.keyword.cloud_notm}} アカウント内のすべてのイメージを表示します。
 
 イメージ名は、**Repository** 列と **Tag** 列の内容を `repository:tag` の形式で組み合わせたものです。
 {:tip}
@@ -330,7 +330,7 @@ ibmcloud cr image-list [--no-trunc] [--format FORMAT] [--quiet | -q ] [--restric
 <dt>`--format FORMAT`</dt>
 <dd>(オプション) Go テンプレートを使用して出力要素のフォーマットを設定します。
 
-詳しくは、[{{site.data.keyword.registrylong_notm}} コマンドの CLI 出力のフォーマット設定およびフィルター操作](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing)を参照してください。
+詳しくは、[{{site.data.keyword.registrylong_notm}} コマンドの CLI 出力のフォーマット設定およびフィルター操作](/docs/services/Registry?topic=registry-registry_cli_list)を参照してください。
 
 </dd>
 <dt>`--quiet`, `-q`</dt>
@@ -386,7 +386,7 @@ ibmcloud cr image-rm us.icr.io/birds/bluebird:1
 ## `ibmcloud cr image-tag`
 {: #bx_cr_image_tag}
 
-{{site.data.keyword.registrylong_notm}} で、ソース・イメージ SOURCE_IMAGE を参照する新しいイメージ TARGET_IMAGE を作成します。 ソース・イメージとターゲット・イメージは、同一の領域内になければなりません。
+{{site.data.keyword.registrylong_notm}} で、ソース・イメージ SOURCE_IMAGE を参照するイメージ TARGET_IMAGE を作成します。ソース・イメージとターゲット・イメージは、同一の地域内になければなりません。
 
 イメージの名前を調べるには、`ibmcloud cr image-list` を実行します。 **Repository** 列と **Tag** 列の内容を組み合わせると、`repository:tag` の形式のイメージ名になります。
 {: tip}
@@ -466,7 +466,7 @@ ibmcloud cr login
 ## `ibmcloud cr namespace-add`
 {: #bx_cr_namespace_add}
 
-名前空間の名前を選択して、{{site.data.keyword.Bluemix_notm}} アカウントに追加します。
+名前空間の名前を選択して、{{site.data.keyword.cloud_notm}} アカウントに追加します。
 
 ```
 ibmcloud cr namespace-add NAMESPACE
@@ -480,7 +480,7 @@ ibmcloud cr namespace-add NAMESPACE
 **コマンド・オプション**
 <dl>
 <dt>`NAMESPACE`</dt>
-<dd>追加する名前空間。 名前空間は、同じ地域内のすべての {{site.data.keyword.Bluemix_notm}} アカウントにおいて固有でなければなりません。 名前空間は 4 文字から 30 文字までで、小文字、数字、ハイフン、下線のみを使用しなければなりません。 名前空間は、文字または数値で開始および終了する必要があります。
+<dd>追加する名前空間。名前空間は、同じ地域内のすべての {{site.data.keyword.cloud_notm}} アカウントにおいて固有でなければなりません。 名前空間は 4 文字から 30 文字までで、含めることができるのは、小文字、数字、ハイフン、下線のみです。名前空間は、文字または数値で開始および終了する必要があります。
   
 <p>  
 <strong>ヒント</strong>: 名前空間名に個人情報を含めないでください。
@@ -501,7 +501,7 @@ ibmcloud cr namespace-add birds
 ## `ibmcloud cr namespace-list` (`ibmcloud cr namespaces`)
 {: #bx_cr_namespace_list}
 
-{{site.data.keyword.Bluemix_notm}} アカウントが所有するすべての名前空間を表示します。
+{{site.data.keyword.cloud_notm}} アカウントが所有するすべての名前空間を表示します。
 
 ```
 ibmcloud cr namespace-list
@@ -515,7 +515,7 @@ ibmcloud cr namespace-list
 ## `ibmcloud cr namespace-rm`
 {: #bx_cr_namespace_rm}
 
-{{site.data.keyword.Bluemix_notm}} アカウントから名前空間を削除します。 名前空間を削除すると、この名前空間内のイメージが削除されます。
+{{site.data.keyword.cloud_notm}} アカウントから名前空間を削除します。 名前空間を削除すると、この名前空間内のイメージが削除されます。
 
 ```
 ibmcloud cr namespace-rm NAMESPACE  [--force | -f]
@@ -794,7 +794,7 @@ ibmcloud cr token-get 10101010-101x-1x10-x1xx-x10xx10xxx10
 ## `ibmcloud cr token-list` (`ibmcloud cr tokens`)
 {: #bx_cr_token_list}
 
-{{site.data.keyword.Bluemix_notm}} アカウント用に存在するすべてのトークンを表示します。
+{{site.data.keyword.cloud_notm}} アカウント用に存在するすべてのトークンを表示します。
 
 ```
 ibmcloud cr token-list [--format FORMAT]
@@ -810,7 +810,7 @@ ibmcloud cr token-list [--format FORMAT]
 <dt>`--format FORMAT`</dt>
 <dd>(オプション) Go テンプレートを使用して出力要素のフォーマットを設定します。
 
-詳しくは、[{{site.data.keyword.registrylong_notm}} コマンドの CLI 出力のフォーマット設定およびフィルター操作](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing)を参照してください。
+詳しくは、[{{site.data.keyword.registrylong_notm}} コマンドの CLI 出力のフォーマット設定およびフィルター操作](/docs/services/Registry?topic=registry-registry_cli_list)を参照してください。
 
 </dd>
 </dl>
@@ -879,7 +879,7 @@ ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] 
 **コマンド・オプション**
 <dl>
 <dt>`IMAGE`</dt>
-<dd>レポートを取得するイメージの名前。 このレポートから、既知のパッケージ脆弱性がイメージにあるかどうかがわかります。 このコマンドに複数のイメージの名前をスペースで区切ってリストすると、複数のイメージについてのレポートを同時に要求できます。
+<dd>レポートを取得するイメージの名前。 このレポートから、既知のパッケージの脆弱性がイメージにあるかどうかがわかります。このコマンドに複数のイメージの名前をスペースで区切ってリストすると、複数のイメージについてのレポートを同時に要求できます。
 
 <p>イメージの名前を調べるには、`ibmcloud cr image-list` を実行します。 **Repository** 列と **Tag** 列の内容を組み合わせると、`repository:tag` の形式のイメージ名になります。 イメージ名の中にタグを指定しない場合は、`latest` というタグが付いたイメージを評価したレポートになります。</p>
 

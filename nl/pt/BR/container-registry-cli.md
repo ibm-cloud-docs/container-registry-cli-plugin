@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-06-07"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands
 
@@ -25,13 +25,13 @@ subcollection: container-registry-cli-plugin
 # {{site.data.keyword.registrylong_notm}} CLI (interface da linha de comandos)
 {: #containerregcli}
 
-É possível usar a CLI do {{site.data.keyword.registrylong}}, que é fornecida no plug-in da CLI `container-registry`, para gerenciar seu registro e seus recursos para sua conta do {{site.data.keyword.Bluemix_notm}}.
+É possível usar a CLI do {{site.data.keyword.registrylong}}, que é fornecida no plug-in da CLI `container-registry`, para gerenciar seu registro e seus recursos para sua conta do {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
 
 **Pré-requisitos**
 
-* Instale a [CLI do {{site.data.keyword.Bluemix_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli). O prefixo para executar comandos usando a CLI do {{site.data.keyword.Bluemix_notm}} é `ibmcloud`.
-* Antes de executar os comandos de registro, efetue login no {{site.data.keyword.Bluemix_notm}}
+* Instale a [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli). O prefixo para executar comandos usando a CLI do {{site.data.keyword.cloud_notm}} é `ibmcloud`.
+* Antes de executar os comandos de registro, efetue login no {{site.data.keyword.cloud_notm}}
  com o comando `ibmcloud login` para gerar um token de acesso e autenticar sua sessão.
 
 Na linha de comandos, você é notificado quando as atualizações para os plug-ins da CLI `ibmcloud` e da CLI `container-registry` estão disponíveis. Assegure-se de manter sua CLI atualizada para que seja possível usar todos os comandos e sinalizadores disponíveis.
@@ -81,11 +81,11 @@ Para saber mais sobre as permissões necessárias, consulte [Funções de acesso
 <dt>`-- no-cache`</dt>
 <dd>(Opcional) Se especificado, camadas de imagem em cache de construções anteriores não serão usadas nesta compilação.</dd>
 <dt>`-- pull`</dt>
-<dd>(Opcional) Se especificado, as imagens base são puxadas mesmo se uma imagem com uma tag de correspondência já existe no host de construção.</dd>
+<dd>(Opcional) Se especificado, as imagens base serão puxadas, mesmo se uma imagem com uma tag correspondente já existir no host de construção.</dd>
 <dt>`--quiet`, `-q`</dt>
 <dd>(Opcional) Se especificado, a saída de construção é suprimida, a menos que ocorra um erro.</dd>
 <dt>`-- build-arg KEY=VALUE`</dt>
-<dd>(Opcional) Especifique um argumento de construção adicional no formato `'KEY=VALUE'`. Múltiplos argumentos de compilação podem ser especificados, incluindo este parâmetro, múltiplas vezes. O valor de cada argumento de construção está disponível como uma variável de ambiente quando você especifica uma linha ARG que corresponde à chave em seu Dockerfile.</dd>
+<dd>(Opcional) Especifique um argumento de construção extra no formato `'KEY=VALUE'`. Múltiplos argumentos de compilação podem ser especificados, incluindo este parâmetro, múltiplas vezes. O valor de cada argumento de construção está disponível como uma variável de ambiente quando você especifica uma linha ARG que corresponde à chave em seu Dockerfile.</dd>
 <dt>`--file FILE`, `-f FILE`</dt>
 <dd>(Opcional) Se você usar os mesmos arquivos para múltiplas construções, será possível escolher um caminho para um Dockerfile diferente. Especifique o local do Dockerfile relativo ao contexto de compilação. Se não especificado, o padrão será `PATH/Dockerfile`, em que PATH é a raiz do contexto de compilação.</dd>
 <dt>`--tag TAG`, `-t TAG`</dt>
@@ -124,9 +124,7 @@ Para saber mais sobre as permissões necessárias, consulte [Funções de acesso
 <dd>O tipo de problema de segurança que você deseja isentar. Para localizar tipos de problemas válidos, execute `ibmcloud cr exemption-types`.
 </dd>
 <dt>`--issue-id ISSUE_ID`</dt>
-<dd>O ID do problema de segurança que você deseja isentar. Para localizar um ID de problema, execute `ibmcloud cr va <image>`, em que  `<image>`
-é o nome da sua imagem, e use o valor relevante da coluna **ID de vulnerabilidade** ou
-**Identificador do problema de configuração**.
+<dd>O ID do problema de segurança que você deseja isentar. Para localizar um ID de problema, execute `ibmcloud cr va<image>`, em que `<image>` é o nome de sua imagem, e use o valor relevante da coluna **ID de vulnerabilidade** ou **ID do problema de configuração**.
 </dd>
 </dl>
 
@@ -176,7 +174,7 @@ Para saber mais sobre as permissões necessárias, consulte [Funções de acesso
 
 **Exemplo**
 
-Liste todas as suas isenções para problemas de segurança que se aplicam a imagens no repositório *`birds/bluebird`*. A saída inclui isenções que abrangem toda a conta, isenções com escopo definido no namespace *`birds`* e isenções com escopo definido no repositório *`birds/bluebird`*, mas não com escopo definido para tags específicas dentro do repositório *`birds/bluebird`*.
+Liste todas as suas isenções para problemas de segurança que se aplicam a imagens no repositório *`birds/bluebird`*. A saída inclui isenções que são gerais, isenções com escopo definido para o namespace *`birds`* e isenções com escopo definido para o repositório *`birds/bluebird`*, mas nenhuma com escopo definido para tags específicas dentro do repositório *`birds/bluebird`*.
 
 ```
 ibmcloud cr exemption-list --scope birds/bluebird
@@ -290,9 +288,7 @@ Para saber mais sobre as permissões necessárias, consulte [Funções de acesso
 <dt>`-- format FORMAT`</dt>
 <dd>(Opcional) Formata os elementos de saída usando um modelo Go.
 
-Para obter mais informações, consulte
-[Formatando e filtrando a
-saída da CLI para comandos do {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing).
+Para obter mais informações, consulte [Formatando e filtrando a saída da CLI para os comandos do {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-registry_cli_list).
 
 </dd>
 <dt>`IMAGE`</dt>
@@ -315,7 +311,7 @@ ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds
 ## `ibmcloud cr image-list` (`ibmcloud cr images`)
 {: #bx_cr_image_list}
 
-Exibe todas as imagens em sua conta. {{site.data.keyword.Bluemix_notm}}
+Exibe todas as imagens em sua conta. {{site.data.keyword.cloud_notm}}
 
 O nome da imagem é a combinação do conteúdo das colunas **Repositório** e **Tag** no formato: `repository:tag`
 {:tip}
@@ -336,9 +332,7 @@ Para saber mais sobre as permissões necessárias, consulte [Funções de acesso
 <dt>`-- format FORMAT`</dt>
 <dd>(Opcional) Formata os elementos de saída usando um modelo Go.
 
-Para obter mais informações, consulte
-[Formatando e filtrando a
-saída da CLI para comandos do {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing).
+Para obter mais informações, consulte [Formatando e filtrando a saída da CLI para os comandos do {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-registry_cli_list).
 
 </dd>
 <dt>`--quiet`, `-q`</dt>
@@ -346,7 +340,7 @@ saída da CLI para comandos do {{site.data.keyword.registrylong_notm}}](/docs/se
 <dt>`-- restrict RESTRICTION`</dt>
 <dd>(Opcional) Limite a saída para exibir somente imagens no namespace especificado ou namespace e repositório. </dd>
 <dt>`--include-ibm`</dt>
-<dd>(Opcional) Inclui imagens públicas fornecidas pelo {{site.data.keyword.IBM_notm}} na saída. Sem essa opção, somente imagens privadas serão listadas, por padrão.</dd>
+<dd>(Opcional) Inclui imagens públicas fornecidas pelo {{site.data.keyword.IBM_notm}} na saída. Sem essa opção, apenas as imagens privadas são listadas por padrão.</dd>
 </dl>
 
 **Exemplo**
@@ -393,7 +387,7 @@ ibmcloud cr image-rm us.icr.io/birds/bluebird:1
 ## `ibmcloud cr image-tag`
 {: #bx_cr_image_tag}
 
-Crie uma nova imagem, TARGET_IMAGE, que se refira a uma imagem de origem, SOURCE_IMAGE, no {{site.data.keyword.registrylong_notm}}. As imagens de origem e de destino devem estar na mesma região.
+Crie uma imagem, TARGET_IMAGE, que se refira a uma imagem de origem, SOURCE_IMAGE, no {{site.data.keyword.registrylong_notm}}. As imagens de origem e de destino devem estar na mesma região.
 
 Para localizar os nomes de suas imagens, execute `ibmcloud cr image-list`. Combine o conteúdo das colunas **Repositório** e **Tag** para criar o nome da imagem no formato `repository:tag`.
 {: tip}
@@ -473,7 +467,7 @@ Nenhuma
 ## `ibmcloud cr namespace-add`
 {: #bx_cr_namespace_add}
 
-Escolha um nome para seu namespace e inclua-o em sua conta {{site.data.keyword.Bluemix_notm}}.
+Escolha um nome para seu namespace e inclua-o em sua conta {{site.data.keyword.cloud_notm}}.
 
 ```
 ibmcloud cr namespace-add NAMESPACE
@@ -487,7 +481,7 @@ Para saber mais sobre as permissões necessárias, consulte [Funções de acesso
 **Opções de comandos**
 <dl>
 <dt>`NAMESPACE`</dt>
-<dd>O namespace que deseja incluir. O namespace deve ser exclusivo em todas as contas do {{site.data.keyword.Bluemix_notm}} na mesma região. Os namespaces devem ter de 4 a 30 caracteres e conter somente letra minúsculas, números, hifens e sublinhados. Os namespaces devem iniciar e terminar com uma letra ou número.
+<dd>O namespace que você deseja incluir. O namespace deve ser exclusivo em todas as contas do {{site.data.keyword.cloud_notm}} na mesma região. Os namespaces devem ter de 4 a 30 caracteres e conter letras minúsculas, números, hifens e sublinhados apenas. Os namespaces devem iniciar e terminar com uma letra ou número.
   
 <p>  
 <strong>Dica:</strong> não coloque informações pessoais em seus nomes de namespace.
@@ -508,7 +502,7 @@ ibmcloud cr namespace-add birds
 ## `ibmcloud cr namespace-list` (`ibmcloud cr namespaces`)
 {: #bx_cr_namespace_list}
 
-Exibe todos os namespaces pertencentes à sua conta do {{site.data.keyword.Bluemix_notm}}.
+Exibe todos os namespaces pertencentes à sua conta do {{site.data.keyword.cloud_notm}}.
 
 ```
 ibmcloud cr namespace-list
@@ -522,7 +516,7 @@ Para saber mais sobre as permissões necessárias, consulte [Funções de acesso
 ## `ibmcloud cr namespace-rm`
 {: #bx_cr_namespace_rm}
 
-Remove um namespace de sua conta do {{site.data.keyword.Bluemix_notm}}. As imagens nesse namespace são excluídas quando o namespace é removido.
+Remove um namespace de sua conta do {{site.data.keyword.cloud_notm}}. As imagens nesse namespace são excluídas quando o namespace é removido.
 
 ```
 ibmcloud cr namespace-rm NAMESPACE  [--force | -f]
@@ -569,7 +563,7 @@ Para saber mais sobre as permissões necessárias, consulte [Funções de acesso
 
 Upgrades para você o plano padrão.
 
-Para obter informações sobre planos, veja [Planos de registro](/docs/services/Registry?topic=registry-registry_overview#registry_plans).
+Para obter mais informações sobre os planos, consulte [Planos de registro](/docs/services/Registry?topic=registry-registry_overview#registry_plans).
 
 ```
 ibmcloud cr plan-upgrade [PLAN]
@@ -802,7 +796,7 @@ ibmcloud cr token-get 10101010-101x-1x10-x1xx-x10xx10xxx10
 ## `ibmcloud cr token-list` (`ibmcloud cr tokens`)
 {: #bx_cr_token_list}
 
-Exibe todos os tokens que existem para sua conta do {{site.data.keyword.Bluemix_notm}}.
+Exibe todos os tokens que existem para sua conta do {{site.data.keyword.cloud_notm}}.
 
 ```
 ibmcloud cr token-list [--format FORMAT]
@@ -818,9 +812,7 @@ Para saber mais sobre as permissões necessárias, consulte [Funções de gerenc
 <dt>`-- format FORMAT`</dt>
 <dd>(Opcional) Formata os elementos de saída usando um modelo Go.
 
-Para obter mais informações, consulte
-[Formatando e filtrando a
-saída da CLI para comandos do {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-registry_cli_reference#registry_cli_listing).
+Para obter mais informações, consulte [Formatando e filtrando a saída da CLI para os comandos do {{site.data.keyword.registrylong_notm}}](/docs/services/Registry?topic=registry-registry_cli_list).
 
 </dd>
 </dl>
@@ -889,7 +881,7 @@ Para saber mais sobre as permissões necessárias, consulte [Funções de acesso
 **Opções de comandos**
 <dl>
 <dt>`IMAGE`</dt>
-<dd>O nome da imagem para o qual deseja obter um relatório. O relatório indica se a imagem em quaisquer vulnerabilidades de pacote conhecidas. É possível solicitar relatórios para múltiplas imagens ao mesmo tempo listando cada imagem no comando com um espaço entre cada nome.
+<dd>O nome da imagem para o qual deseja obter um relatório. O relatório indica se a imagem tem qualquer vulnerabilidade de pacote conhecida. É possível solicitar relatórios para múltiplas imagens ao mesmo tempo listando cada imagem no comando com um espaço entre cada nome.
 
 <p>Para localizar os nomes de suas imagens, execute `ibmcloud cr image-list`. Combine o conteúdo das colunas **Repositório** e **Tag** para criar o nome da imagem no formato `repository:tag`. Se uma tag não for especificada no nome da imagem, o relatório avaliará a imagem identificada como `latest`.</p>
 
