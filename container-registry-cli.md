@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-24"
+lastupdated: "2020-07-13"
 
 keywords: IBM Cloud Container Registry CLI, container images, container registry commands, commands, cli
 
@@ -760,7 +760,7 @@ ibmcloud cr namespace-add NAMESPACE
 ### Prerequisites
 {: #bx_cr_namespace_add_prereq}
 
-To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/Registry?topic=Registry-iam#access_roles_using).
+To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/Registry?topic=Registry-iam#access_roles_configure).
 
 ### Command options
 {: #bx_cr_namespace_add_option}
@@ -814,7 +814,7 @@ ibmcloud cr namespace-rm NAMESPACE  [--force | -f]
 ### Prerequisites
 {: #bx_cr_namespace_rm_prereq}
 
-To find out about the required permissions, see [Access roles for using {{site.data.keyword.registrylong_notm}}](/docs/Registry?topic=Registry-iam#access_roles_using).
+To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registrylong_notm}}](/docs/Registry?topic=Registry-iam#access_roles_configure).
 
 ### Command options
 {: #bx_cr_namespace_rm_option}
