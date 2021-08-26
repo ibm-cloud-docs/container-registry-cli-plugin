@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="container-registry-cli-plugin" audience="cli" href="/docs/container-registry-cli-plugin?topic=container-registry-cli-plugin-containerregcli" path="container-registry-cli-plugin"}
+{: .toc subcollection="container-registry-cli-plugin" version="2" audience="cli" href="/docs/container-registry-cli-plugin?topic=container-registry-cli-plugin-containerregcli" path="container-registry-cli-plugin"}
 IBM Cloud Container Registry CLI reference
 
     {: .navgroup id="reference"}
