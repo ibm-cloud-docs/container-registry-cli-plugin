@@ -1,7 +1,6 @@
 toc:
   properties:
     subcollection: container-registry-cli-plugin
-    category: containers
     audience: cli
     href: /docs/container-registry-cli-plugin?topic=container-registry-cli-plugin-containerregcli
     console-page: /registry/catalog
