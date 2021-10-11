@@ -2,7 +2,7 @@ toc:
   properties:
     subcollection: container-registry-cli-plugin
     audience: cli
-    href: /docs/container-registry-cli-plugin?topic=container-registry-cli-plugin-containerregcli
+    href: /docs/container-registry-cli-plugin
     console-page: /registry/catalog
     product-page: https://www.ibm.com/cloud/container-registry
     path: container-registry-cli-plugin
@@ -13,5 +13,8 @@ toc:
   - navgroup: 
       id: reference
       topics:
-      - topic: container-registry-cli.md
+      - topicgroup:
+            label: IBM Cloud Container Registry CLI reference
+            topics:
+            - /Registry/Registry-containerregcli
       
