@@ -13,6 +13,7 @@ subcollection: container-registry-cli-plugin
 {{site.data.keyword.attribute-definition-list}}
 
 
+
 # {{site.data.keyword.registrylong_notm}} CLI
 {: #containerregcli}
 
@@ -279,7 +280,7 @@ ibmcloud cr iam-policies-status
 ## `ibmcloud cr image-digests` (`ibmcloud cr digests`)
 {: #bx_cr_image_digests}
 
-Lists all images, including [untagged](/docs/Registry?topic=Registry-registry_overview#overview_elements_untagged) images, in your {{site.data.keyword.cloud_notm}} account. 
+Lists all images, including [untagged](/docs/Registry?topic=Registry-registry_overview#overview_elements_untagged) images, in your {{site.data.keyword.cloud_notm}} account. If you want to list tagged images only, run the [`ibmcloud cr image-list`](#bx_cr_image_list) command.
 
 You can refer to an image by using a combination of the **Repository** column and the **Digest** column, for example, `repository@digest`. You can also refer to the image name by using a combination of the content of the **Repository** column and one of the tags in the **Tags** column in the format: `repository:tag`.
 {: tip}
@@ -400,7 +401,7 @@ To find out about the required permissions, see [Access roles for using {{site.d
 :   (Optional) Includes {{site.data.keyword.IBM_notm}}-provided public images in the output. By default only private images are listed. You can view {{site.data.keyword.IBM_notm}}-provided images in the global registry only.
 
 `--no-trunc`
-:   (Optional) 
+:   (Optional) Do not truncate the image digests.
 
 `--show-type`
 :   (Optional) Displays the image manifest type.
