@@ -670,7 +670,6 @@ Logging in to {{site.data.keyword.registrylong_notm}} by using the `ibmcloud cr 
 {: tip}
 
 {{site.data.keyword.registrylong_notm}} supports other clients as well as Docker. To log in by using other clients, see [Accessing your namespaces interactively](/docs/Registry?topic=Registry-registry_access#registry_access_interactive).
-{: tip}
 
 ### Prerequisites
 {: #bx_cr_login_prereq}
