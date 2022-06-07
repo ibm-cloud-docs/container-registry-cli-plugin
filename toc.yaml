@@ -1,7 +1,7 @@
 toc:
   properties:
     subcollection: container-registry-cli-plugin
-    audience: cli
+    audience: service
     href: /docs/container-registry-cli-plugin?topic=container-registry-cli-plugin-containerregcli
     console-page: /registry/catalog
     product-page: https://www.ibm.com/cloud/container-registry
