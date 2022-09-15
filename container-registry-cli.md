@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-09-07"
+lastupdated: "2022-09-15"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue
 
@@ -295,6 +295,9 @@ If you want to list tagged images only, run the [`ibmcloud cr image-list`](#bx_c
 You can refer to an image by using a combination of the **Repository** column (`repository`) and the **Digest** column (`digest`) separated by an at (`@`) symbol to create the image name in the format `repository@digest`. You can also refer to the image name by using a combination of the content of the **Repository** column (`repository`) and one of the tags in the **Tags** column (`tag`) separated by a colon (`:`) to create the image name in the format `repository:tag`.
 {: tip}
 
+From version 1.0.0 of the container-registry plugin, you can choose whether to run the `ibmcloud cr vulnerability-assessment` command in either version 3 (the default) or version 4 of Vulnerability Advisor. If you want to run Vulnerability Advisor in a different version, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=va-va_index&interface=ui#va_set_version). For more information about the versions of Vulnerability Advisor, see [About Vulnerability Advisor](/docs/Registry?topic=va-va_index&interface=ui#about).
+{: note}
+
 ```txt
 ibmcloud cr image-digests [--format FORMAT | --quiet | -q | --json] [--restrict RESTRICTION] [--include-ibm] [--no-va] [--va]
 ```
@@ -390,6 +393,9 @@ When you are using the digest to identify an image, always use the long format.
 
 The image name is the combination of the content of the **Repository** and **Tag** columns in the format: `repository:tag`
 {: tip}
+
+From version 1.0.0 of the container-registry plugin, you can choose whether to run the `ibmcloud cr vulnerability-assessment` command in either version 3 (the default) or version 4 of Vulnerability Advisor. If you want to run Vulnerability Advisor in a different version, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=va-va_index&interface=ui#va_set_version). For more information about the versions of Vulnerability Advisor, see [About Vulnerability Advisor](/docs/Registry?topic=va-va_index&interface=ui#about).
+{: note}
 
 If listing images times out, see [Why is it timing out when I list images?](/docs/Registry?topic=Registry-troubleshoot-image-timeout) for assistance.
 {: tip}
@@ -1322,6 +1328,52 @@ ibmcloud cr trash-list --restrict birds
 ```
 {: pre}
 
+## `ibmcloud cr va-version`
+{: #ic_cr_va_version}
+
+Check which version of Vulnerability Advisor you're running.
+
+```txt
+ibmcloud cr va-version
+```
+{: codeblock}
+
+### Prerequisites
+{: #ic_cr_va_version_prereq}
+
+None.
+
+## `ibmcloud cr va-version-set`
+{: #ic_cr_va_version_set}
+
+Set the version of Vulnerability Advisor. You can set the version to either `v3`, the default, or `v4`. If you want to use version 4 temporarily, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=va-va_index&interface=ui#va_set_version).
+
+```txt
+ibmcloud cr va-version-set VERSION
+```
+{: codeblock}
+
+### Prerequisites
+{: #ic_cr_va_version_set_prereq}
+
+None.
+
+### Command options
+{: #ic_cr_va_version_set_option}
+
+`VERSION`
+:   The version of Vulnerability Advisor that you want to use. Valid values are `v3` and `v4`.
+
+### Example
+{: #ic_cr_va_version_set_example}
+
+To set the Vulnerability version to version 4, run the following command:
+
+```txt
+ibmcloud cr va-version-set v4
+```
+{: pre}
+
 ## `ibmcloud cr vulnerability-assessment` (`ibmcloud cr va`)
 {: #bx_cr_va}
 
@@ -1331,6 +1383,9 @@ View a vulnerability assessment report for your images.
 ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] [--configuration-issues | -c] [--output FORMAT | -o FORMAT] IMAGE [IMAGE...]
 ```
 {: codeblock}
+
+From version 1.0.0 of the container-registry plugin, you can choose whether to run the `ibmcloud cr vulnerability-assessment` command in either version 3 (the default) or version 4 of Vulnerability Advisor. If you want to run Vulnerability Advisor in a different version, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=va-va_index&interface=ui#va_set_version). For more information about the versions of Vulnerability Advisor, see [About Vulnerability Advisor](/docs/Registry?topic=va-va_index&interface=ui#about).
+{: note}
 
 ### Prerequisites
 {: #bx_cr_va_prereq}
