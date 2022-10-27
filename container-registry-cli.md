@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-09-15"
+lastupdated: "2022-10-27"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue
 
@@ -14,7 +14,6 @@ subcollection: container-registry-cli-plugin
 
 # {{site.data.keyword.registrylong_notm}} CLI
 {: #containerregcli}
-
 
 You can use the {{site.data.keyword.registrylong}} CLI, which is provided in the `container-registry` CLI plug-in, to manage your [registry](x2064940){: term} and its resources for your {{site.data.keyword.cloud_notm}} account.
 {: shortdesc}
@@ -1437,5 +1436,6 @@ View a vulnerability assessment report for your image `us.icr.io/birds/bluebird:
 ibmcloud cr vulnerability-assessment --vulnerabilities  --output json us.icr.io/birds/bluebird:1
 ```
 {: pre}
+
 
 
