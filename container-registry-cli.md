@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-11-22"
+lastupdated: "2022-12-14"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue
 
@@ -88,8 +88,7 @@ To find out about the required permissions, see [Access roles for configuring {{
 :   The type of security issue that you want to exempt. To find valid issue types, run `ibmcloud cr exemption-types`.
 
 `--issue-id ISSUE_ID`
-:   The ID of the security issue that you want to exempt. To find an issue ID, run `ibmcloud cr va <image>`, where `<image>` is the name of your image, and use the relevant value from either the 
-**Vulnerability ID** or **Configuration Issue ID** column.
+:   The ID of the security issue that you want to exempt. To find an issue ID, run `ibmcloud cr va <image>`, where `<image>` is the name of your image, and use the relevant value from either the **Vulnerability ID** or **Configuration Issue ID** column.
 
 ### Examples
 {: #bx_cr_exemption_add_example}
@@ -510,7 +509,7 @@ To find out about the required permissions, see [Access roles for using {{site.d
 `IMAGE`
 :   The name of the image that you want to restore from the trash.
 
-    To find the names of your images in the trash, run the `ibmcloud cr trash-list` command. 
+    To find the names of your images in the trash, run the `ibmcloud cr trash-list` command.
 
     You can identify images by using either the tag or the digest. The image to restore can be referenced by digest `<dns>/<namespace>/<repo>@<digest>`, which restores the digest and all its tags in the same repository, or by tag `<dns>/<namespace>/<repo>:<tag>`. Where `<dns>` is the domain name, `<namespace>` is the namespace, `<repo>` is the repository, `<digest>` is the digest, and `<tag>` is the tag.
 
@@ -1330,7 +1329,7 @@ ibmcloud cr trash-list --restrict birds
 ## `ibmcloud cr va-version`
 {: #ic_cr_va_version}
 
-Check which version of Vulnerability Advisor you're running.
+Find out which version of Vulnerability Advisor you're using.
 
 ```txt
 ibmcloud cr va-version
@@ -1436,6 +1435,3 @@ View a vulnerability assessment report for your image `us.icr.io/birds/bluebird:
 ibmcloud cr vulnerability-assessment --vulnerabilities  --output json us.icr.io/birds/bluebird:1
 ```
 {: pre}
-
-
-
