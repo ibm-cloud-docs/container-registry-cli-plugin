@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-01-04"
+lastupdated: "2023-01-31"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue
 
@@ -293,7 +293,7 @@ If you want to list tagged images only, run the [`ibmcloud cr image-list`](#bx_c
 You can refer to an image by using a combination of the **Repository** column (`repository`) and the **Digest** column (`digest`) separated by an at (`@`) symbol to create the image name in the format `repository@digest`. You can also refer to the image name by using a combination of the content of the **Repository** column (`repository`) and one of the tags in the **Tags** column (`tag`) separated by a colon (`:`) to create the image name in the format `repository:tag`.
 {: tip}
 
-From version 1.0.0 of the container-registry plug-in, you can choose whether to run the `ibmcloud cr vulnerability-assessment` command in either version 3 (the default) or version 4 of Vulnerability Advisor. If you want to run Vulnerability Advisor in a different version, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=va-va_index&interface=ui#va_set_version). For more information about the versions of Vulnerability Advisor, see [About Vulnerability Advisor](/docs/Registry?topic=va-va_index&interface=ui#about).
+From version 1.0.0 of the container-registry plug-in, you can choose whether to run the `ibmcloud cr vulnerability-assessment` command in either version 3 (the default) or version 4 of Vulnerability Advisor. If you want to run Vulnerability Advisor in a different version, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=Registry-va_index&interface=ui#va_set_version). For more information about the versions of Vulnerability Advisor, see [About Vulnerability Advisor](/docs/Registry?topic=Registry-va_index&interface=ui#about).
 {: note}
 
 ```txt
@@ -392,7 +392,7 @@ When you are using the digest to identify an image, always use the long format.
 The image name is the combination of the content of the **Repository** and **Tag** columns in the format: `repository:tag`
 {: tip}
 
-From version 1.0.0 of the container-registry plug-in, you can choose whether to run the `ibmcloud cr vulnerability-assessment` command in either version 3 (the default) or version 4 of Vulnerability Advisor. If you want to run Vulnerability Advisor in a different version, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=va-va_index&interface=ui#va_set_version). For more information about the versions of Vulnerability Advisor, see [About Vulnerability Advisor](/docs/Registry?topic=va-va_index&interface=ui#about).
+From version 1.0.0 of the container-registry plug-in, you can choose whether to run the `ibmcloud cr vulnerability-assessment` command in either version 3 (the default) or version 4 of Vulnerability Advisor. If you want to run Vulnerability Advisor in a different version, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=Registry-va_index&interface=ui#va_set_version). For more information about the versions of Vulnerability Advisor, see [About Vulnerability Advisor](/docs/Registry?topic=Registry-va_index&interface=ui#about).
 {: note}
 
 If the command to list images times out, see [Why is it timing out when I list images?](/docs/Registry?topic=Registry-troubleshoot-image-timeout) for assistance.
@@ -1346,7 +1346,7 @@ None.
 ## `ibmcloud cr va-version-set`
 {: #ic_cr_va_version_set}
 
-Set the version of Vulnerability Advisor. You can set the version to either `v3`, the default, or `v4`. If you want to use version 4 temporarily, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=va-va_index&interface=ui#va_set_version).
+Set the version of Vulnerability Advisor. You can set the version to either `v3`, the default, or `v4`. If you want to use version 4 temporarily, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=Registry-va_index&interface=ui#va_set_version).
 
 ```txt
 ibmcloud cr va-version-set VERSION
@@ -1384,7 +1384,7 @@ ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] 
 ```
 {: codeblock}
 
-From version 1.0.0 of the container-registry plug-in, you can choose whether to run the `ibmcloud cr vulnerability-assessment` command in either version 3 (the default) or version 4 of Vulnerability Advisor. If you want to run Vulnerability Advisor in a different version, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=va-va_index&interface=ui#va_set_version). For more information about the versions of Vulnerability Advisor, see [About Vulnerability Advisor](/docs/Registry?topic=va-va_index&interface=ui#about).
+From version 1.0.0 of the container-registry plug-in, you can choose whether to run the `ibmcloud cr vulnerability-assessment` command in either version 3 (the default) or version 4 of Vulnerability Advisor. If you want to run Vulnerability Advisor in a different version, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=Registry-va_index&interface=ui#va_set_version). For more information about the versions of Vulnerability Advisor, see [About Vulnerability Advisor](/docs/Registry?topic=Registry-va_index&interface=ui#about).
 {: note}
 
 ### Prerequisites
@@ -1400,9 +1400,9 @@ To find out about the required permissions, see [Access roles for using {{site.d
 
     To find the names of your images, run `ibmcloud cr image-list`. Combine the content of the **Repository** column (`repository`) and **Tag** column (`tag`) separated by a colon (`:`) to create the image name in the format `repository:tag`. If a tag is not specified in the image name, the report assesses the image that is tagged `latest`.
 
-    For information about supported Docker base images, see [Vulnerable packages](/docs/Registry?topic=va-va_index&interface=ui#packages).
+    For information about supported Docker base images, see [Vulnerable packages](/docs/Registry?topic=Registry-va_index&interface=ui#packages).
 
-    For more information, see [Managing image security with Vulnerability Advisor](/docs/Registry?topic=va-va_index).
+    For more information, see [Managing image security with Vulnerability Advisor](/docs/Registry?topic=Registry-va_index&interface=ui).
 
 `--extended`, `-e`
 :   (Optional) The command output shows additional information about fixes for vulnerable packages.
