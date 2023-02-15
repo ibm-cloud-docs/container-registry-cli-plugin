@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-01-31"
+lastupdated: "2023-02-15"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue
 
@@ -258,7 +258,7 @@ To find out about the required permissions, see [Access roles for configuring {{
 From 5 July 2022, all accounts require {{site.data.keyword.iamshort}} (IAM) access policies. If you started to use {{site.data.keyword.registrylong_notm}} before the availability of [IAM API key policies in {{site.data.keyword.registryshort}}](/docs/Registry?topic=Registry-registry_release_notes#registry-25feb2019) in February 2019, you must ensure that you are using IAM access policies to manage access to the {{site.data.keyword.registryshort}} service. For more information, see [IAM access policies are required from 5 July 2022](/docs/Registry?topic=Registry-registry_notices_iam_policy).
 {: important}
 
-If you are using IAM authentication, this command enables fine-grained authorization. For more information, see [Managing IAM access for {{site.data.keyword.registryshort_notm}}](/docs/Registry?topic=Registry-iam) and [Defining IAM access policies](/docs/Registry?topic=Registry-user#user).
+If you're using IAM authentication, this command enables fine-grained authorization. For more information, see [Managing IAM access for {{site.data.keyword.registryshort_notm}}](/docs/Registry?topic=Registry-iam) and [Defining IAM access policies](/docs/Registry?topic=Registry-user#user).
 
 ```txt
 ibmcloud cr iam-policies-enable
@@ -286,7 +286,7 @@ ibmcloud cr iam-policies-status
 ## `ibmcloud cr image-digests` (`ibmcloud cr digests`)
 {: #bx_cr_image_digests}
 
-Lists all images, including [untagged](/docs/Registry?topic=Registry-registry_overview#overview_elements_untagged) images, in your {{site.data.keyword.cloud_notm}} account. This command returns the [digest](/docs/Registry?topic=Registry-registry_overview#overview_elements_digest) in its long format. When you are using the digest to identify an image, always use the long format.
+Lists all images, including [untagged](/docs/Registry?topic=Registry-registry_overview#overview_elements_untagged) images, in your {{site.data.keyword.cloud_notm}} account. This command returns the [digest](/docs/Registry?topic=Registry-registry_overview#overview_elements_digest) in its long format. When you're using the digest to identify an image, always use the long format.
 
 If you want to list tagged images only, run the [`ibmcloud cr image-list`](#bx_cr_image_list) command.
 
@@ -386,7 +386,7 @@ ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds
 
 Displays all tagged images in your {{site.data.keyword.cloud_notm}} account. If you want to list all your images, including untagged images, run the [`ibmcloud cr image-digests`](#bx_cr_image_digests) command. By default, the `ibmcloud cr image-list` command returns the [digest](/docs/Registry?topic=Registry-registry_overview#overview_elements_digest) for the images in a truncated format. The `ibmcloud cr image-digests` command returns the long format of the digest.
 
-When you are using the digest to identify an image, always use the long format.
+When you're using the digest to identify an image, always use the long format.
 {: note}
 
 The image name is the combination of the content of the **Repository** and **Tag** columns in the format: `repository:tag`
@@ -694,7 +694,7 @@ ibmcloud cr login [--client CLIENT]
 
 {{site.data.keyword.registryshort}} supports other clients as well as Docker and Podman. To log in by using other clients, see [Accessing your namespaces interactively](/docs/Registry?topic=Registry-registry_access#registry_access_interactive).
 
-If you have a problem when you try to log in, see [Why can't I log in to {{site.data.keyword.registryshort_notm}}?](/docs/Registry?topic=Registry-troubleshoot-login) for assistance. If you are using a Mac and you have a problem when you try to log in, see [Why is Docker login on my Mac failing?](/docs/Registry?topic=Registry-troubleshoot-docker-mac) for assistance.
+If you have a problem when you try to log in, see [Why can't I log in to {{site.data.keyword.registryshort_notm}}?](/docs/Registry?topic=Registry-troubleshoot-login) for assistance. If you're using a Mac and you have a problem when you try to log in, see [Why is Docker login on my Mac failing?](/docs/Registry?topic=Registry-troubleshoot-docker-mac) for assistance.
 {: tip}
 
 Logging in to {{site.data.keyword.registryshort}} by using the `ibmcloud cr login` command is subject to IAM login session limits. If your login expires, see [Why does the {{site.data.keyword.registryshort}} login keep expiring?](/docs/Registry?topic=Registry-troubleshoot-login-expire) for assistance.
