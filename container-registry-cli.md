@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-02-15"
+lastupdated: "2023-03-31"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue
 
@@ -490,7 +490,7 @@ Restore a deleted image from the trash. You can choose to restore by [tag](/docs
 If you get an error when you're restoring an image that says that the tagged image exists, see [Why do I get an error when I'm restoring an image?](/docs/Registry?topic=Registry-troubleshoot-image-restore) for assistance.
 {: tip}
 
-If you're restoring an image by digest, but some tags aren't restored, see [Why aren't all tags restored when I restore by digest?](/docs/Registry?topic=Registry-troubleshoot-image-restore-digest) for assistance.
+If you're restoring an image by digest, but some tags aren't restored, see [Why aren't all the tags restored when I restore by digest?](/docs/Registry?topic=Registry-troubleshoot-image-restore-digest) for assistance.
 {: tip}
 
 ```txt
