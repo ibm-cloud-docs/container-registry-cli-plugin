@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-03-31"
+lastupdated: "2023-05-16"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue
 
@@ -374,7 +374,7 @@ To find out about the required permissions, see [Access roles for using {{site.d
 ### Example
 {: #bx_cr_image_inspect_example}
 
-Display details about the exposed ports for the image `us.icr.io/birds/bluebird:1`, by using the formatting directive `"{{ .Config.ExposedPorts }}"`.
+Display details about the exposed ports for the image `us.icr.io/birds/bluebird:1` by using the following formatting directive.
 
 ```txt
 ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds/bluebird:1
