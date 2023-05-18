@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-05-16"
+lastupdated: "2023-05-18"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue
 
@@ -21,22 +21,26 @@ You can use the {{site.data.keyword.registrylong}} CLI, which is provided in the
 ## Prerequisites
 {: #containerregcli_prereq}
 
-- Install the {{site.data.keyword.cloud_notm}} CLI, see [Getting started with the {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started). The prefix for running commands by using the {{site.data.keyword.cloud_notm}} CLI is `ibmcloud`.
-- Before you run the registry commands, log in to {{site.data.keyword.cloud_notm}} with the `ibmcloud login` command to generate an [access token](x2113001){: term} and authenticate your session.
+Before you can use the {{site.data.keyword.registryshort}} CLI, you must complete the following prerequisites.
 
-In the command line, you are notified when updates to the `ibmcloud` CLI and `container-registry` CLI plug-ins are available. Ensure that you keep your CLI up-to-date so that you can use all the available commands and options.
+1. Install the `ibmcloud` CLI plug-in, see [Getting started with the {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started).
+2. Install the `container-registry` CLI plug-in, see [Install the `container-registry` CLI plug-in](/docs/cli?topic=cli-install-devtools-manually#idt-install-container-registry-cli-plugin).
+3. Log in to {{site.data.keyword.cloud_notm}} with the `ibmcloud login` command to generate an [access token](x2113001){: term} and authenticate your session so that you can run commands in the CLI.
 
-If you want to view the current version of your `container-registry` CLI plug-in, run `ibmcloud plugin list`.
+### Notes
+{: #containerregcli_prereq_notes}
 
-To find out about how to use the {{site.data.keyword.registrylong_notm}} CLI, see [Getting started with {{site.data.keyword.registrylong_notm}}](/docs/Registry?topic=Registry-getting-started#getting-started).
+To find out how to use the {{site.data.keyword.registryshort}} CLI, see [Getting started with {{site.data.keyword.registrylong_notm}}](/docs/Registry?topic=Registry-getting-started#getting-started).
 
-For more information about the IAM platform and service access roles that are required for some commands, see [Managing IAM access for {{site.data.keyword.registryshort_notm}}](/docs/Registry?topic=Registry-iam).
+You're notified on the command line when updates to the `ibmcloud` CLI and `container-registry` CLI plug-ins are available. Ensure that you keep your CLIs up to date so that you can use all the available commands and options. If you want to view the current version of your `container-registry` CLI plug-in, run the `ibmcloud plugin list` command.
 
-If {{site.data.keyword.registryshort_notm}} commands fail with an error that says that they're not registered commands, see [Why do `cr` commands fail saying they’re not registered?](/docs/Registry?topic=Registry-troubleshoot-login-error) for assistance. If the commands fail saying that you're not logged in, see [Why do commands fail saying that I'm not logged in?](/docs/Registry?topic=Registry-troubleshoot-login-cloud) for assistance.
-{: tip}
+For more information about the IAM platform and service access roles that are required for some {{site.data.keyword.registryshort}} commands, see [Managing IAM access for {{site.data.keyword.registryshort_notm}}](/docs/Registry?topic=Registry-iam).
 
 Do not put personal information in your container images, namespace names, description fields, or in any image configuration data (for example, image names or image labels).
 {: important}
+
+If {{site.data.keyword.registryshort_notm}} commands fail with an error that says that they're not registered commands, see [Why do `cr` commands fail saying they’re not registered?](/docs/Registry?topic=Registry-troubleshoot-login-error) for assistance. If the commands fail saying that you're not logged in, see [Why do commands fail saying that I'm not logged in?](/docs/Registry?topic=Registry-troubleshoot-login-cloud) for assistance.
+{: tip}
 
 ## `ibmcloud cr api`
 {: #bx_cr_api}
