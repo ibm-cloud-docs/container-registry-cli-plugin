@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-05-18"
+lastupdated: "2023-06-01"
 
-keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue
+keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue, notes
 
 subcollection: container-registry-cli-plugin
 
@@ -24,7 +24,7 @@ You can use the {{site.data.keyword.registrylong}} CLI, which is provided in the
 Before you can use the {{site.data.keyword.registryshort}} CLI, you must complete the following prerequisites.
 
 1. Install the `ibmcloud` CLI plug-in, see [Getting started with the {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started).
-2. Install the `container-registry` CLI plug-in, see [Install the `container-registry` CLI plug-in](/docs/cli?topic=cli-install-devtools-manually#idt-install-container-registry-cli-plugin).
+2. Install the `container-registry` CLI plug-in, see [Installing the `container-registry` CLI plug-in](/docs/Registry?topic=Registry-registry_setup_cli_namespace&interface=ui#cli_namespace_registry_cli_install).
 3. Log in to {{site.data.keyword.cloud_notm}} with the `ibmcloud login` command to generate an [access token](x2113001){: term} and authenticate your session so that you can run commands in the CLI.
 
 ### Notes
