@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-06-01"
+lastupdated: "2023-06-19"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue, notes
 
@@ -11,6 +11,7 @@ subcollection: container-registry-cli-plugin
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # {{site.data.keyword.registrylong_notm}} CLI
 {: #containerregcli}
@@ -300,6 +301,9 @@ You can refer to an image by using a combination of the **Repository** column (`
 From version 1.0.0 of the container-registry plug-in, you can choose whether to run the `ibmcloud cr vulnerability-assessment` command in either version 3 (the default) or version 4 of Vulnerability Advisor. If you want to run Vulnerability Advisor in a different version, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=Registry-va_index&interface=ui#va_set_version). For more information about the versions of Vulnerability Advisor, see [About Vulnerability Advisor](/docs/Registry?topic=Registry-va_index&interface=ui#about).
 {: note}
 
+Vulnerability Advisor version 3 is deprecated from 19 June 2023. For more information about how to update to version 4, see [Update Vulnerability Advisor to version 4 by 19 June 2023](/docs/Registry?topic=Registry-registry_notices_va_v4&interface=ui).
+{: deprecated}
+
 ```txt
 ibmcloud cr image-digests [--format FORMAT | --quiet | -q | --json] [--restrict RESTRICTION] [--include-ibm] [--no-va] [--va]
 ```
@@ -398,6 +402,9 @@ The image name is the combination of the content of the **Repository** and **Tag
 
 From version 1.0.0 of the container-registry plug-in, you can choose whether to run the `ibmcloud cr vulnerability-assessment` command in either version 3 (the default) or version 4 of Vulnerability Advisor. If you want to run Vulnerability Advisor in a different version, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=Registry-va_index&interface=ui#va_set_version). For more information about the versions of Vulnerability Advisor, see [About Vulnerability Advisor](/docs/Registry?topic=Registry-va_index&interface=ui#about).
 {: note}
+
+Vulnerability Advisor version 3 is deprecated from 19 June 2023. For more information about how to update to version 4, see [Update Vulnerability Advisor to version 4 by 19 June 2023](/docs/Registry?topic=Registry-registry_notices_va_v4&interface=ui).
+{: deprecated}
 
 If the command to list images times out, see [Why is it timing out when I list images?](/docs/Registry?topic=Registry-troubleshoot-image-timeout) for assistance.
 {: tip}
@@ -1337,6 +1344,9 @@ ibmcloud cr trash-list --restrict birds
 
 Find out which version of Vulnerability Advisor you're using.
 
+Vulnerability Advisor version 3 is deprecated from 19 June 2023. For more information about how to update to version 4, see [Update Vulnerability Advisor to version 4 by 19 June 2023](/docs/Registry?topic=Registry-registry_notices_va_v4&interface=ui).
+{: deprecated}
+
 ```txt
 ibmcloud cr va-version
 ```
@@ -1351,6 +1361,9 @@ None.
 {: #ic_cr_va_version_set}
 
 Set the version of Vulnerability Advisor. You can set the version to either `v3`, the default, or `v4`. If you want to use version 4 temporarily, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=Registry-va_index&interface=ui#va_set_version).
+
+Vulnerability Advisor version 3 is deprecated from 19 June 2023. For more information about how to update to version 4, see [Update Vulnerability Advisor to version 4 by 19 June 2023](/docs/Registry?topic=Registry-registry_notices_va_v4&interface=ui).
+{: deprecated}
 
 ```txt
 ibmcloud cr va-version-set VERSION
@@ -1390,6 +1403,9 @@ ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] 
 
 From version 1.0.0 of the container-registry plug-in, you can choose whether to run the `ibmcloud cr vulnerability-assessment` command in either version 3 (the default) or version 4 of Vulnerability Advisor. If you want to run Vulnerability Advisor in a different version, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=Registry-va_index&interface=ui#va_set_version). For more information about the versions of Vulnerability Advisor, see [About Vulnerability Advisor](/docs/Registry?topic=Registry-va_index&interface=ui#about).
 {: note}
+
+Vulnerability Advisor version 3 is deprecated from 19 June 2023. For more information about how to update to version 4, see [Update Vulnerability Advisor to version 4 by 19 June 2023](/docs/Registry?topic=Registry-registry_notices_va_v4&interface=ui).
+{: deprecated}
 
 ### Prerequisites
 {: #bx_cr_va_prereq}
