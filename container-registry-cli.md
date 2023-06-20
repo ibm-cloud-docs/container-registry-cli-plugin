@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-06-19"
+lastupdated: "2023-06-20"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue, notes
 
@@ -1396,16 +1396,16 @@ ibmcloud cr va-version-set v4
 
 View a vulnerability assessment report for your images.
 
-```txt
-ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] [--configuration-issues | -c] [--output FORMAT | -o FORMAT] IMAGE [IMAGE...]
-```
-{: codeblock}
-
 From version 1.0.0 of the container-registry plug-in, you can choose whether to run the `ibmcloud cr vulnerability-assessment` command in either version 3 (the default) or version 4 of Vulnerability Advisor. If you want to run Vulnerability Advisor in a different version, see [Setting the Vulnerability Advisor version](/docs/Registry?topic=Registry-va_index&interface=ui#va_set_version). For more information about the versions of Vulnerability Advisor, see [About Vulnerability Advisor](/docs/Registry?topic=Registry-va_index&interface=ui#about).
 {: note}
 
 Vulnerability Advisor version 3 is deprecated from 19 June 2023. For more information about how to update to version 4, see [Update Vulnerability Advisor to version 4 by 19 June 2023](/docs/Registry?topic=Registry-registry_notices_va_v4&interface=ui).
 {: deprecated}
+
+```txt
+ibmcloud cr vulnerability-assessment [--extended | -e] [--vulnerabilities | -v] [--configuration-issues | -c] [--output FORMAT | -o FORMAT] IMAGE [IMAGE...]
+```
+{: codeblock}
 
 ### Prerequisites
 {: #bx_cr_va_prereq}
