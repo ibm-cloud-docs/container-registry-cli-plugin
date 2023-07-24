@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-07-24"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue, notes
 
@@ -1283,7 +1283,7 @@ To find out about the required permissions, see [Access roles for using {{site.d
 :   (Optional) Force the command to run with no user prompts.
 
 `--json`
-:   (Optional) Outputs JSON that contains the results of cleaning your namespace. This option must be used with `--force`.
+:   (Optional) Outputs JSON that contains the results of cleaning your namespace. This option must be used with `--force`..
 
 `--retain-untagged`
 :   (Optional) Retain all untagged images when the retention policy is being processed. Only tagged images are analyzed and, if the images don't meet the criteria, they are deleted. If the option isn't specified, all tagged and untagged images are analyzed and, if the images don't meet the criteria, they are deleted.
