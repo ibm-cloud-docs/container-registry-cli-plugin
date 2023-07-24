@@ -67,7 +67,7 @@ You can identify the images in the scope by using either the tag or the digest. 
 {: tip}
 
 ```txt
-ibmcloud cr exemption-add --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE_ID
+ibmcloud cr exemption-add --scope SCOPE --issue-type ISSUE_TYPE --issue-id ISSUE_ID [--output json | -o json]
 ```
 {: codeblock}
 
@@ -94,6 +94,9 @@ To find out about the required permissions, see [Access roles for configuring {{
 
 `--issue-id ISSUE_ID`
 :   The ID of the security issue that you want to exempt. To find an issue ID, run `ibmcloud cr va <image>`, where `<image>` is the name of your image, and use the relevant value from either the **Vulnerability ID** or **Configuration Issue ID** column.
+
+`--output json`, `-o json`
+:   (Optional) Outputs the list in JSON format.
 
 ### Examples
 {: #bx_cr_exemption_add_example}
@@ -135,7 +138,7 @@ You can identify the images in the scope by using either the [tag](/docs/Registr
 {: tip}
 
 ```txt
-ibmcloud cr exemption-list [--scope SCOPE]
+ibmcloud cr exemption-list [--scope SCOPE] [--output json | -o json]
 ```
 {: codeblock}
 
@@ -156,6 +159,9 @@ To find out about the required permissions, see [Access roles for configuring {{
     - `namespace/repository`
     - `namespace/repository:tag`
     - `namespace/repository@digest`
+
+`--output json`, `-o json`
+:   (Optional) Outputs the list in JSON format.
 
 ### Examples
 {: #bx_cr_exemption_list_example}
@@ -248,7 +254,7 @@ ibmcloud cr exemption-rm --scope us.icr.io/birds/bluebird@sha256:101010101010 --
 Lists the types of security issues that you can exempt.
 
 ```txt
-ibmcloud cr exemption-types
+ibmcloud cr exemption-types [--output json | -o json]
 ```
 {: codeblock}
 
@@ -256,6 +262,12 @@ ibmcloud cr exemption-types
 {: #bx_cr_exemption_types_prereq}
 
 To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registryshort}}](/docs/Registry?topic=Registry-iam#access_roles_configure).
+
+### Command options
+{: #bx_cr_exemption_types_option}
+
+`--output json`, `-o json`
+:   (Optional) Outputs the list in JSON format.
 
 ## `ibmcloud cr iam-policies-enable`
 {: #bx_cr_iam_policies_enable}
@@ -304,8 +316,11 @@ From version 1.0.0 of the container-registry plug-in, you can choose whether to 
 Vulnerability Advisor version 3 is deprecated from 19 June 2023. For more information about how to update to version 4, see [Update Vulnerability Advisor to version 4 by 19 June 2023](/docs/Registry?topic=Registry-registry_notices_va_v4&interface=ui).
 {: deprecated}
 
+From 24 July 2023, the `--json` option is deprecated and is replaced by the `--output json` option.
+{: deprecated}
+
 ```txt
-ibmcloud cr image-digests [--format FORMAT | --quiet | -q | --json] [--restrict RESTRICTION] [--include-ibm] [--no-va] [--va]
+ibmcloud cr image-digests [--format FORMAT | --quiet | -q | --output json | -o json] [--restrict RESTRICTION] [--include-ibm] [--no-va] [--va]
 ```
 {: codeblock}
 
@@ -323,7 +338,7 @@ To find out about the required permissions, see [Access roles for using {{site.d
 `--quiet`, `-q`
 :   (Optional) Each image is listed in the format: `repository@digest`
 
-`--json`
+`--output json`, `-o json`
 :   (Optional) Outputs the list in JSON format.
 
 `--restrict RESTRICTION`
@@ -410,7 +425,7 @@ If the command to list images times out, see [Why is it timing out when I list i
 {: tip}
 
 ```txt
-ibmcloud cr image-list [--format FORMAT] [--quiet | -q ] [--restrict RESTRICTION] [--include-ibm] [--no-trunc] [--show-type] [--no-va] [--va]
+ibmcloud cr image-list [--format FORMAT] [--quiet | -q ] [--restrict RESTRICTION] [--include-ibm] [--no-trunc] [--show-type] [--no-va] [--va] [--output json | -o json]
 ```
 {: codeblock}
 
@@ -446,6 +461,9 @@ To find out about the required permissions, see [Access roles for using {{site.d
 `--va`
 :   (Optional) Includes the Vulnerability Advisor security status results in the output. Use this option to ensure that you are ready for [{{site.data.keyword.registrylong_notm}} CLI plug-in version 1.0.0](/docs/Registry?topic=Registry-registry_notices_lists). You can use the `--va` option with the `--restrict` option to receive just the information that you require.
 
+`--output json`, `-o json`
+:   (Optional) Outputs the list in JSON format.
+
 ### Example
 {: #bx_cr_image_list_example}
 
@@ -461,8 +479,11 @@ ibmcloud cr image-list --restrict birds --quiet --no-trunc
 
 Delete all [untagged](/docs/Registry?topic=Registry-registry_overview#overview_elements_untagged) images in your {{site.data.keyword.registrylong_notm}} account.
 
+From 24 July 2023, the `--json` option is deprecated and is replaced by the `--output json` option.
+{: deprecated}
+
 ```txt
-ibmcloud cr image-prune-untagged [--force | -f [--json]] --restrict RESTRICTION
+ibmcloud cr image-prune-untagged [--force | -f [--output json | -o json]] --restrict RESTRICTION
 ```
 {: codeblock}
 
@@ -477,7 +498,7 @@ To find out about the required permissions, see [Access roles for using {{site.d
 `--force`, `-f`
 :   (Optional) Force the command to run with no user prompts.
 
-`--json`
+`--output json`, `-o json`
 :   (Optional) Outputs JSON that contains the results of cleaning up your untagged images. This option must be used with `--force`.
 
 `--restrict`
@@ -873,7 +894,7 @@ ibmcloud cr namespace-assign -g beaks birds
 Displays all [namespaces](x2031005){: term} that are owned by your {{site.data.keyword.cloud_notm}} account. You can use this command to list your namespaces so that you can verify which namespaces are assigned to [resource groups](x2161955){: term}, and which namespaces are unassigned. Namespaces that are assigned to a resource group also show in the **Resource list** page of the {{site.data.keyword.cloud_notm}} console.
 
 ```txt
-ibmcloud cr namespace-list [--verbose | -v]
+ibmcloud cr namespace-list [--verbose | -v] [--output json | -o json]
 ```
 {: codeblock}
 
@@ -887,6 +908,9 @@ To find out about the required permissions, see [Access roles for using {{site.d
 
 `--verbose`, `-v`
 :   (Optional) List all the namespaces and include information about the resource group and the creation date of the namespace.
+
+`--output json`, `-o json`
+:   (Optional) Outputs the list in JSON format.
 
 ### Example
 {: #bx_cr_namespace_list_example}
@@ -938,7 +962,7 @@ ibmcloud cr namespace-rm birds
 Displays your pricing plan for the registry region that you're targeting.
 
 ```txt
-ibmcloud cr plan
+ibmcloud cr plan [--output json | -o json]
 ```
 {: codeblock}
 
@@ -946,6 +970,12 @@ ibmcloud cr plan
 {: #bx_cr_plan_prereq}
 
 To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registryshort}}](/docs/Registry?topic=Registry-iam#access_roles_configure).
+
+### Command options
+{: #bx_cr_plan_option}
+
+`--output json`, `-o json`
+:   (Optional) Outputs the list in JSON format.
 
 ## `ibmcloud cr plan-upgrade`
 {: #bx_cr_plan_upgrade}
@@ -1070,7 +1100,7 @@ ibmcloud cr private-only --enable
 Displays your current quotas for traffic and storage, and usage information against those quotas for the registry region that you're targeting.
 
 ```txt
-ibmcloud cr quota
+ibmcloud cr quota [--output json | -o json]
 ```
 {: codeblock}
 
@@ -1078,6 +1108,12 @@ ibmcloud cr quota
 {: #bx_cr_quota_prereq}
 
 To find out about the required permissions, see [Access roles for configuring {{site.data.keyword.registryshort}}](/docs/Registry?topic=Registry-iam#access_roles_configure).
+
+### Command options
+{: #bx_cr_quota_option}
+
+`--output json`, `-o json`
+:   (Optional) Outputs the list in JSON format.
 
 ## `ibmcloud cr quota-set`
 {: #bx_cr_quota_set}
@@ -1170,7 +1206,7 @@ Where an image within a repository is referenced by multiple tags, that image is
 {: tip}
 
 ```txt
-ibmcloud cr retention-policy-list
+ibmcloud cr retention-policy-list [--output json | -o json]
 ```
 {: codeblock}
 
@@ -1178,6 +1214,12 @@ ibmcloud cr retention-policy-list
 {: #bx_cr_retention_policy_list_prereq}
 
 To find out about the required permissions, see [Access roles for using {{site.data.keyword.registryshort}}](/docs/Registry?topic=Registry-iam#access_roles_using).
+
+### Command options
+{: #bx_cr_retention_policy_list_option}
+
+`--output json`, `-o json`
+:   (Optional) Outputs the list in JSON format.
 
 ### Example
 {: #bx_cr_retention_policy_list_example}
@@ -1263,8 +1305,11 @@ If you want to restore a deleted image, you can list the contents of the trash b
 If an image that you're expecting to see doesn't show in the list that is produced, see [Why doesn't the retention command show all the images?](/docs/Registry?topic=Registry-troubleshoot-image-list-retention) for assistance.
 {: tip}
 
+From 24 July 2023, the `--json` option is deprecated and is replaced by the `--output json` option.
+{: deprecated}
+
 ```txt
-ibmcloud cr retention-run [--force | -f [--json]] [--retain-untagged] --images IMAGECOUNT NAMESPACE
+ibmcloud cr retention-run [--force | -f [--output json | -o json]] [--retain-untagged] --images IMAGECOUNT NAMESPACE
 ```
 {: codeblock}
 
@@ -1282,8 +1327,8 @@ To find out about the required permissions, see [Access roles for using {{site.d
 `--force`, `-f`
 :   (Optional) Force the command to run with no user prompts.
 
-`--json`
-:   (Optional) Outputs JSON that contains the results of cleaning your namespace. This option must be used with `--force`..
+`--output json`, `-o json`
+:   (Optional) Outputs JSON that contains the results of cleaning your namespace. This option must be used with `--force`.
 
 `--retain-untagged`
 :   (Optional) Retain all untagged images when the retention policy is being processed. Only tagged images are analyzed and, if the images don't meet the criteria, they are deleted. If the option isn't specified, all tagged and untagged images are analyzed and, if the images don't meet the criteria, they are deleted.
@@ -1310,8 +1355,11 @@ Displays all images in the trash in your {{site.data.keyword.cloud_notm}} accoun
 
 If you want to restore an image from the trash, run the [`ibmcloud cr image-restore`](#bx_cr_image_restore) command, see [Restoring images](/docs/Registry?topic=Registry-registry_images_#registry_images_restore).
 
+From 24 July 2023, the `--json` option is deprecated and is replaced by the `--output json` option.
+{: deprecated}
+
 ```txt
-ibmcloud cr trash-list [--restrict NAMESPACE] [--json]
+ibmcloud cr trash-list [--restrict NAMESPACE] [--output json | -o json]
 ```
 {: codeblock}
 
@@ -1326,7 +1374,7 @@ To find out about the required permissions, see [Access roles for using {{site.d
 `--restrict NAMESPACE`
 :   (Optional) Limit the output to display only images in the specified namespace.
 
-`--json`
+`--output json`, `-o json`
 :   (Optional) Outputs JSON that contains the details of the contents of the trash.
 
 ### Example
