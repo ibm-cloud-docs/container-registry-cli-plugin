@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-07-24"
+lastupdated: "2023-09-05"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue, notes
 
@@ -1249,7 +1249,7 @@ If a retention policy deletes an image that you want to keep, you can restore th
 If you want to cancel a retention policy, see [Update a retention policy to keep all your images](/docs/Registry?topic=Registry-registry_retention#retention_policy_keep).
 
 ```txt
-ibmcloud cr retention-policy-set [--retain-untagged] --images IMAGECOUNT NAMESPACE
+ibmcloud cr retention-policy-set [--retain-untagged] [--force | -f] --images IMAGECOUNT NAMESPACE
 ```
 {: codeblock}
 
@@ -1266,6 +1266,9 @@ To find out about the required permissions, see [Access roles for using {{site.d
 
 `--retain-untagged`
 :   (Optional) Retain all untagged images when the retention policy is being processed. Only tagged images are analyzed and, if the images don't meet the criteria, they are deleted. If the option isn't specified, all tagged and untagged images are analyzed and, if the images don't meet the criteria, they are deleted.
+
+`--force`, `-f`
+:   (Optional) Force the command to run with no user prompts.
 
 `--images`
 :   Determines how many images to keep within each repository in the specified namespace. The newest images are retained. The age of images is determined by their build date. `IMAGECOUNT` is the number of images that you want to retain in each repository for the namespace. To return a policy to the default state that keeps all the images, set `IMAGECOUNT` to `All`.
