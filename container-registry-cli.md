@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-09-05"
+lastupdated: "2023-09-12"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue, notes
 
@@ -726,7 +726,7 @@ ibmcloud cr login [--client CLIENT]
 
 {{site.data.keyword.registryshort}} supports other clients as well as Docker and Podman. To log in by using other clients, see [Accessing your namespaces interactively](/docs/Registry?topic=Registry-registry_access#registry_access_interactive).
 
-If you have a problem when you try to log in, see [Why can't I log in to {{site.data.keyword.registryshort_notm}}?](/docs/Registry?topic=Registry-troubleshoot-login) for assistance. If you're using a Mac and you have a problem when you try to log in, see [Why is Docker login on my Mac failing?](/docs/Registry?topic=Registry-troubleshoot-docker-mac) for assistance.
+If you have a problem when you try to log in, see [Why can't I log in to {{site.data.keyword.registryshort_notm}}?](/docs/Registry?topic=Registry-troubleshoot-login) for assistance. [macOS]{: tag-macos} If you're using a Mac and you have a problem when you try to log in, see [Why is Docker login on my Mac failing?](/docs/Registry?topic=Registry-troubleshoot-docker-s) for assistance.
 {: tip}
 
 Logging in to {{site.data.keyword.registryshort}} by using the `ibmcloud cr login` command is subject to IAM login session limits. If your login expires, see [Why does the {{site.data.keyword.registryshort}} login keep expiring?](/docs/Registry?topic=Registry-troubleshoot-login-expire) for assistance.
