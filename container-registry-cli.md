@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-09-13"
+lastupdated: "2023-09-18"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue, notes
 
@@ -410,7 +410,7 @@ ibmcloud cr image-inspect  --format "{{ .Config.ExposedPorts }}" us.icr.io/birds
 Displays all tagged images in your {{site.data.keyword.cloud_notm}} account. If you want to list all your images, including untagged images, run the [`ibmcloud cr image-digests`](#bx_cr_image_digests) command. By default, the `ibmcloud cr image-list` command returns the [digest](/docs/Registry?topic=Registry-registry_overview#overview_elements_digest) for the images in a truncated format. The `ibmcloud cr image-digests` command returns the long format of the digest.
 
 When you're using the digest to identify an image, always use the long format.
-{: note}
+{: requirement}
 
 The image name is the combination of the content of the **Repository** and **Tag** columns in the format: `repository:tag`
 {: tip}
@@ -1016,10 +1016,10 @@ ibmcloud cr plan-upgrade standard
 You can use the command to enable and disable platform metrics. You can also use it to find out whether you have platform metrics set up on your account for the registry region that you're targeting.
 
 If you want to view the platform metrics for {{site.data.keyword.registrylong_notm}}, you must opt in by running the `ibmcloud cr platform-metrics` command.
-{: important}
+{: requirement}
 
 You must specify one of the command options or the command fails with an error.
-{: tip}
+{: requirement}
 
 ```txt
 ibmcloud cr platform-metrics --enable | --disable | --status
