@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-10-26"
+lastupdated: "2023-10-27"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue, notes
 
@@ -31,7 +31,7 @@ Before you can use the {{site.data.keyword.registryshort}} CLI, you must complet
 ### Notes
 {: #containerregcli_prereq_notes}
 
-To find out more how to use the {{site.data.keyword.registryshort}} CLI, see [Getting started with {{site.data.keyword.registrylong_notm}}](/docs/Registry?topic=Registry-getting-started#getting-started).
+To find out more about how to use the {{site.data.keyword.registryshort}} CLI, see [Getting started with {{site.data.keyword.registrylong_notm}}](/docs/Registry?topic=Registry-getting-started#getting-started).
 
 You're notified on the command line when updates to the `ibmcloud` CLI and `container-registry` CLI plug-ins are available. Ensure that you keep your CLIs up to date so that you can use all the available commands and options. If you want to view the current version of your `container-registry` CLI plug-in, run the `ibmcloud plugin list` command.
 
@@ -212,7 +212,7 @@ To find out more about the required permissions, see [Access roles for configuri
     - `namespace/repository@digest`
 
 `--issue-type ISSUE_TYPE`
-:   The issue type of the exemption for the security issue that you want to remove. To find the issue types for your exemptions, run `ibmcloud cr exemption-list`.
+:   The type of issue for the exemption for the security issue that you want to remove. To find the types of issue for your exemptions, run `ibmcloud cr exemption-list`.
 
 `--issue-id ISSUE_ID`
 :   The ID of the exemption for the security issue that you want to remove. To find the issue IDs for your exemptions, run `ibmcloud cr exemption-list`.
@@ -366,7 +366,7 @@ ibmcloud cr image-digests --restrict birds --quiet
 ## `ibmcloud cr image-inspect`
 {: #bx_cr_image_inspect}
 
-Displays details about a specific image. You can reference the image that you want to inspect either by [digest](/docs/Registry?topic=Registry-registry_overview#overview_elements_digest) `repository@digest`, or by [tag](/docs/Registry?topic=Registry-registry_overview#overview_elements_tag)`repository:tag`.
+Displays details about a specific image. You can reference the image that you want to inspect either by [digest](/docs/Registry?topic=Registry-registry_overview#overview_elements_digest) `repository@digest`, or by [tag](/docs/Registry?topic=Registry-registry_overview#overview_elements_tag) `repository:tag`.
 
 ```txt
 ibmcloud cr image-inspect [--format FORMAT] IMAGE [IMAGE...]
@@ -562,9 +562,9 @@ For more information about how to use the `ibmcloud cr image-restore` command, s
 ## `ibmcloud cr image-rm`
 {: #bx_cr_image_rm}
 
-Delete one or more specified images from {{site.data.keyword.registryshort}}. You can reference the image that you want to delete either by [digest](/docs/Registry?topic=Registry-registry_overview#overview_elements_digest) `repository@digest`, or by [tag](/docs/Registry?topic=Registry-registry_overview#overview_elements_tag)`repository:tag`.
+Delete one or more specified images from {{site.data.keyword.registryshort}}. You can reference the image that you want to delete either by [digest](/docs/Registry?topic=Registry-registry_overview#overview_elements_digest) `repository@digest`, or by [tag](/docs/Registry?topic=Registry-registry_overview#overview_elements_tag) `repository:tag`.
 
-Where multiple tags exist for the same image digest within a repository, the `ibmcloud cr image-rm` command removes the underlying image and all its tags. If the same image exists in a different repository or namespace that copy of the image is not removed. If you want to remove a tag from an image and leave the underlying image and any other tags in place, use the [`ibmcloud cr image-untag`](#bx_cr_image_untag) command.
+Where multiple tags exist for the same image digest within a repository, the `ibmcloud cr image-rm` command removes the underlying image and all its tags. If the same image exists in a different repository or namespace, then that copy of the image is not removed. If you want to remove a tag from an image and leave the underlying image and any other tags in place, use the [`ibmcloud cr image-untag`](#bx_cr_image_untag) command.
 {: tip}
 
 If you want to restore a deleted image, you can list the contents of the trash by running the [`ibmcloud cr trash-list`](#bx_cr_trash_list) command and restore a selected image by running the [`ibmcloud cr image-restore`](#bx_cr_image_restore) command.
@@ -606,9 +606,9 @@ ibmcloud cr image-rm us.icr.io/birds/bluebird:1
 ## `ibmcloud cr image-tag`
 {: #bx_cr_image_tag}
 
-Add a [tag](/docs/Registry?topic=Registry-registry_overview#overview_elements_tag) that you specify in the command to an existing image, copy the tag to another repository, or copy the tag to a repository in a different namespace. When you copy a tag, any {{site.data.keyword.redhat_full}} signatures for its [digest](/docs/Registry?topic=Registry-registry_overview#overview_elements_digest) are also copied. The target image `TARGET_IMAGE`, is the new image and the source image `SOURCE_IMAGE`, is the existing image in {{site.data.keyword.registrylong_notm}}. The source and target images must be in the same region. You can reference the source image that you want to tag by either digest `repository@digest`, or by tag `repository:tag`. You must reference the target image by tag.
+Add a [tag](/docs/Registry?topic=Registry-registry_overview#overview_elements_tag) that you specify in the command to an existing image, copy the tag to another repository, or copy the tag to a repository in a different namespace. When you copy a tag, any {{site.data.keyword.redhat_full}} signatures for its [digest](/docs/Registry?topic=Registry-registry_overview#overview_elements_digest) are also copied. The target image `TARGET_IMAGE` is the new image and the source image `SOURCE_IMAGE` is the existing image in {{site.data.keyword.registrylong_notm}}. The source and target images must be in the same region. You can reference the source image that you want to tag by either digest `repository@digest`, or by tag `repository:tag`. You must reference the target image by tag.
 
-You can identify source images by using either the digest `<dns>/<namespace>/<repo>@<digest>` or by tag `<dns>/<namespace>/<repo>:<tag>`. You must reference the target image by tag, `<dns>/<namespace>/<repo>:<tag>`. Where `<dns>` is the domain name, `<namespace>` is the namespace, `<repo>` is the repository, `<digest>` is the digest, and `<tag>` is the tag.
+You can identify source images by using either the digest `<dns>/<namespace>/<repo>@<digest>` or by tag `<dns>/<namespace>/<repo>:<tag>`. You must reference the target image by tag `<dns>/<namespace>/<repo>:<tag>`. Where `<dns>` is the domain name, `<namespace>` is the namespace, `<repo>` is the repository, `<digest>` is the digest, and `<tag>` is the tag.
 
 To find the names of your images, use one of the following alternatives:
 
@@ -759,7 +759,7 @@ ibmcloud cr login --client podman
 ## `ibmcloud cr manifest-inspect`
 {: #bx_cr_manifest_inspect}
 
-View the contents of the [manifest](/docs/Registry?topic=Registry-registry_overview#overview_elements_manifest) for an image. You can reference the image that you want to inspect either by [digest](/docs/Registry?topic=Registry-registry_overview#overview_elements_digest) `repository@digest`, or by [tag](/docs/Registry?topic=Registry-registry_overview#overview_elements_tag)`repository:tag`.
+View the contents of the [manifest](/docs/Registry?topic=Registry-registry_overview#overview_elements_manifest) for an image. You can reference the image that you want to inspect either by [digest](/docs/Registry?topic=Registry-registry_overview#overview_elements_digest) `repository@digest`, or by [tag](/docs/Registry?topic=Registry-registry_overview#overview_elements_tag) `repository:tag`.
 
 ```txt
 ibmcloud cr manifest-inspect [--quiet | -q ] IMAGE
@@ -1274,7 +1274,7 @@ To find out more about the required permissions, see [Access roles for using {{s
 :   (Optional) Force the command to run with no user prompts.
 
 `--images`
-:   Determines how many images to keep within each repository in the specified namespace. The newest images are retained. The age of images is determined by their build date. `IMAGECOUNT` is the number of images that you want to retain in each repository for the namespace. To return a policy to the default state that keeps all the images, set `IMAGECOUNT` to `All`.
+:   Determines how many images to keep within each repository in the specified namespace. The newest images are retained. The age of images is determined by their build date. `IMAGECOUNT` is the number of images that you want to retain in each repository for the namespace. To return a policy to the default state that keeps all the images set `IMAGECOUNT` to `All`.
 
 ### Examples
 {: #bx_cr_retention_policy_set_example}
@@ -1357,7 +1357,7 @@ For more information about how to use the `ibmcloud cr retention-run` command, s
 ## `ibmcloud cr trash-list`
 {: #bx_cr_trash_list}
 
-Displays all images in the trash in your {{site.data.keyword.cloud_notm}} account. You can also see the number of days remaining until the image is removed from the trash. The number of days remaining until removal is rounded up. For example, if the time until removal is 2 hours, it shows as 1 day. Images remain in the trash for 30 days after they are deleted from your live repository.
+Displays all images in the trash in your {{site.data.keyword.cloud_notm}} account. You can also see the number of days that remain until the image is removed from the trash. The number of days that remain until removal is rounded up. For example, if the time until removal is 2 hours, it shows as 1 day. Images remain in the trash for 30 days after they are deleted from your live repository.
 
 If you want to restore an image from the trash, run the [`ibmcloud cr image-restore`](#bx_cr_image_restore) command, see [Restoring images](/docs/Registry?topic=Registry-registry_images_#registry_images_restore).
 
