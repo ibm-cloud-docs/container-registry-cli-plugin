@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-10-27"
+lastupdated: "2023-11-10"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue, notes
 
@@ -1418,6 +1418,9 @@ Set the version of Vulnerability Advisor. You can set the version to either `v3`
 
 Vulnerability Advisor version 3 is discontinued from 13 November 2023. For more information about how to update to version 4, see [Vulnerability Advisor version 3 is being discontinued on 13 November 2023](/docs/Registry?topic=Registry-registry_notices_va_v3).
 {: deprecated}
+
+If you try to set an invalid version of Vulnerability Advisor, you get en error, see [Why do I get an error about an invalid version of Vulnerability Advisor being specified?](/docs/Registry?topic=Registry-troubleshoot-va-version-error) for assistance.
+{: tip}
 
 ```txt
 ibmcloud cr va-version-set VERSION
