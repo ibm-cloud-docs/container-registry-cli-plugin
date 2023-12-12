@@ -4,7 +4,7 @@ toc:
     audience: service
     href: /docs/container-registry-cli-plugin?topic=container-registry-cli-plugin-containerregcli
     console-page: /registry/catalog
-    product-page: https://www.ibm.com/cloud/container-registry
+    product-page: https://www.ibm.com/products/container-registry
     path: container-registry-cli-plugin
     label: IBM Cloud Container Registry CLI reference
     version: 2
