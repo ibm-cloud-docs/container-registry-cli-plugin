@@ -811,7 +811,7 @@ ibmcloud cr namespace-add [-g (RESOURCE_GROUP_NAME | RESOURCE_GROUP_ID)] NAMESPA
 ```
 {: codeblock}
 
-For more information about resource groups, see [Creating a resource group](/docs/account?topic=account-rgs#create_rgs).
+For more information about resource groups, see [Creating a resource group](/docs/account?topic=account-rgs&interface=ui#create_rgs).
 
 If you have a problem when you try to add a namespace, see [Why can't I add a namespace?](/docs/Registry?topic=Registry-troubleshoot-add-namespace) for assistance.
 {: tip}
@@ -859,7 +859,7 @@ ibmcloud cr namespace-assign -g (RESOURCE_GROUP_NAME | RESOURCE_GROUP_ID) NAMESP
 ```
 {: codeblock}
 
-For more information about resource groups, see [Creating a resource group](/docs/account?topic=account-rgs#create_rgs).
+For more information about resource groups, see [Creating a resource group](/docs/account?topic=account-rgs&interface=ui#create_rgs).
 
 ### Prerequisites
 {: #ic_cr_namespace_assign_prereq}
