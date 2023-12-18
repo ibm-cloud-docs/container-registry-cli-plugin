@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-12-15"
+lastupdated: "2023-12-18"
 
 keywords: IBM Cloud Container Registry, container registry, command, cli, ibmcloud cr, tag, repository, required permissions, resource group, command options, security issue, notes
 
@@ -16,7 +16,7 @@ subcollection: container-registry-cli-plugin
 # {{site.data.keyword.registrylong_notm}} CLI
 {: #containerregcli}
 
-You can use the {{site.data.keyword.registrylong}} CLI, which is provided in the `container-registry` CLI plug-in, to manage your [registry](x2064940){: term} and its resources for your {{site.data.keyword.cloud_notm}} account.
+You can use the {{site.data.keyword.registrylong}} CLI, which is provided in the `container-registry` CLI plug-in, to manage your [registry](#x2064940){: term} and its resources for your {{site.data.keyword.cloud_notm}} account.
 {: shortdesc}
 
 ## Prerequisites
@@ -26,7 +26,7 @@ Before you can use the {{site.data.keyword.registryshort}} CLI, you must complet
 
 1. Install the `ibmcloud` CLI plug-in, see [Getting started with the {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started).
 2. Install the `container-registry` CLI plug-in, see [Installing the `container-registry` CLI plug-in](/docs/Registry?topic=Registry-registry_setup_cli_namespace#cli_namespace_registry_cli_install).
-3. Log in to {{site.data.keyword.cloud_notm}} with the `ibmcloud login` command to generate an [access token](x2113001){: term} and authenticate your session so that you can run commands in the CLI.
+3. Log in to {{site.data.keyword.cloud_notm}} with the `ibmcloud login` command to generate an [access token](#x2113001){: term} and authenticate your session so that you can run commands in the CLI.
 
 ### Notes
 {: #containerregcli_prereq_notes}
@@ -792,9 +792,9 @@ ibmcloud cr manifest-inspect us.icr.io/birds/bluebird:1
 ## `ibmcloud cr namespace-add`
 {: #bx_cr_namespace_add}
 
-Choose a name for your [namespace](x2031005){: term} and add it to your {{site.data.keyword.cloud_notm}} account.
+Choose a name for your [namespace](#x2031005){: term} and add it to your {{site.data.keyword.cloud_notm}} account.
 
-You can create a namespace in a [resource group](x2161955){: term} of your choice by using one of the following options.
+You can create a namespace in a [resource group](#x2161955){: term} of your choice by using one of the following options.
 
 - Before you create the namespace, run the [`ibmcloud target -g <resource_group>`](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_target) command, where `<resource_group>` is the resource group.
 - Specify the required resource group by using the `-g` option on the `ibmcloud cr namespace-add` command.
@@ -846,7 +846,7 @@ ibmcloud cr namespace-add -g beaks birds
 ## `ibmcloud cr namespace-assign`
 {: #ic_cr_namespace_assign}
 
-[Namespaces](x2031005){: term} created in version 0.1.484 of the {{site.data.keyword.registryshort_notm}} CLI or earlier, or in the {{site.data.keyword.cloud_notm}} console before 29 July 2020 are not assigned to [resource groups](x2161955){: term}. You can assign an unassigned namespace to a resource group for your {{site.data.keyword.cloud_notm}} account. If you assign a namespace to a resource group, you can configure access to resources within the namespace at the [resource group](/docs/account?topic=account-rgs) level. If you don't specify a resource group, and a resource group isn't targeted, the command fails.
+[Namespaces](#x2031005){: term} created in version 0.1.484 of the {{site.data.keyword.registryshort_notm}} CLI or earlier, or in the {{site.data.keyword.cloud_notm}} console before 29 July 2020 are not assigned to [resource groups](#x2161955){: term}. You can assign an unassigned namespace to a resource group for your {{site.data.keyword.cloud_notm}} account. If you assign a namespace to a resource group, you can configure access to resources within the namespace at the [resource group](/docs/account?topic=account-rgs) level. If you don't specify a resource group, and a resource group isn't targeted, the command fails.
 
 You can assign a namespace to a resource group only once. When a namespace is in a resource group, you can't move it to another resource group.
 {: note}
@@ -888,7 +888,7 @@ ibmcloud cr namespace-assign -g beaks birds
 ## `ibmcloud cr namespace-list` (`ibmcloud cr namespaces`)
 {: #bx_cr_namespace_list}
 
-Displays all [namespaces](x2031005){: term} that are owned by your {{site.data.keyword.cloud_notm}} account. You can use this command to list your namespaces so that you can verify which namespaces are assigned to [resource groups](x2161955){: term}, and which namespaces are unassigned. Namespaces that are assigned to a resource group also show in the **Resource list** page of the {{site.data.keyword.cloud_notm}} console.
+Displays all [namespaces](#x2031005){: term} that are owned by your {{site.data.keyword.cloud_notm}} account. You can use this command to list your namespaces so that you can verify which namespaces are assigned to [resource groups](#x2161955){: term}, and which namespaces are unassigned. Namespaces that are assigned to a resource group also show in the **Resource list** page of the {{site.data.keyword.cloud_notm}} console.
 
 ```txt
 ibmcloud cr namespace-list [--verbose | -v] [--output json | -o json]
@@ -922,7 +922,7 @@ ibmcloud cr namespace-list  -v
 ## `ibmcloud cr namespace-rm`
 {: #bx_cr_namespace_rm}
 
-Removes a [namespace](x2031005){: term} from your {{site.data.keyword.cloud_notm}} account. Images in this namespace are deleted when the namespace is removed.
+Removes a [namespace](#x2031005){: term} from your {{site.data.keyword.cloud_notm}} account. Images in this namespace are deleted when the namespace is removed.
 
 ```txt
 ibmcloud cr namespace-rm NAMESPACE  [--force | -f]
